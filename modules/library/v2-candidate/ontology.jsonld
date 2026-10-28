@@ -1,0 +1,350 @@
+{
+  "@context": {
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "comment": "rdfs:comment",
+    "label": "rdfs:label",
+    "subClassOf": {
+      "@id": "rdfs:subClassOf",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2",
+      "@type": "owl:Ontology",
+      "label": "Library evidence and reference resolution v2 candidate",
+      "comment": "Local semantic metadata proposal. Source claims and exact occurrence contexts are preserved; no UI geometry is ontology semantics."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/LibrarySelection",
+      "@type": "owl:Class",
+      "label": "LibrarySelection",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/DefinitionOccurrence",
+      "@type": "owl:Class",
+      "label": "DefinitionOccurrence",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/GraphAssertion",
+      "@type": "owl:Class",
+      "label": "GraphAssertion",
+      "subClassOf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
+      "comment": "Qualified reified claim; does not automatically assert its underlying triple."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/ReferenceResolution",
+      "@type": "owl:Class",
+      "label": "ReferenceResolution",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/EntityDesign",
+      "@type": "owl:Class",
+      "label": "EntityDesign",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/RecordSchema",
+      "@type": "owl:Class",
+      "label": "RecordSchema",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/SourceRelease",
+      "@type": "owl:Class",
+      "label": "SourceRelease",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/ProposedClassification",
+      "@type": "owl:Class",
+      "label": "ProposedClassification",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/OntologyFamily",
+      "@type": "owl:Class",
+      "label": "OntologyFamily",
+      "comment": "See the versioned graph schema and evidence derivation contract."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/",
+      "@type": "owl:AnnotationProperty",
+      "label": ""
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/key",
+      "@type": "owl:AnnotationProperty",
+      "label": "key"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/scopedIdentity",
+      "@type": "owl:AnnotationProperty",
+      "label": "scopedIdentity"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/kind",
+      "@type": "owl:AnnotationProperty",
+      "label": "kind"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/category",
+      "@type": "owl:AnnotationProperty",
+      "label": "category"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/owner",
+      "@type": "owl:AnnotationProperty",
+      "label": "owner"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/status",
+      "@type": "owl:AnnotationProperty",
+      "label": "status"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/hostingState",
+      "@type": "owl:AnnotationProperty",
+      "label": "hostingState"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/sourceId",
+      "@type": "owl:AnnotationProperty",
+      "label": "sourceId"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/classificationBasis",
+      "@type": "owl:AnnotationProperty",
+      "label": "classificationBasis"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/pointer",
+      "@type": "owl:AnnotationProperty",
+      "label": "pointer"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/detailHref",
+      "@type": "owl:AnnotationProperty",
+      "label": "detailHref"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/revisionId",
+      "@type": "owl:AnnotationProperty",
+      "label": "revisionId"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/profileId",
+      "@type": "owl:AnnotationProperty",
+      "label": "profileId"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/evidenceOnly",
+      "@type": "owl:AnnotationProperty",
+      "label": "evidenceOnly"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/schemaVersion",
+      "@type": "owl:AnnotationProperty",
+      "label": "schemaVersion"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/semanticAcceptance",
+      "@type": "owl:AnnotationProperty",
+      "label": "semanticAcceptance"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/assertionStatus",
+      "@type": "owl:AnnotationProperty",
+      "label": "assertionStatus"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/associationRole",
+      "@type": "owl:AnnotationProperty",
+      "label": "associationRole"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/version",
+      "@type": "owl:AnnotationProperty",
+      "label": "version"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/maturity",
+      "@type": "owl:AnnotationProperty",
+      "label": "maturity"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/selectionRole",
+      "@type": "owl:AnnotationProperty",
+      "label": "selectionRole"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/sha256",
+      "@type": "owl:AnnotationProperty",
+      "label": "sha256"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/url",
+      "@type": "owl:AnnotationProperty",
+      "label": "url"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/bytes",
+      "@type": "owl:AnnotationProperty",
+      "label": "bytes"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/mediaType",
+      "@type": "owl:AnnotationProperty",
+      "label": "mediaType"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/dialect",
+      "@type": "owl:AnnotationProperty",
+      "label": "dialect"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/qualification",
+      "@type": "owl:AnnotationProperty",
+      "label": "qualification"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/reason",
+      "@type": "owl:AnnotationProperty",
+      "label": "reason"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/target",
+      "@type": "owl:AnnotationProperty",
+      "label": "target"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/source",
+      "@type": "owl:AnnotationProperty",
+      "label": "source"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/name",
+      "@type": "owl:AnnotationProperty",
+      "label": "name"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/type",
+      "@type": "owl:AnnotationProperty",
+      "label": "type"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/required",
+      "@type": "owl:AnnotationProperty",
+      "label": "required"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/domainLabels",
+      "@type": "owl:AnnotationProperty",
+      "label": "domainLabels"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/sourceRecords",
+      "@type": "owl:AnnotationProperty",
+      "label": "sourceRecords"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/assertions",
+      "@type": "owl:AnnotationProperty",
+      "label": "assertions"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/schemaFieldDisplay",
+      "@type": "owl:AnnotationProperty",
+      "label": "schemaFieldDisplay"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/schemaBindings",
+      "@type": "owl:AnnotationProperty",
+      "label": "schemaBindings"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/artifact",
+      "@type": "owl:AnnotationProperty",
+      "label": "artifact"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/evidence",
+      "@type": "owl:AnnotationProperty",
+      "label": "evidence"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/unresolved",
+      "@type": "owl:AnnotationProperty",
+      "label": "unresolved"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/describedType",
+      "@type": "owl:AnnotationProperty",
+      "label": "describedType"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/semanticIdentity",
+      "@type": "owl:AnnotationProperty",
+      "label": "semanticIdentity"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/producerMaturity",
+      "@type": "owl:AnnotationProperty",
+      "label": "producerMaturity"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/claimBasis",
+      "@type": "owl:AnnotationProperty",
+      "label": "claimBasis"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/registrationSha256",
+      "@type": "owl:AnnotationProperty",
+      "label": "registrationSha256"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/requiredCapabilities",
+      "@type": "owl:AnnotationProperty",
+      "label": "requiredCapabilities"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/baseGraph",
+      "@type": "owl:AnnotationProperty",
+      "label": "baseGraph"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/references",
+      "@type": "owl:AnnotationProperty",
+      "label": "references"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/diagnostics",
+      "@type": "owl:AnnotationProperty",
+      "label": "diagnostics"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/completeness",
+      "@type": "owl:AnnotationProperty",
+      "label": "completeness"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/derivation",
+      "@type": "owl:AnnotationProperty",
+      "label": "derivation"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/stewardship",
+      "@type": "owl:AnnotationProperty",
+      "label": "stewardship"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/upstream",
+      "@type": "owl:AnnotationProperty",
+      "label": "upstream"
+    }
+  ]
+}

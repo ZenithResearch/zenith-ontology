@@ -1,0 +1,337 @@
+{
+  "schema": "zenith.module-registry.review.v1",
+  "status": "draft_not_admitted",
+  "umbrella_ontology": "https://zenith-research.ca/ontology",
+  "current_published_authority": {
+    "name": "Devgraph",
+    "release_tag": "ontology-v0.8.0",
+    "repository": "https://github.com/ZenithResearch/devgraph",
+    "source_path": "ontology/"
+  },
+  "current_baseline": {
+    "version": "0.8.0",
+    "bundle_digest": "756fe78e49cd2e84baa100d61b0d448efdcd6ea6ce58244bf44021940d413006",
+    "authority": {
+      "name": "Devgraph",
+      "release_tag": "ontology-v0.8.0",
+      "repository": "https://github.com/ZenithResearch/devgraph",
+      "source_path": "ontology/"
+    },
+    "terms": 59
+  },
+  "authoring_repository_decision": null,
+  "canonical_namespace_allocations": null,
+  "legacy_publication_policy": "Keep the complete existing v0.8.0 vocabulary and IRIs readable. These logical module decisions do not split or re-author that published release.",
+  "proposed_shared_modules": [
+    {
+      "id": "zenith.foundation",
+      "label": "Zenith foundation",
+      "steward": "Zenith umbrella vocabulary steward",
+      "scope": "Owned references, exact revisions, typed values and boundary ports; existing Entity/Person/Organization/Artifact IRIs remain unchanged.",
+      "imports": [],
+      "schema": "foundation.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:foundation",
+      "record_types": [],
+      "value_types": [
+        "foundation.ArtifactRef",
+        "foundation.ScopeRef",
+        "foundation.OwnedRecordRef",
+        "foundation.RevisionQualifiedRef",
+        "foundation.FieldPointer",
+        "foundation.TimeWindow",
+        "foundation.Quantity",
+        "foundation.Money",
+        "foundation.ValueSnapshot",
+        "foundation.TypedBoundaryPort",
+        "foundation.RecordBase"
+      ],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:foundation",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.directory",
+      "label": "Directory & participation",
+      "steward": "Rolodex/directory semantic steward; receiver owners retain identity/authorization decisions",
+      "scope": "Scoped units, posts, occupations, booking profiles, representation and external interface bindings. No new account or identity root.",
+      "imports": [
+        "zenith.authority",
+        "zenith.foundation"
+      ],
+      "schema": "directory.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:directory",
+      "record_types": [
+        "directory.OrganizationUnit",
+        "directory.ScopedPost",
+        "directory.PostAssignment",
+        "directory.PostRequirement",
+        "directory.ResponsibilityBinding",
+        "directory.BookingCommitment",
+        "directory.RepresentationBinding",
+        "directory.ExternalSubjectBinding",
+        "directory.PersonInterfaceBinding",
+        "directory.RestrictedContactProjection"
+      ],
+      "value_types": [],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:directory",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.resources",
+      "label": "Resources",
+      "steward": "Zenith resource/capability steward; domain providers own inventory/booking state",
+      "scope": "Units, needs, offers, availability, allocation and reservation; distinct from Runtime eligibility labels.",
+      "imports": [
+        "zenith.foundation"
+      ],
+      "schema": "resources.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:resources",
+      "record_types": [
+        "resources.ResourceInstance",
+        "resources.ComputeResource",
+        "resources.ResourceRequirement",
+        "resources.AvailabilityAssertion",
+        "resources.ResourceOffer",
+        "resources.Allocation",
+        "resources.Reservation",
+        "resources.AllocationObservation"
+      ],
+      "value_types": [
+        "resources.CapacityRequirement"
+      ],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:resources",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.evidence",
+      "label": "Provenance, verification & review",
+      "steward": "Zenith provenance steward; owning domain produces/verifies each assertion",
+      "scope": "Exact source/field evidence, verification/completion/readiness assertions, reviews/decisions and change explanations.",
+      "imports": [
+        "zenith.authority",
+        "zenith.foundation"
+      ],
+      "schema": "evidence.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:evidence",
+      "record_types": [
+        "evidence.SourceRevision",
+        "evidence.CaptureEvidence",
+        "evidence.DerivationEvidence",
+        "evidence.ObservationAssertion",
+        "evidence.VerificationAssertion",
+        "evidence.CompletionAssertion",
+        "evidence.ReadinessEvidence",
+        "evidence.ScopedDecision",
+        "evidence.ReviewDecision",
+        "evidence.RevisionApproval",
+        "evidence.AcceptanceDecision",
+        "evidence.AdvisoryReviewSession",
+        "evidence.AdvisoryNote",
+        "evidence.ReviewResponse",
+        "evidence.ChangeImpactExplanation",
+        "evidence.EvidenceGap"
+      ],
+      "value_types": [
+        "evidence.ChangedField",
+        "evidence.DependencyStep"
+      ],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:evidence",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.authority",
+      "label": "Authority references",
+      "steward": "secS / receiver policy owners",
+      "scope": "References to receiver policy, verified call context and receipts; no credential issuance, wallet custody or new permission engine.",
+      "imports": [
+        "zenith.foundation"
+      ],
+      "schema": "authority.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:authority",
+      "record_types": [
+        "authority.VerifiedOperationAuthorityReference",
+        "authority.ContributionPolicyReference",
+        "authority.DisclosurePolicyReference"
+      ],
+      "value_types": [],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:authority",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.documents",
+      "label": "Documents & composition",
+      "steward": "Zenith artifact/document composition steward",
+      "scope": "Document revisions, renditions, candidates, packs, inclusions and recipient projections. Film keeps document kinds and templates.",
+      "imports": [
+        "zenith.authority",
+        "zenith.directory",
+        "zenith.evidence",
+        "zenith.foundation"
+      ],
+      "schema": "documents.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:documents",
+      "record_types": [
+        "documents.DocumentRevision",
+        "documents.Rendition",
+        "documents.PDFRendition",
+        "documents.AuthoringCandidate",
+        "documents.PackDefinition",
+        "documents.SectionDefinition",
+        "documents.PackInstance",
+        "documents.PackRevision",
+        "documents.Section",
+        "documents.RevisionInclusion",
+        "documents.RedactionManifest",
+        "documents.RecipientProjection"
+      ],
+      "value_types": [
+        "documents.CandidateFieldUpdate"
+      ],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:documents",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.handoff",
+      "label": "Dispatch & receiving evidence",
+      "steward": "Zenith integration/handoff steward; Runtime owns executed effects",
+      "scope": "Outbound intent, transport attempts, manifests and recipient evidence. Existing effects and their dispatch journals remain authoritative.",
+      "imports": [
+        "zenith.authority",
+        "zenith.documents",
+        "zenith.evidence",
+        "zenith.foundation"
+      ],
+      "schema": "handoff.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:handoff",
+      "record_types": [
+        "handoff.DispatchIntent",
+        "handoff.DistributionAttempt",
+        "handoff.Acknowledgment",
+        "handoff.ManifestItem",
+        "handoff.DeliveryEvidence",
+        "handoff.ReceivingEvidence"
+      ],
+      "value_types": [],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:handoff",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.events",
+      "label": "Events & source registry",
+      "steward": "Hub event/source steward; consumers own processing and mutations",
+      "scope": "Transport adapters, occurrences, registry definitions and per-consumer decisions. No generic event becomes a Work receipt.",
+      "imports": [
+        "zenith.evidence",
+        "zenith.foundation",
+        "zenith.handoff",
+        "zenith.planning"
+      ],
+      "schema": "events.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:events",
+      "record_types": [
+        "events.EventOccurrence",
+        "events.EnvelopeBinding",
+        "events.ScheduledTrigger",
+        "events.ObservationOccurrence",
+        "events.CompletionOccurrence",
+        "events.ApprovalOccurrence",
+        "events.DispatchOccurrence",
+        "events.AcknowledgementOccurrence",
+        "events.TransferVerificationOccurrence",
+        "events.ConsumerDecision",
+        "events.TopicDefinition"
+      ],
+      "value_types": [
+        "events.HubEventEnvelope"
+      ],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:events",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.execution",
+      "label": "Execution methods & evidence",
+      "steward": "Process Runtime semantic owner with Frank implementation steward",
+      "scope": "Policy, implementation/tool pins, observed environment, invocation sidecars and decomposition mappings. No duplicate Run or Attempt.",
+      "imports": [
+        "zenith.evidence",
+        "zenith.foundation",
+        "zenith.resources"
+      ],
+      "schema": "execution.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:execution",
+      "record_types": [
+        "execution.ImplementationArtifact",
+        "execution.ToolRelease",
+        "execution.ExecutionEnvironmentRequirement",
+        "execution.EnvironmentSnapshot",
+        "execution.InvocationEvidence",
+        "execution.ExecutionPolicy",
+        "execution.DecompositionMapping",
+        "execution.CapabilityConcept"
+      ],
+      "value_types": [
+        "execution.BoundaryMapping"
+      ],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:execution",
+      "canonical_namespace": null
+    },
+    {
+      "id": "zenith.planning",
+      "label": "Planning",
+      "steward": "Zenith planning/domain scheduling steward",
+      "scope": "Domain milestones and scoped precedence. Devgraph Work Milestone and Runtime DAG state retain their existing meanings.",
+      "imports": [
+        "zenith.directory",
+        "zenith.foundation",
+        "zenith.resources"
+      ],
+      "schema": "planning.schema.json",
+      "schema_id": "urn:zenith:ontology-review:shared:0.1.0:planning",
+      "record_types": [
+        "planning.DomainMilestone",
+        "planning.ScopedPrecedence"
+      ],
+      "value_types": [],
+      "accepted_release": null,
+      "steward_acceptance": "pending_review",
+      "ontology_iri": "urn:zenith:ontology-review:shared:0.1.0:planning",
+      "canonical_namespace": null
+    }
+  ],
+  "provider_contracts": {
+    "devgraph": "Existing Work/identity/artifact/governance publication remains authoritative.",
+    "service_management": "Existing requests, Cases, plans and handoff contracts; not replaced by a shared draft aggregate.",
+    "process_runtime": "Existing definitions/runs/attempts/effects/artifacts/output commits and receipts.",
+    "frank": "Existing executor/integration boundary; no new scheduler.",
+    "hub": "Existing transport/source substrate; new event registry shapes remain proposals.",
+    "rolodex": "Existing Person/Agent/Organization vocabulary; app-server registry is docs-first.",
+    "secs": "Receiver-owned authorization/verified-context/receipt contracts; new reference profiles confer no authority."
+  },
+  "film_domain": {
+    "namespace": "urn:zenith:ontology-review:film:0.1.0#",
+    "status": "review_namespace_only",
+    "type_names": 99,
+    "occurrence_profiles": 8,
+    "department_model": "Retain department-review/0.2.0 identifiers and semantics.",
+    "wire_migration": "Adapters and a new version require implementation/review; current data.* collection keys and old payloads remain unchanged."
+  },
+  "import_rule": "Ten independently owned shared modules have an acyclic semantic/schema import graph; the aggregate registry is not imported by its own foundation.",
+  "publication_rule": "Reader-first adapters and explicit canonical review precede publication. No runtime routes/storage/credentials follow from a term admission."
+}

@@ -1,0 +1,687 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:resources",
+  "title": "Resources · noncanonical draft",
+  "$defs": {
+    "CapacityRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "enum": [
+            "cpu_cores",
+            "memory_bytes",
+            "gpu_count",
+            "storage_bytes",
+            "physical_units"
+          ],
+          "type": "string"
+        },
+        "minimum": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dimension",
+        "minimum"
+      ],
+      "type": "object",
+      "description": "Existing closed dimension/minimum capacity value profile; the minimum remains a requirement rather than observed free capacity."
+    },
+    "ResourceInstanceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "resource_kind": {
+          "type": "string",
+          "enum": [
+            "physical_unit",
+            "facility",
+            "physical_computer",
+            "virtual_machine",
+            "virtual_resource"
+          ]
+        },
+        "capability_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "custodian_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "capacity": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/Quantity"
+        }
+      },
+      "required": [
+        "label",
+        "resource_kind"
+      ]
+    },
+    "ResourceInstance": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/ResourceInstanceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.ResourceInstance"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Concrete resource identity; never equated with a software Agent or the Artifact snapshot describing it.",
+      "x-invariants": []
+    },
+    "ComputeResourceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/ResourceInstanceShape"
+        }
+      ],
+      "properties": {
+        "resource_kind": {
+          "type": "string",
+          "enum": [
+            "physical_computer",
+            "virtual_machine",
+            "virtual_resource"
+          ]
+        },
+        "installation_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "compute_kind": {
+          "type": "string",
+          "enum": [
+            "physical_computer",
+            "virtual_machine",
+            "container_worker"
+          ]
+        }
+      },
+      "required": [
+        "resource_kind",
+        "installation_ref",
+        "compute_kind"
+      ]
+    },
+    "ComputeResource": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/ComputeResourceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.ComputeResource"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Resource specialization. Installation identity can be local; it is not hardware attestation or a globally verified machine ID.",
+      "x-invariants": []
+    },
+    "ResourceRequirementShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "capability_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "quantity": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/Quantity"
+        },
+        "needed_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "subject_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "constraints_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "constraints_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "capability_ref",
+        "quantity",
+        "needed_window",
+        "subject_ref"
+      ]
+    },
+    "ResourceRequirement": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/ResourceRequirementShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.ResourceRequirement"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "A capability/quantity/time need. Runtime eligibility resource strings are not capacity, stock, price or reservations.",
+      "x-invariants": []
+    },
+    "AvailabilityAssertionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "subject_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "resource_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ResourceInstance"
+          ]
+        },
+        "window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "available",
+            "unavailable",
+            "tentative",
+            "unknown"
+          ]
+        },
+        "source_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "asserted_by": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        }
+      },
+      "required": [
+        "window",
+        "state",
+        "source_revision_ref",
+        "asserted_by"
+      ]
+    },
+    "AvailabilityAssertion": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/AvailabilityAssertionShape"
+        },
+        {
+          "oneOf": [
+            {
+              "required": [
+                "subject_ref"
+              ],
+              "not": {
+                "required": [
+                  "resource_ref"
+                ]
+              }
+            },
+            {
+              "required": [
+                "resource_ref"
+              ],
+              "not": {
+                "required": [
+                  "subject_ref"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.AvailabilityAssertion"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Sourced availability assertion for exactly one person/organization/agent or resource; it does not confirm a booking.",
+      "x-invariants": [
+        "Exactly one of subject_ref and resource_ref is present."
+      ]
+    },
+    "ResourceOfferShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "resource_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ResourceInstance"
+          ]
+        },
+        "provider_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "quantity": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/Quantity"
+        },
+        "capability_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "availability_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.AvailabilityAssertion"
+          ]
+        },
+        "price": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/Money"
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "person_provided",
+            "organization_owned",
+            "rental",
+            "other"
+          ]
+        },
+        "confirmation": {
+          "type": "string",
+          "enum": [
+            "offered",
+            "confirmed",
+            "withdrawn"
+          ]
+        }
+      },
+      "required": [
+        "resource_ref",
+        "provider_ref",
+        "quantity",
+        "capability_refs",
+        "availability_ref",
+        "price",
+        "origin",
+        "confirmation"
+      ]
+    },
+    "ResourceOffer": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/ResourceOfferShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.ResourceOffer"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Commercial/crew-provided offer for an existing unit. Provider, physical item, capability and availability remain separate.",
+      "x-invariants": []
+    },
+    "AllocationShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "requirement_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ResourceRequirement"
+          ]
+        },
+        "offer_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ResourceOffer"
+          ]
+        },
+        "quantity": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/Quantity"
+        },
+        "window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "reservation_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.Reservation"
+          ]
+        }
+      },
+      "required": [
+        "requirement_ref",
+        "offer_ref",
+        "quantity",
+        "window"
+      ]
+    },
+    "Allocation": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/AllocationShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.Allocation"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Selection of an exact offer against an exact requirement, not proof of reservation or observed use.",
+      "x-invariants": [
+        "Matching quantity units; selected quantity does not exceed requirement or offer; allocation interval is within required and offered availability intervals."
+      ]
+    },
+    "ReservationShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "resource_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ResourceInstance"
+          ]
+        },
+        "offer_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ResourceOffer"
+          ]
+        },
+        "window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "confirmation_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "requested",
+            "confirmed",
+            "cancelled"
+          ]
+        },
+        "provider_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        }
+      },
+      "required": [
+        "resource_ref",
+        "offer_ref",
+        "window",
+        "confirmation_ref",
+        "state",
+        "provider_ref"
+      ]
+    },
+    "Reservation": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/ReservationShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "confirmed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "confirmation_ref"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.Reservation"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Reservation evidence/profile of the owning booking provider; no shadow booking writer is introduced.",
+      "x-invariants": [
+        "A confirmed reservation requires confirmation evidence from the owning provider."
+      ]
+    },
+    "AllocationObservationShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "allocation_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.Allocation"
+          ]
+        },
+        "observed_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "observation": {
+          "type": "string",
+          "enum": [
+            "selected",
+            "reserved",
+            "used",
+            "not_used"
+          ]
+        },
+        "evidence_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "allocation_ref",
+        "observed_window",
+        "observation",
+        "evidence_ref"
+      ]
+    },
+    "AllocationObservation": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/AllocationObservationShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "resources.AllocationObservation"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Immutable evidence of selection/reservation/use; a selection cannot be relabeled as actual use.",
+      "x-invariants": []
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:foundation"
+  ]
+}

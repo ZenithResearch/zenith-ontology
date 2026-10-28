@@ -1,0 +1,1033 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://zenith-research.ca/ontology/zenith/library/v2/graph.schema.json",
+  "title": "Local ontology library v2 candidate — not published",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "@context": {
+      "const": "https://zenith-research.ca/ontology/zenith/library/v2/context.jsonld"
+    },
+    "@id": {
+      "type": "string",
+      "maxLength": 4096
+    },
+    "@type": {
+      "const": "https://zenith-research.ca/ontology/zenith/library/v2/terms/LibrarySelection"
+    },
+    "schemaVersion": {
+      "const": "zenith.ontology-library-graph.v2"
+    },
+    "hostingState": {
+      "const": "local-candidate"
+    },
+    "semanticAcceptance": {
+      "const": "not-asserted"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "ontologyId": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "version": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "maturity": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "hostingState": {
+            "enum": [
+              "hosted",
+              "local-candidate"
+            ]
+          },
+          "selectionRole": {
+            "enum": [
+              "package-selection",
+              "retained-context",
+              "library-profile"
+            ]
+          },
+          "href": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "artifactHref": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 4096
+            },
+            "maxItems": 128
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "url",
+                "sha256",
+                "bytes",
+                "mediaType"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "pattern": "^https://zenith-research\\.ca/"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 16777216
+                },
+                "mediaType": {
+                  "enum": [
+                    "application/json",
+                    "application/ld+json",
+                    "text/markdown",
+                    "text/plain"
+                  ]
+                }
+              }
+            },
+            "maxItems": 512
+          },
+          "upstream": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "repository": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "branch": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "sourcePath": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "commit": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "sourceUrl": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "headUrl": {
+                "type": "string",
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "repository",
+              "branch",
+              "sourcePath",
+              "commit",
+              "sourceUrl",
+              "headUrl"
+            ]
+          },
+          "stewardship": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "basis": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "authenticated": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "label",
+              "basis",
+              "authenticated"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "owner",
+          "ontologyId",
+          "version",
+          "maturity",
+          "hostingState",
+          "selectionRole",
+          "href",
+          "artifactHref",
+          "sha256",
+          "dependencies",
+          "artifacts",
+          "stewardship"
+        ]
+      },
+      "maxItems": 128
+    },
+    "@graph": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "@id": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "@type": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "key": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "identity": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "kind": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "category": {
+            "enum": [
+              "definition",
+              "organization",
+              "product",
+              "ontology",
+              "release",
+              "classification",
+              "library",
+              "instance"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 4096
+            },
+            "maxItems": 32
+          },
+          "status": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "hostingState": {
+            "enum": [
+              "hosted",
+              "local-candidate"
+            ]
+          },
+          "sourceId": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "classificationBasis": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "maxLength": 4096
+                },
+                "type": {
+                  "type": "string",
+                  "maxLength": 4096
+                },
+                "required": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "type",
+                "required"
+              ]
+            },
+            "maxItems": 512
+          },
+          "artifact": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "sha256",
+              "bytes",
+              "mediaType"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "pattern": "^https://zenith-research\\.ca/"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 16777216
+              },
+              "mediaType": {
+                "enum": [
+                  "application/json",
+                  "application/ld+json",
+                  "text/markdown",
+                  "text/plain"
+                ]
+              }
+            }
+          },
+          "pointer": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "detailHref": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "evidenceOnly": {
+            "type": "boolean"
+          },
+          "revisionId": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "profileId": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "schemaBindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "url",
+                    "sha256",
+                    "bytes",
+                    "mediaType"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https://zenith-research\\.ca/"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "bytes": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 16777216
+                    },
+                    "mediaType": {
+                      "enum": [
+                        "application/json",
+                        "application/ld+json",
+                        "text/markdown",
+                        "text/plain"
+                      ]
+                    }
+                  }
+                },
+                "pointer": {
+                  "type": "string",
+                  "maxLength": 4096
+                },
+                "dialect": {
+                  "type": "string",
+                  "maxLength": 4096
+                },
+                "qualification": {
+                  "enum": [
+                    "inspection-only",
+                    "review-wrapper"
+                  ]
+                }
+              },
+              "required": [
+                "artifact",
+                "pointer",
+                "dialect",
+                "qualification"
+              ]
+            },
+            "maxItems": 32
+          },
+          "semanticIdentity": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "semanticTypes": {
+            "type": "array",
+            "maxItems": 20000,
+            "items": {
+              "type": "string",
+              "maxLength": 4096
+            }
+          },
+          "producerMaturity": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "semanticAcceptance": {
+            "const": "not-asserted"
+          },
+          "stewardship": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "basis": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "authenticated": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "label",
+              "basis",
+              "authenticated"
+            ]
+          },
+          "claimBasis": {
+            "enum": [
+              "source-declared",
+              "library-authored-proposal",
+              "legacy-unverified"
+            ]
+          }
+        },
+        "required": [
+          "@id",
+          "@type",
+          "key",
+          "identity",
+          "label",
+          "kind",
+          "category",
+          "owner",
+          "domains",
+          "status",
+          "hostingState",
+          "sourceId",
+          "description",
+          "classificationBasis",
+          "fields",
+          "artifact",
+          "pointer",
+          "detailHref",
+          "evidenceOnly",
+          "schemaBindings",
+          "stewardship",
+          "semanticTypes",
+          "producerMaturity",
+          "semanticAcceptance",
+          "claimBasis"
+        ]
+      },
+      "maxItems": 10000
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "@id": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "@type": {
+            "const": "https://zenith-research.ca/ontology/zenith/library/v2/terms/GraphAssertion"
+          },
+          "subject": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "predicate": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "object": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "kind": {
+            "enum": [
+              "membership",
+              "ontology association",
+              "release membership",
+              "definition membership",
+              "imports",
+              "classification",
+              "inheritance",
+              "reference",
+              "candidate reference"
+            ]
+          },
+          "assertionStatus": {
+            "enum": [
+              "library-selection",
+              "source-declared",
+              "proposed",
+              "candidate"
+            ]
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "artifact": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "url",
+                  "sha256",
+                  "bytes",
+                  "mediaType"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "pattern": "^https://zenith-research\\.ca/"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 16777216
+                  },
+                  "mediaType": {
+                    "enum": [
+                      "application/json",
+                      "application/ld+json",
+                      "text/markdown",
+                      "text/plain"
+                    ]
+                  }
+                }
+              },
+              "pointer": {
+                "type": "string",
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "artifact",
+              "pointer"
+            ]
+          },
+          "associationRole": {
+            "enum": [
+              "product-specific-vocabulary",
+              "dependency",
+              "reference"
+            ]
+          },
+          "derivation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "adapter": {
+                "type": "string",
+                "maxLength": 4096
+              },
+              "state": {
+                "enum": [
+                  "verified-source",
+                  "library-authored-proposal",
+                  "legacy-unverified"
+                ]
+              },
+              "evidence": {
+                "type": "array",
+                "maxItems": 20000,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "artifact": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "url",
+                        "sha256",
+                        "bytes",
+                        "mediaType"
+                      ],
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "pattern": "^https://zenith-research\\.ca/"
+                        },
+                        "sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        },
+                        "bytes": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 16777216
+                        },
+                        "mediaType": {
+                          "enum": [
+                            "application/json",
+                            "application/ld+json",
+                            "text/markdown",
+                            "text/plain"
+                          ]
+                        }
+                      }
+                    },
+                    "pointer": {
+                      "type": "string",
+                      "maxLength": 4096
+                    }
+                  },
+                  "required": [
+                    "artifact",
+                    "pointer"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "adapter",
+              "state",
+              "evidence"
+            ]
+          }
+        },
+        "required": [
+          "@id",
+          "@type",
+          "subject",
+          "predicate",
+          "object",
+          "label",
+          "kind",
+          "assertionStatus",
+          "evidence",
+          "derivation"
+        ]
+      },
+      "maxItems": 20000
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "target": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "artifact": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "url",
+                  "sha256",
+                  "bytes",
+                  "mediaType"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "pattern": "^https://zenith-research\\.ca/"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 16777216
+                  },
+                  "mediaType": {
+                    "enum": [
+                      "application/json",
+                      "application/ld+json",
+                      "text/markdown",
+                      "text/plain"
+                    ]
+                  }
+                }
+              },
+              "pointer": {
+                "type": "string",
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "artifact",
+              "pointer"
+            ]
+          }
+        },
+        "required": [
+          "source",
+          "target",
+          "label",
+          "reason",
+          "evidence"
+        ]
+      },
+      "maxItems": 10000
+    },
+    "requiredCapabilities": {
+      "type": "array",
+      "maxItems": 20000,
+      "items": {
+        "type": "string",
+        "maxLength": 4096
+      }
+    },
+    "baseGraph": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "sha256",
+        "bytes",
+        "mediaType"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "pattern": "^https://zenith-research\\.ca/"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16777216
+        },
+        "mediaType": {
+          "enum": [
+            "application/json",
+            "application/ld+json",
+            "text/markdown",
+            "text/plain"
+          ]
+        }
+      }
+    },
+    "registrationSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "references": {
+      "type": "array",
+      "maxItems": 20000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "sourceId": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "profileId": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "rawTarget": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "normalizedTarget": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "targetOccurrence": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "predicate": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "state": {
+            "enum": [
+              "resolved-local",
+              "resolved-import",
+              "external-standard",
+              "external-provider-unbound",
+              "ambiguous",
+              "missing-selected-dependency",
+              "dangling-internal",
+              "unsupported-adapter",
+              "unsupported-construct"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "maxItems": 20000,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "url",
+                    "sha256",
+                    "bytes",
+                    "mediaType"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https://zenith-research\\.ca/"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "bytes": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 16777216
+                    },
+                    "mediaType": {
+                      "enum": [
+                        "application/json",
+                        "application/ld+json",
+                        "text/markdown",
+                        "text/plain"
+                      ]
+                    }
+                  }
+                },
+                "pointer": {
+                  "type": "string",
+                  "maxLength": 4096
+                }
+              },
+              "required": [
+                "artifact",
+                "pointer"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "sourceId",
+          "profileId",
+          "rawTarget",
+          "normalizedTarget",
+          "targetOccurrence",
+          "predicate",
+          "state",
+          "reason",
+          "required",
+          "evidence"
+        ]
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "maxItems": 20000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 4096
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "code",
+          "source",
+          "message"
+        ]
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "adapterScope": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "excludedEvidence": {
+          "type": "array",
+          "maxItems": 20000,
+          "items": {
+            "type": "string",
+            "maxLength": 4096
+          }
+        },
+        "legacyClaims": {
+          "type": "array",
+          "maxItems": 20000,
+          "items": {
+            "type": "string",
+            "maxLength": 4096
+          }
+        }
+      },
+      "required": [
+        "adapterScope",
+        "excludedEvidence",
+        "legacyClaims"
+      ]
+    }
+  },
+  "required": [
+    "@context",
+    "@id",
+    "@type",
+    "schemaVersion",
+    "hostingState",
+    "semanticAcceptance",
+    "sources",
+    "@graph",
+    "assertions",
+    "unresolved",
+    "requiredCapabilities",
+    "baseGraph",
+    "registrationSha256",
+    "references",
+    "diagnostics",
+    "completeness"
+  ]
+}

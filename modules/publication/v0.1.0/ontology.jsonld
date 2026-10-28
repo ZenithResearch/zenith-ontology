@@ -1,0 +1,623 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/ontology.jsonld",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Zenith publication extension",
+      "owl:versionInfo": "0.1.0",
+      "rdfs:comment": "Review draft owned by Zenith. Describes release evidence, comparisons, schemas and taxonomy; does not amend historical Devgraph bundles or confer approval."
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Publication entity"
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseChange",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Release change",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseArtifact",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ReleaseArtifact",
+      "rdfs:comment": "An immutable file within one source release, identified by its URL and checksum.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/ReleaseArtifact"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/SourceCommit",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SourceCommit",
+      "rdfs:comment": "A source revision providing publication provenance, distinct from a semantic release or approval.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/SourceCommit"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/RecordSnapshot",
+      "@type": "rdfs:Class",
+      "rdfs:label": "RecordSnapshot",
+      "rdfs:comment": "An opaque JSON representation copied from a specific release artifact. It is evidence about a record, not a newly admitted domain object.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/RecordSnapshot"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/VocabularyTermChange",
+      "@type": "rdfs:Class",
+      "rdfs:label": "VocabularyTermChange",
+      "rdfs:comment": "A change to a vocabulary term keyed by its canonical identifier.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseChange"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/VocabularyTermChange"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/OperationChange",
+      "@type": "rdfs:Class",
+      "rdfs:label": "OperationChange",
+      "rdfs:comment": "A change to a semantic operation keyed by its canonical identifier.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseChange"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/OperationChange"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ArtifactChange",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ArtifactChange",
+      "rdfs:comment": "A change to a release file determined by path and checksum.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseChange"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/ArtifactChange"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseComparison",
+      "@type": "rdfs:Class",
+      "rdfs:label": "ReleaseComparison",
+      "rdfs:comment": "A computed comparison of immutable adjacent source bundles; the initial release has no predecessor.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/ReleaseComparison"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/OntologyRelease",
+      "@type": "rdfs:Class",
+      "rdfs:label": "OntologyRelease",
+      "rdfs:comment": "A source ontology release distributed by Zenith. Its source release date does not assert a website publication date or installed runtime qualification.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/OntologyRelease"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/TaxonomyConcept",
+      "@type": "rdfs:Class",
+      "rdfs:label": "TaxonomyConcept",
+      "rdfs:comment": "A controlled classification in the publication taxonomy.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/TaxonomyConcept"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Taxonomy",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Taxonomy",
+      "rdfs:comment": "Controlled terms for change action and source provenance.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/Taxonomy"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/SchemaDefinition",
+      "@type": "rdfs:Class",
+      "rdfs:label": "SchemaDefinition",
+      "rdfs:comment": "A reference to an executable JSON Schema definition for one publication record type.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/SchemaDefinition"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationProfile",
+      "@type": "rdfs:Class",
+      "rdfs:label": "PublicationProfile",
+      "rdfs:comment": "The Zenith publication extension describes its own schemas and taxonomy by reference; it does not require an infinite inline schema expansion.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationEntity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/PublicationProfile"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/action",
+      "@type": "rdf:Property",
+      "rdfs:label": "action",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/after",
+      "@type": "rdf:Property",
+      "rdfs:label": "after",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/artifacts",
+      "@type": "rdf:Property",
+      "rdfs:label": "artifacts",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/authoredAt",
+      "@type": "rdf:Property",
+      "rdfs:label": "authoredAt",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/before",
+      "@type": "rdf:Property",
+      "rdfs:label": "before",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/broader",
+      "@type": "rdf:Property",
+      "rdfs:label": "broader",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/bundleDigest",
+      "@type": "rdf:Property",
+      "rdfs:label": "bundleDigest",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/changedFields",
+      "@type": "rdf:Property",
+      "rdfs:label": "changedFields",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/changes",
+      "@type": "rdf:Property",
+      "rdfs:label": "changes",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/comparison",
+      "@type": "rdf:Property",
+      "rdfs:label": "comparison",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/compatibilityNotes",
+      "@type": "rdf:Property",
+      "rdfs:label": "compatibilityNotes",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/concepts",
+      "@type": "rdf:Property",
+      "rdfs:label": "concepts",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/definitionPointer",
+      "@type": "rdf:Property",
+      "rdfs:label": "definitionPointer",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/definitions",
+      "@type": "rdf:Property",
+      "rdfs:label": "definitions",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/describesType",
+      "@type": "rdf:Property",
+      "rdfs:label": "describesType",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/fromRelease",
+      "@type": "rdf:Property",
+      "rdfs:label": "fromRelease",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/label",
+      "@type": "rdf:Property",
+      "rdfs:label": "label",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/manifest",
+      "@type": "rdf:Property",
+      "rdfs:label": "manifest",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/notes",
+      "@type": "rdf:Property",
+      "rdfs:label": "notes",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/notesSha256",
+      "@type": "rdf:Property",
+      "rdfs:label": "notesSha256",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/notesSource",
+      "@type": "rdf:Property",
+      "rdfs:label": "notesSource",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ontology",
+      "@type": "rdf:Property",
+      "rdfs:label": "ontology",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/path",
+      "@type": "rdf:Property",
+      "rdfs:label": "path",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/provenanceKind",
+      "@type": "rdf:Property",
+      "rdfs:label": "provenanceKind",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schema",
+      "@type": "rdf:Property",
+      "rdfs:label": "schema",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schemaDocument",
+      "@type": "rdf:Property",
+      "rdfs:label": "schemaDocument",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/scheme",
+      "@type": "rdf:Property",
+      "rdfs:label": "scheme",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sha",
+      "@type": "rdf:Property",
+      "rdfs:label": "sha",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sha256",
+      "@type": "rdf:Property",
+      "rdfs:label": "sha256",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sourceArtifact",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceArtifact",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sourceHistory",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceHistory",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sourceKey",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceKey",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sourceReleasedAt",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceReleasedAt",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/sourceRevision",
+      "@type": "rdf:Property",
+      "rdfs:label": "sourceRevision",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/status",
+      "@type": "rdf:Property",
+      "rdfs:label": "status",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/subject",
+      "@type": "rdf:Property",
+      "rdfs:label": "subject",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/subjectId",
+      "@type": "rdf:Property",
+      "rdfs:label": "subjectId",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/taxonomy",
+      "@type": "rdf:Property",
+      "rdfs:label": "taxonomy",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/toRelease",
+      "@type": "rdf:Property",
+      "rdfs:label": "toRelease",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/url",
+      "@type": "rdf:Property",
+      "rdfs:label": "url",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/value",
+      "@type": "rdf:Property",
+      "rdfs:label": "value",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/version",
+      "@type": "rdf:Property",
+      "rdfs:label": "version",
+      "rdfs:comment": "Cardinality and value constraints are defined in the publication JSON Schema.",
+      "rdfs:isDefinedBy": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "ChangeAction",
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ProvenanceKind",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "ProvenanceKind",
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Added",
+      "skos:broader": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction"
+      },
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Modified",
+      "skos:broader": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction"
+      },
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "Removed",
+      "skos:broader": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction"
+      },
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicSnapshot",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "PublicSnapshot",
+      "skos:broader": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ProvenanceKind"
+      },
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    },
+    {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseRevision",
+      "@type": "skos:Concept",
+      "skos:prefLabel": "ReleaseRevision",
+      "skos:broader": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ProvenanceKind"
+      },
+      "skos:inScheme": {
+        "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json"
+      }
+    }
+  ]
+}

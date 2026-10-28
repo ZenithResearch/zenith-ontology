@@ -1,0 +1,516 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:handoff",
+  "title": "Dispatch & receiving evidence · noncanonical draft",
+  "$defs": {
+    "DispatchIntentShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "payload_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.RecipientProjection"
+          ]
+        },
+        "recipient_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "endpoint_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "channel": {
+          "type": "string",
+          "enum": [
+            "email",
+            "matrix",
+            "nostr",
+            "api",
+            "file_transfer",
+            "manual"
+          ]
+        },
+        "due_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "authority_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.VerifiedOperationAuthorityReference"
+          ]
+        }
+      },
+      "required": [
+        "payload_ref",
+        "recipient_ref",
+        "endpoint_ref",
+        "channel",
+        "due_at",
+        "idempotency_key",
+        "authority_ref"
+      ]
+    },
+    "DispatchIntent": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:handoff#/$defs/DispatchIntentShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "handoff.DispatchIntent"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Versioned outbound intent for an exact permitted payload; no dispatch occurs merely because an intent exists.",
+      "x-invariants": []
+    },
+    "DistributionAttemptShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "intent_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "handoff.DispatchIntent"
+          ]
+        },
+        "runtime_effect_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "owner": {
+              "const": "process-runtime"
+            },
+            "kind": {
+              "const": "RuntimeEffect"
+            }
+          },
+          "x-target-types": [
+            "provider:process-runtime:RuntimeEffect"
+          ]
+        },
+        "attempt_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "owner": {
+              "const": "process-runtime"
+            },
+            "kind": {
+              "const": "Attempt"
+            }
+          },
+          "x-target-types": [
+            "provider:process-runtime:Attempt"
+          ]
+        },
+        "attempted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "transport_result": {
+          "type": "string",
+          "enum": [
+            "submitted",
+            "acknowledged",
+            "failed",
+            "unknown"
+          ]
+        },
+        "provider_reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "evidence_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "intent_ref",
+        "attempted_at",
+        "transport_result",
+        "evidence_ref"
+      ]
+    },
+    "DistributionAttempt": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:handoff#/$defs/DistributionAttemptShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "handoff.DistributionAttempt"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Transport evidence referencing the canonical effect/attempt when Runtime executes it. External/manual transport may lack a Runtime effect.",
+      "x-invariants": []
+    },
+    "AcknowledgmentShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "projection_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.RecipientProjection"
+          ]
+        },
+        "recipient_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "acknowledged_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidence_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "projection_ref",
+        "recipient_ref",
+        "acknowledged_at",
+        "evidence_ref"
+      ]
+    },
+    "Acknowledgment": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:handoff#/$defs/AcknowledgmentShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "handoff.Acknowledgment"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Acknowledgment of the exact personal view, not final recipient acceptance or proof of source correctness.",
+      "x-invariants": []
+    },
+    "ManifestItemShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "package_revision_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.DocumentRevision"
+          ]
+        },
+        "target_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "filename": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "dependency_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "package_revision_ref",
+        "target_revision_ref",
+        "content_ref",
+        "filename",
+        "dependency_refs"
+      ]
+    },
+    "ManifestItem": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:handoff#/$defs/ManifestItemShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "handoff.ManifestItem"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Exact package item identity and byte descriptor/checksum; copying and custody remain separate from the source identity.",
+      "x-invariants": []
+    },
+    "DeliveryEvidenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "distribution_attempt_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "handoff.DistributionAttempt"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "submitted",
+            "provider_acknowledged",
+            "recipient_acknowledged",
+            "received_verified",
+            "failed",
+            "unknown"
+          ]
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observer_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "evidence_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "distribution_attempt_ref",
+        "kind",
+        "observed_at",
+        "observer_ref",
+        "evidence_ref"
+      ]
+    },
+    "DeliveryEvidence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:handoff#/$defs/DeliveryEvidenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "handoff.DeliveryEvidence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Receiving/transport observation. Not Devgraph EventReceipt, Runtime Receipt, approval or recipient acceptance.",
+      "x-invariants": []
+    },
+    "ReceivingEvidenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "manifest_item_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "handoff.ManifestItem"
+          ]
+        },
+        "received_content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "verified_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "receiver_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verification_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "evidence.VerificationAssertion"
+          ]
+        }
+      },
+      "required": [
+        "manifest_item_ref",
+        "received_content_ref",
+        "verified_digest",
+        "receiver_ref",
+        "received_at"
+      ]
+    },
+    "ReceivingEvidence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:handoff#/$defs/ReceivingEvidenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "handoff.ReceivingEvidence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Byte-level receiving/checksum evidence, distinct from creative/technical acceptance.",
+      "x-invariants": [
+        "verified_digest matches received_content_ref.content_hash and the manifest item content hash when the item is resolved."
+      ]
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:authority",
+    "urn:zenith:ontology-review:shared:0.1.0:documents",
+    "urn:zenith:ontology-review:shared:0.1.0:evidence",
+    "urn:zenith:ontology-review:shared:0.1.0:foundation"
+  ]
+}

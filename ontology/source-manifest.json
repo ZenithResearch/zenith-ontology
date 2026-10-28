@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "zenith.ontology-source-bundle.v1",
+  "bundleDigestAlgorithm": "sha256-file-list-v1",
+  "bundleDigest": "8e98a80c95634134f998495eba4d569d44514627edbcd1da784c30fb22fedab7",
+  "files": [
+    {
+      "path": "imports/devgraph/v0.8.0/arena-contract.json",
+      "sha256": "2c0774b5211fbdb3ad474cd7e7028af722704bdafadcadbab7b9ef119671c1d8",
+      "bytes": 4380
+    },
+    {
+      "path": "imports/devgraph/v0.8.0/context.jsonld",
+      "sha256": "bcb4c213b415cc4058361d7c6dbf28b90cb40a39d53ebefe506990c8dca91d6c",
+      "bytes": 1045
+    },
+    {
+      "path": "imports/devgraph/v0.8.0/manifest.json",
+      "sha256": "0f8e8eebc3e6c3eac45cd2be5e9d181d1174b250987fd855fec9138b277fca8d",
+      "bytes": 5741
+    },
+    {
+      "path": "imports/devgraph/v0.8.0/ontology.jsonld",
+      "sha256": "afd935f58e1a0ec2af090cf4d09f5e14a83c62e1280d96390d2ec2a75d648c95",
+      "bytes": 12545
+    },
+    {
+      "path": "imports/devgraph/v0.8.0/operations.json",
+      "sha256": "80ea10143e437a54b4948422d49ba635aa1e9c4ece330b92c150a5852330e4ea",
+      "bytes": 15841
+    },
+    {
+      "path": "imports/devgraph/v0.8.0/repository-contract.json",
+      "sha256": "cd4fb3bc5360fe750e4aee6c68efe9ce948dab7e629c3b6f6e5df0cbb89494d5",
+      "bytes": 1359
+    },
+    {
+      "path": "imports/devgraph/v0.8.0/workflows.json",
+      "sha256": "fa456aa7b5680ecf2305a16ebbbeebfc6d7eeecb23ac5ab0aec544b48382c7a1",
+      "bytes": 7864
+    },
+    {
+      "path": "imports/rolodex/v0.1.0-review.1/ontology/boundaries.json",
+      "sha256": "aaef81838859ea8bda3d607056301d6d741f3281a4234343521a984e7a134562",
+      "bytes": 982
+    },
+    {
+      "path": "imports/rolodex/v0.1.0-review.1/ontology/context.jsonld",
+      "sha256": "bcb4c213b415cc4058361d7c6dbf28b90cb40a39d53ebefe506990c8dca91d6c",
+      "bytes": 1045
+    },
+    {
+      "path": "imports/rolodex/v0.1.0-review.1/ontology/ontology.jsonld",
+      "sha256": "d9ae5089f86b6480adbb202187b0a04cbc8c70286a56063c14292df9f028f2b6",
+      "bytes": 3205
+    },
+    {
+      "path": "modules/base/v0.1.0-review/authority.schema.json",
+      "sha256": "b459731828c450fce626d09e6b49c82171138bd62a0d608927130006de189bbc",
+      "bytes": 7665
+    },
+    {
+      "path": "modules/base/v0.1.0-review/directory.schema.json",
+      "sha256": "af5489c41bc79699d48d5e11d7b10043e77534b3226b596806e8f6427e77c19a",
+      "bytes": 23829
+    },
+    {
+      "path": "modules/base/v0.1.0-review/documents.schema.json",
+      "sha256": "32efb4ba2ce67e7eb263c478232a153d94a4b5e4466a683a7ba564db2afe2c15",
+      "bytes": 26141
+    },
+    {
+      "path": "modules/base/v0.1.0-review/events.schema.json",
+      "sha256": "250db1431d38bd8e9f8ec2f5c3c12ae1c070ea5bc7101e4766fe6772d415b18c",
+      "bytes": 20697
+    },
+    {
+      "path": "modules/base/v0.1.0-review/evidence.schema.json",
+      "sha256": "e05a062453e761533750d1e13713110e00c8a8d72554a079f284ca15853bf666",
+      "bytes": 36344
+    },
+    {
+      "path": "modules/base/v0.1.0-review/examples.json",
+      "sha256": "e515f779c5cedb18433a86cd328d0b40c29edef701a2f936c98cfaca105a68bc",
+      "bytes": 77174
+    },
+    {
+      "path": "modules/base/v0.1.0-review/execution.schema.json",
+      "sha256": "f101c4510f99647d065f296cd33d3bcff911a133006beaa68a8ee24b4632c662",
+      "bytes": 20621
+    },
+    {
+      "path": "modules/base/v0.1.0-review/foundation.schema.json",
+      "sha256": "541d3d1b57fe97dbb2cad92a542f7d59d1b8a9898a0a00252a808a1c075f86eb",
+      "bytes": 8730
+    },
+    {
+      "path": "modules/base/v0.1.0-review/handoff.schema.json",
+      "sha256": "1ad085ada97eb9fe25d7a75e9b23ea90b5afff4d82b18f534fa7307dc9e55fad",
+      "bytes": 14779
+    },
+    {
+      "path": "modules/base/v0.1.0-review/module-registry.json",
+      "sha256": "8aeb7666e15b76ccc05751c7d866ff290f31d283cd99491b05f32a471ec40fce",
+      "bytes": 13631
+    },
+    {
+      "path": "modules/base/v0.1.0-review/ontology.jsonld",
+      "sha256": "a580cbf4d61766850c46de651a57c39a6a0c2606dd2b6ff868dba52f714f62e4",
+      "bytes": 156463
+    },
+    {
+      "path": "modules/base/v0.1.0-review/planning.schema.json",
+      "sha256": "f7917800f7c1a6532b50696faf5bd803c76b797eaf7ce610964aacf4deabc0b2",
+      "bytes": 4468
+    },
+    {
+      "path": "modules/base/v0.1.0-review/relationships.json",
+      "sha256": "4bb54633c4d7ff50b51feb0a1d46066d454ebac8f07ed2532e9cf59710a16f9a",
+      "bytes": 179401
+    },
+    {
+      "path": "modules/base/v0.1.0-review/resources.schema.json",
+      "sha256": "a15ede6cfcc43d473f8fe496c8fd755a57a7d95225dd03a69c4cb7639c39874c",
+      "bytes": 19515
+    },
+    {
+      "path": "modules/library/v1/context.jsonld",
+      "sha256": "a9c9c69804261cd0f31753c315fddb91523093f0f18b6e5619b298ecdc9e6e73",
+      "bytes": 4042
+    },
+    {
+      "path": "modules/library/v1/graph.schema.json",
+      "sha256": "4b8ca560b10569868a11348f8e12bde8ebdb7b8a0a81e385ed2c61b8709e4bf0",
+      "bytes": 7873
+    },
+    {
+      "path": "modules/library/v1/index.schema.json",
+      "sha256": "f1e963e0169551c25c3c95e38f467d7c295241d61809faca228b5e9b494dc6f6",
+      "bytes": 3709
+    },
+    {
+      "path": "modules/library/v1/ontology.jsonld",
+      "sha256": "44c423cee61d37b746146e9461753162e85895791e10c181c9bf953da487b70f",
+      "bytes": 14001
+    },
+    {
+      "path": "modules/library/v2-candidate/context.jsonld",
+      "sha256": "f873165969ac4d0474cdc6a525dea36cbe4dbf98005a56cc668d86287fb8c257",
+      "bytes": 6359
+    },
+    {
+      "path": "modules/library/v2-candidate/graph.schema.json",
+      "sha256": "7bad9b417410fb3dada74bde6b62b36fc72a4005d7738f827f8a49e2705461dc",
+      "bytes": 26985
+    },
+    {
+      "path": "modules/library/v2-candidate/ontology.jsonld",
+      "sha256": "95cfce957e4e83d570150b6629525696fae79360184ba534b766ebd5535f1f1c",
+      "bytes": 12271
+    },
+    {
+      "path": "modules/product/v0.1.0/context.jsonld",
+      "sha256": "81a46d0c8f0ff453b8700959ca2704f012cad2e492d4564b6e4ec0ae8d623185",
+      "bytes": 1340
+    },
+    {
+      "path": "modules/product/v0.1.0/ontology.jsonld",
+      "sha256": "9d9f276f758e0bf50172b74b46ba61b2112fa8bd21cbf4d26ae33f31144d33d1",
+      "bytes": 376
+    },
+    {
+      "path": "modules/product/v0.1.0/product.schema.json",
+      "sha256": "7d5570813b395e0fef8c5ecb1200fdab2d6e56d36fd52d34d18f5cd3288ed302",
+      "bytes": 6317
+    },
+    {
+      "path": "modules/product/v0.1.0/recipe.json",
+      "sha256": "08db0dc953ad6f2d992a2ea01cd3be09c228f73dfb3b37489dbe697022e2f181",
+      "bytes": 120
+    },
+    {
+      "path": "modules/publication/v0.1.0/ontology.jsonld",
+      "sha256": "9e5f65443bb12742c03bace669097651202ef9c8b1400fd104d63bce691887a5",
+      "bytes": 26899
+    },
+    {
+      "path": "modules/publication/v0.1.0/profile.json",
+      "sha256": "490348e68d81afcd2f38021ff936cd9cc2ef60e4d4d8e80e938ff36db110f2b8",
+      "bytes": 6508
+    },
+    {
+      "path": "modules/publication/v0.1.0/schema.json",
+      "sha256": "68f3f5eed48ec8b7cbbce133c32b769d7b323aef61ffba935acf32269e847b6f",
+      "bytes": 25481
+    },
+    {
+      "path": "modules/publication/v0.1.0/taxonomy.json",
+      "sha256": "710c91a3a06f4a0c3b7d9cf173e2ff10f67c85d58cd89e679ee9a97f28db9fac",
+      "bytes": 2976
+    },
+    {
+      "path": "ontology/composition-review.json",
+      "sha256": "865e762dbb4afc85b04f40d2c25055268f458bbfff2259968a08787d11aea3ad",
+      "bytes": 1833
+    },
+    {
+      "path": "ontology/model.json",
+      "sha256": "5a76480ba591f3b60130da0ab410c423ba4b0a6d1de66a1117a741f156fdbae6",
+      "bytes": 4110
+    },
+    {
+      "path": "ontology/ontology.jsonld",
+      "sha256": "1af62b2971d5b2669217dab44ae8f4df9a26cdc2f6ff027d5ce93b5af5e5e4ab",
+      "bytes": 234608
+    },
+    {
+      "path": "provenance/original-base-manifest.json",
+      "sha256": "5f62d3641016d33a1f3691f8f5307d7c75a3393f407cdd79d8818628b0279c22",
+      "bytes": 2287
+    }
+  ],
+  "status": "review",
+  "ontologyId": "urn:zenith:ontology-review:composed:0.1.0",
+  "version": "0.1.0-review.1",
+  "semanticAcceptance": "not-asserted",
+  "pathBase": "repository-root"
+}

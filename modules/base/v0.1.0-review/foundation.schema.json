@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:foundation",
+  "title": "Zenith foundation · noncanonical draft",
+  "$defs": {
+    "ArtifactRef": {
+      "type": "object",
+      "properties": {
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}(?![\\s\\S])"
+        },
+        "byte_length": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "content_hash",
+        "byte_length",
+        "media_type"
+      ],
+      "additionalProperties": false,
+      "description": "Exact existing Runtime Artifact transport descriptor; copied without amendments. It references bytes, not another Artifact storage service."
+    },
+    "ScopeRef": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "owner",
+        "id"
+      ],
+      "additionalProperties": false,
+      "description": "Owner-scoped namespace reference; neither tenancy authentication nor a permission grant."
+    },
+    "OwnedRecordRef": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "scope": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ScopeRef"
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "revision": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            }
+          ]
+        }
+      },
+      "required": [
+        "owner",
+        "scope",
+        "kind",
+        "id"
+      ],
+      "additionalProperties": false,
+      "description": "Reference to a provider-owned identity; owner/kind/id/scope are distinct. Revision, when present, is an exact opaque owner version."
+    },
+    "RevisionQualifiedRef": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        }
+      ],
+      "required": [
+        "revision"
+      ],
+      "description": "Owned reference requiring an exact immutable version; never resolves to an implicit latest revision."
+    },
+    "FieldPointer": {
+      "type": "object",
+      "properties": {
+        "revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$",
+          "maxLength": 2048
+        }
+      },
+      "required": [
+        "revision_ref",
+        "json_pointer"
+      ],
+      "additionalProperties": false,
+      "description": "JSON Pointer bound to one exact source/output revision, including an empty root pointer. Escaping follows the existing pointer convention."
+    },
+    "TimeWindow": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "timezone"
+      ],
+      "additionalProperties": false,
+      "description": "Offset-bearing interval with an IANA display/production timezone. Semantic validation requires start < end; no local time is silently guessed."
+    },
+    "Quantity": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "amount",
+        "unit"
+      ],
+      "additionalProperties": false,
+      "description": "Positive quantity with explicit unit. No implicit conversion or cross-unit summation."
+    },
+    "Money": {
+      "type": "object",
+      "properties": {
+        "minor_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      },
+      "required": [
+        "minor_units",
+        "currency"
+      ],
+      "additionalProperties": false,
+      "description": "Nonnegative integer minor currency units; no floating currency or cross-currency total without a conversion policy."
+    },
+    "ValueSnapshot": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "state": {
+              "const": "absent"
+            }
+          },
+          "required": [
+            "state"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "state": {
+              "const": "present"
+            },
+            "value": {}
+          },
+          "required": [
+            "state",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ],
+      "description": "Distinguishes an absent field from a present null value. Domain schema validation must additionally validate a present value."
+    },
+    "TypedBoundaryPort": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "input",
+            "output"
+          ]
+        },
+        "value_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "direction",
+        "value_schema_ref",
+        "required"
+      ],
+      "additionalProperties": false,
+      "description": "A named typed boundary value, not a Runtime Step or new process aggregate."
+    },
+    "RecordBase": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "scope": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ScopeRef"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "origin_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "attributed_to": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "scope",
+        "revision",
+        "recorded_at"
+      ],
+      "description": "Open inherited shape only; exported record leaves close unevaluated properties. Record identity and descriptive attribution never confer authority."
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": []
+}

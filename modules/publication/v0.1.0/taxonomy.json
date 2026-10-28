@@ -1,0 +1,100 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "value": {
+      "@type": "@json"
+    },
+    "$schema": {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schema",
+      "@type": "@id"
+    },
+    "@vocab": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/",
+    "id": "@id",
+    "type": "@type",
+    "fromRelease": {
+      "@type": "@id"
+    },
+    "toRelease": {
+      "@type": "@id"
+    },
+    "manifest": {
+      "@type": "@id"
+    },
+    "notesSource": {
+      "@type": "@id"
+    },
+    "sourceRevision": {
+      "@type": "@id"
+    },
+    "sourceArtifact": {
+      "@type": "@id"
+    },
+    "action": {
+      "@type": "@id"
+    },
+    "provenanceKind": {
+      "@type": "@id"
+    },
+    "scheme": {
+      "@type": "@id"
+    },
+    "broader": {
+      "@type": "@id"
+    },
+    "describesType": {
+      "@type": "@id"
+    },
+    "schemaDocument": {
+      "@type": "@id"
+    },
+    "ontology": {
+      "@type": "@id"
+    },
+    "schema": {
+      "@type": "@id"
+    },
+    "taxonomy": {
+      "@type": "@id"
+    }
+  },
+  "$schema": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+  "id": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+  "type": "Taxonomy",
+  "concepts": [
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added",
+      "type": "TaxonomyConcept",
+      "label": "Added",
+      "scheme": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+      "broader": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified",
+      "type": "TaxonomyConcept",
+      "label": "Modified",
+      "scheme": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+      "broader": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed",
+      "type": "TaxonomyConcept",
+      "label": "Removed",
+      "scheme": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+      "broader": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ChangeAction"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicSnapshot",
+      "type": "TaxonomyConcept",
+      "label": "PublicSnapshot",
+      "scheme": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+      "broader": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ProvenanceKind"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseRevision",
+      "type": "TaxonomyConcept",
+      "label": "ReleaseRevision",
+      "scheme": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+      "broader": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ProvenanceKind"
+    }
+  ]
+}

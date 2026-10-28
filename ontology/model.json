@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "zenith.composed-model.v1",
+  "ontologyId": "urn:zenith:ontology-review:composed:0.1.0",
+  "status": "source-composition-review",
+  "completeReplacement": false,
+  "canonicalNamespaceAllocated": false,
+  "components": [
+    {
+      "id": "base",
+      "role": "shared-domain-draft",
+      "path": "modules/base/v0.1.0-review/ontology.jsonld",
+      "status": "draft",
+      "sha256": "a580cbf4d61766850c46de651a57c39a6a0c2606dd2b6ff868dba52f714f62e4",
+      "namedGraph": "urn:zenith:ontology-review:source:base:0.1.0",
+      "definitionRecords": 334,
+      "importTargets": [
+        "urn:zenith:ontology-review:shared:0.1.0:foundation",
+        "urn:zenith:ontology-review:shared:0.1.0:directory",
+        "urn:zenith:ontology-review:shared:0.1.0:resources",
+        "urn:zenith:ontology-review:shared:0.1.0:evidence",
+        "urn:zenith:ontology-review:shared:0.1.0:authority",
+        "urn:zenith:ontology-review:shared:0.1.0:documents",
+        "urn:zenith:ontology-review:shared:0.1.0:handoff",
+        "urn:zenith:ontology-review:shared:0.1.0:events",
+        "urn:zenith:ontology-review:shared:0.1.0:execution",
+        "urn:zenith:ontology-review:shared:0.1.0:planning"
+      ]
+    },
+    {
+      "id": "product",
+      "role": "product-vocabulary",
+      "path": "modules/product/v0.1.0/ontology.jsonld",
+      "status": "draft",
+      "sha256": "9d9f276f758e0bf50172b74b46ba61b2112fa8bd21cbf4d26ae33f31144d33d1",
+      "namedGraph": "urn:zenith:ontology-review:source:product:0.1.0",
+      "definitionRecords": 1,
+      "importTargets": [
+        "https://zenith-research.ca/ontology/zenith/shared/v0.1.0/ontology.jsonld"
+      ]
+    },
+    {
+      "id": "publication",
+      "role": "release-and-changelog-model",
+      "path": "modules/publication/v0.1.0/ontology.jsonld",
+      "status": "draft",
+      "sha256": "9e5f65443bb12742c03bace669097651202ef9c8b1400fd104d63bce691887a5",
+      "namedGraph": "urn:zenith:ontology-review:source:publication:0.1.0",
+      "definitionRecords": 64,
+      "importTargets": [
+        "https://zenith-research.ca/ontology/publication/v0.1.0/ontology.jsonld"
+      ]
+    },
+    {
+      "id": "library-v1",
+      "role": "published-library-profile",
+      "path": "modules/library/v1/ontology.jsonld",
+      "status": "retained-published-profile",
+      "sha256": "44c423cee61d37b746146e9461753162e85895791e10c181c9bf953da487b70f",
+      "namedGraph": "urn:zenith:ontology-review:source:library-v1:0.1.0",
+      "definitionRecords": 61,
+      "importTargets": [
+        "https://zenith-research.ca/ontology/zenith/library/v1"
+      ]
+    },
+    {
+      "id": "library-v2",
+      "role": "candidate-library-profile",
+      "path": "modules/library/v2-candidate/ontology.jsonld",
+      "status": "local-candidate",
+      "sha256": "95cfce957e4e83d570150b6629525696fae79360184ba534b766ebd5535f1f1c",
+      "namedGraph": "urn:zenith:ontology-review:source:library-v2:0.1.0",
+      "definitionRecords": 65,
+      "importTargets": [
+        "https://zenith-research.ca/ontology/zenith/library/v2"
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "owner": "Devgraph",
+      "release": "0.8.0",
+      "path": "imports/devgraph/v0.8.0/manifest.json",
+      "role": "unchanged-legacy-provider-import"
+    },
+    {
+      "owner": "Rolodex",
+      "version": "0.1.0-review.1",
+      "path": "imports/rolodex/v0.1.0-review.1/ontology/ontology.jsonld",
+      "role": "proposed-directory-source-split; existing-pins-unchanged",
+      "repository": "https://github.com/ZenithResearch/rolodex-ontology",
+      "commit": "846c89a056a581cd4d1978042c1b43324a5a5b1f",
+      "sourcePath": "ontology/ontology.jsonld",
+      "sha256": "d9ae5089f86b6480adbb202187b0a04cbc8c70286a56063c14292df9f028f2b6",
+      "acceptance": "source-split-review; no existing consumer import changed"
+    }
+  ],
+  "compositionSemantics": "Named graphs preserve each exact source context and definition. No owl:sameAs, equivalentClass or subclass axioms are inferred by composition. Existing source-authored axioms remain intact.",
+  "knowledgeAndResources": "separate-sibling-domains"
+}

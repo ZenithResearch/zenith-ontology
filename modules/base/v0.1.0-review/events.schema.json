@@ -1,0 +1,735 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:events",
+  "title": "Events & source registry · noncanonical draft",
+  "$defs": {
+    "HubEventEnvelope": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "topic": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z0-9_]+)+$",
+          "maxLength": 160
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "payload": {
+          "type": "object"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "topic",
+        "source",
+        "payload",
+        "timestamp"
+      ],
+      "additionalProperties": false,
+      "description": "Bounded local adapter for the existing five-field Hub dataclass. Payload is validated separately by its exact registered schema; transport source is descriptive, not authenticated."
+    },
+    "EventOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "logical_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "topic": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "subject_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "effective_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "assertor_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "correlation_key": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "caused_by_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "events.EventOccurrence"
+          ]
+        }
+      },
+      "required": [
+        "logical_key",
+        "topic",
+        "subject_refs",
+        "occurred_at",
+        "assertor_ref",
+        "correlation_key"
+      ]
+    },
+    "EventOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.EventOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Logical domain occurrence, separate from an envelope delivery and consumer processing state.",
+      "x-invariants": []
+    },
+    "EnvelopeBindingShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "occurrence_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "events.EventOccurrence"
+          ]
+        },
+        "envelope_content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "transport_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "received_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "occurrence_ref",
+        "envelope_content_ref",
+        "transport_id",
+        "received_at"
+      ]
+    },
+    "EnvelopeBinding": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EnvelopeBindingShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.EnvelopeBinding"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Retains exact transport bytes and links retries/deliveries to one logical occurrence without changing the Hub wire shape.",
+      "x-invariants": []
+    },
+    "ScheduledTriggerShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "scheduled_for": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "milestone_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "planning.DomainMilestone"
+          ]
+        }
+      },
+      "required": [
+        "scheduled_for"
+      ]
+    },
+    "ScheduledTrigger": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/ScheduledTriggerShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.ScheduledTrigger"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Scheduled logical occurrence; recurrence/timezone/cutoff rules belong in its pinned trigger policy, not a transport topic name.",
+      "x-invariants": []
+    },
+    "ObservationOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "observation_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "evidence.ObservationAssertion"
+          ]
+        }
+      },
+      "required": [
+        "observation_ref"
+      ]
+    },
+    "ObservationOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/ObservationOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.ObservationOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Occurrence carrying a sourced assertion; accepted source mutation requires the separate owner command and authority checks.",
+      "x-invariants": []
+    },
+    "CompletionOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "completion_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "evidence.CompletionAssertion"
+          ]
+        }
+      },
+      "required": [
+        "completion_ref"
+      ]
+    },
+    "CompletionOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/CompletionOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.CompletionOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "x-invariants": []
+    },
+    "ApprovalOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "approval_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "evidence.RevisionApproval"
+          ]
+        }
+      },
+      "required": [
+        "approval_ref"
+      ]
+    },
+    "ApprovalOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/ApprovalOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.ApprovalOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "x-invariants": []
+    },
+    "DispatchOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "intent_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "handoff.DispatchIntent"
+          ]
+        }
+      },
+      "required": [
+        "intent_ref"
+      ]
+    },
+    "DispatchOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/DispatchOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.DispatchOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "x-invariants": []
+    },
+    "AcknowledgementOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "acknowledgment_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "handoff.Acknowledgment"
+          ]
+        }
+      },
+      "required": [
+        "acknowledgment_ref"
+      ]
+    },
+    "AcknowledgementOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/AcknowledgementOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.AcknowledgementOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "x-invariants": []
+    },
+    "TransferVerificationOccurrenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/EventOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "receiving_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "handoff.ReceivingEvidence"
+          ]
+        }
+      },
+      "required": [
+        "receiving_ref"
+      ]
+    },
+    "TransferVerificationOccurrence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/TransferVerificationOccurrenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.TransferVerificationOccurrence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "x-invariants": []
+    },
+    "ConsumerDecisionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "occurrence_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "events.EventOccurrence"
+          ]
+        },
+        "consumer_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "policy_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "rejected",
+            "duplicate",
+            "blocked",
+            "applied",
+            "failed"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "source_command_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "run_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "properties": {
+              "owner": {
+                "const": "process-runtime"
+              },
+              "kind": {
+                "const": "ProcessRun"
+              }
+            },
+            "x-target-types": [
+              "provider:process-runtime:ProcessRun"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "receipt_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "properties": {
+              "owner": {
+                "const": "process-runtime"
+              },
+              "kind": {
+                "const": "Receipt"
+              }
+            },
+            "x-target-types": [
+              "provider:process-runtime:Receipt"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "occurrence_ref",
+        "consumer_ref",
+        "policy_revision_ref",
+        "decision",
+        "reason"
+      ]
+    },
+    "ConsumerDecision": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/ConsumerDecisionShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "applied"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": [
+                  "source_command_ref"
+                ]
+              },
+              {
+                "required": [
+                  "run_refs"
+                ],
+                "properties": {
+                  "run_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.ConsumerDecision"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Consumer-owned processing decision. Domain commands and Runtime records retain their actual mutation/execution state.",
+      "x-invariants": [
+        "Applied requires source_command_ref or a run_ref; this profile is evidence of a decision, not a replay/durable-consumer implementation."
+      ]
+    },
+    "TopicDefinitionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "topic": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*(?:\\.[a-z0-9_]+)+$"
+        },
+        "payload_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "steward_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "publisher_profile_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "subject_kind_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "logical_identity_rule_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "sensitivity": {
+          "type": "string",
+          "enum": [
+            "public",
+            "organization",
+            "production",
+            "restricted"
+          ]
+        },
+        "compatibility": {
+          "type": "string",
+          "enum": [
+            "immutable_version",
+            "reader_first_new_version"
+          ]
+        }
+      },
+      "required": [
+        "topic",
+        "payload_schema_ref",
+        "steward_ref",
+        "publisher_profile_refs",
+        "subject_kind_refs",
+        "logical_identity_rule_ref",
+        "sensitivity",
+        "compatibility"
+      ]
+    },
+    "TopicDefinition": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:events#/$defs/TopicDefinitionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "events.TopicDefinition"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Pinned topic/schema/source policy registry. A prefix or source string is not membership, tenancy or permission.",
+      "x-invariants": []
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:evidence",
+    "urn:zenith:ontology-review:shared:0.1.0:foundation",
+    "urn:zenith:ontology-review:shared:0.1.0:handoff",
+    "urn:zenith:ontology-review:shared:0.1.0:planning"
+  ]
+}

@@ -1,0 +1,3526 @@
+{
+  "@context": {
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Zenith foundation · review only",
+      "owl:imports": [
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Directory & participation · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:authority"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Resources · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Provenance, verification & review · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:authority"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Authority references · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Documents & composition · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:authority"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:directory"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Dispatch & receiving evidence · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:authority"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:documents"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Events & source registry · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:planning"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Execution methods & evidence · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:resources"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning",
+      "@type": "owl:Ontology",
+      "rdfs:label": "Planning · review only",
+      "owl:imports": [
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:directory"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:foundation"
+        },
+        {
+          "@id": "urn:zenith:ontology-review:shared:0.1.0:resources"
+        },
+        {
+          "@id": "https://zenith-research.ca/ontology/v0.8.0/ontology.jsonld"
+        }
+      ]
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference",
+      "@type": "owl:Class",
+      "rdfs:label": "VerifiedOperationAuthorityReference",
+      "rdfs:comment": "Reference to an existing receiver-verified context/receipt; this record cannot itself authenticate, issue, broaden or delegate authority."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference",
+      "@type": "owl:Class",
+      "rdfs:label": "ContributionPolicyReference",
+      "rdfs:comment": "Descriptive contribution policy/intent. Existing receiver authority must be checked for every accepted operation; no local may_redelegate flag mints a delegation."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference",
+      "@type": "owl:Class",
+      "rdfs:label": "DisclosurePolicyReference",
+      "rdfs:comment": "Pinned receiver-owned disclosure policy reference. The policy is interpreted and enforced by its owner, not by ontology membership."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance",
+      "@type": "owl:Class",
+      "rdfs:label": "ResourceInstance",
+      "rdfs:comment": "Concrete resource identity; never equated with a software Agent or the Artifact snapshot describing it."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ComputeResource",
+      "@type": "owl:Class",
+      "rdfs:label": "ComputeResource",
+      "rdfs:comment": "Resource specialization. Installation identity can be local; it is not hardware attestation or a globally verified machine ID.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceRequirement",
+      "@type": "owl:Class",
+      "rdfs:label": "ResourceRequirement",
+      "rdfs:comment": "A capability/quantity/time need. Runtime eligibility resource strings are not capacity, stock, price or reservations."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion",
+      "@type": "owl:Class",
+      "rdfs:label": "AvailabilityAssertion",
+      "rdfs:comment": "Sourced availability assertion for exactly one person/organization/agent or resource; it does not confirm a booking."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer",
+      "@type": "owl:Class",
+      "rdfs:label": "ResourceOffer",
+      "rdfs:comment": "Commercial/crew-provided offer for an existing unit. Provider, physical item, capability and availability remain separate."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation",
+      "@type": "owl:Class",
+      "rdfs:label": "Allocation",
+      "rdfs:comment": "Selection of an exact offer against an exact requirement, not proof of reservation or observed use."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation",
+      "@type": "owl:Class",
+      "rdfs:label": "Reservation",
+      "rdfs:comment": "Reservation evidence/profile of the owning booking provider; no shadow booking writer is introduced."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation",
+      "@type": "owl:Class",
+      "rdfs:label": "AllocationObservation",
+      "rdfs:comment": "Immutable evidence of selection/reservation/use; a selection cannot be relabeled as actual use.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit",
+      "@type": "owl:Class",
+      "rdfs:label": "OrganizationUnit",
+      "rdfs:comment": "Scoped organizational function/team. Film department definitions and craft groups classify it; they are not its parent organizations or mandatory hires."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost",
+      "@type": "owl:Class",
+      "rdfs:label": "ScopedPost",
+      "rdfs:comment": "Accountable post/seat, independent of its occupant. reports_to is a dated reporting relation, not role inheritance or permission."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment",
+      "@type": "owl:Class",
+      "rdfs:label": "PostAssignment",
+      "rdfs:comment": "One person occupying one scoped post for a period. Multiple occupations reference the same Person."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement",
+      "@type": "owl:Class",
+      "rdfs:label": "PostRequirement",
+      "rdfs:comment": "Staffing need; an unfilled post creates no fake Person or accepted booking."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding",
+      "@type": "owl:Class",
+      "rdfs:label": "ResponsibilityBinding",
+      "rdfs:comment": "Scoped accountability/contribution. Collaborative input can have several people; responsibilities and delegation are not credentials."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment",
+      "@type": "owl:Class",
+      "rdfs:label": "BookingCommitment",
+      "rdfs:comment": "Shared semantic profile referencing the existing booking owner. Cast engagement composes it with Person and film character/performance scope."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding",
+      "@type": "owl:Class",
+      "rdfs:label": "RepresentationBinding",
+      "rdfs:comment": "Sourced representation relationship; agency/guardian/representative identity does not imply operation authority."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding",
+      "@type": "owl:Class",
+      "rdfs:label": "ExternalSubjectBinding",
+      "rdfs:comment": "Entity-to-provider-subject binding with evidence. Connected-account descriptors, key control, membership and authorization stay independent; no secrets are stored."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding",
+      "@type": "owl:Class",
+      "rdfs:label": "PersonInterfaceBinding",
+      "rdfs:comment": "Contact/application interface selected for a Person. A hired person need not have an application account; endpoint references are policy-limited."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection",
+      "@type": "owl:Class",
+      "rdfs:label": "RestrictedContactProjection",
+      "rdfs:comment": "Restricted contact view, referencing a reviewed source and policy. No raw contact data or credential is embedded in the public ontology.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision",
+      "@type": "owl:Class",
+      "rdfs:label": "SourceRevision",
+      "rdfs:comment": "Immutable source snapshot/projection evidence, distinct from the identity described and its mutable source store. Partial field coverage must be declared.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence",
+      "@type": "owl:Class",
+      "rdfs:label": "CaptureEvidence",
+      "rdfs:comment": "Who supplied/captured which exact fields, at which revisions; authored data is not entered again into each document.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence",
+      "@type": "owl:Class",
+      "rdfs:label": "DerivationEvidence",
+      "rdfs:comment": "Exact declared/observed field lineage. Only observed evidence supports a claim of actual reads or executed causation.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion",
+      "@type": "owl:Class",
+      "rdfs:label": "ObservationAssertion",
+      "rdfs:comment": "Sourced observation/assertion. An event occurrence can carry this assertion; transport is not its truth or mutation authority.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion",
+      "@type": "owl:Class",
+      "rdfs:label": "VerificationAssertion",
+      "rdfs:comment": "Revision-bound verification result, not authorization, approval or completion by itself.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion",
+      "@type": "owl:Class",
+      "rdfs:label": "CompletionAssertion",
+      "rdfs:comment": "Assertion that a scoped result is done; data/readiness/acceptance gates are independently evaluated.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence",
+      "@type": "owl:Class",
+      "rdfs:label": "ReadinessEvidence",
+      "rdfs:comment": "Domain readiness evidence. It does not replace Devgraph ReadinessAssessment or confer permission to run/issue.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision",
+      "@type": "owl:Class",
+      "rdfs:label": "ScopedDecision",
+      "rdfs:comment": "Sourced decision on exact revisions; existing Devgraph Decision retains its Work governance semantics.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewDecision",
+      "@type": "owl:Class",
+      "rdfs:label": "ReviewDecision",
+      "rdfs:comment": "Review disposition is distinct from issue approval or recipient acceptance.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#RevisionApproval",
+      "@type": "owl:Class",
+      "rdfs:label": "RevisionApproval",
+      "rdfs:comment": "Exact revision/content approval under a pinned policy; effects require receiver verification of the referenced authority.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AcceptanceDecision",
+      "@type": "owl:Class",
+      "rdfs:label": "AcceptanceDecision",
+      "rdfs:comment": "Recipient decision for an exact submission/package, separate from transport acknowledgment.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession",
+      "@type": "owl:Class",
+      "rdfs:label": "AdvisoryReviewSession",
+      "rdfs:comment": "Discussion/session organization; not an approval or automatic source edit."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote",
+      "@type": "owl:Class",
+      "rdfs:label": "AdvisoryNote",
+      "rdfs:comment": "Revision-bound advisory note; source revisions change only through accepted owner commands.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse",
+      "@type": "owl:Class",
+      "rdfs:label": "ReviewResponse",
+      "rdfs:comment": "Author response with explicit resulting revisions when any exist; accepting a note does not invent a revision.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation",
+      "@type": "owl:Class",
+      "rdfs:label": "ChangeImpactExplanation",
+      "rdfs:comment": "Explainable impact, retaining the difference between reachability, actual execution, changed output and held content.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#EvidenceGap",
+      "@type": "owl:Class",
+      "rdfs:label": "EvidenceGap",
+      "rdfs:comment": "Explicit missing/irrelevant evidence, not a fabricated environment observation or machine binding.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision",
+      "@type": "owl:Class",
+      "rdfs:label": "DocumentRevision",
+      "rdfs:comment": "Immutable document content revision; film kinds, templates and their required inputs remain film-owned.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition",
+      "@type": "owl:Class",
+      "rdfs:label": "Rendition",
+      "rdfs:comment": "Rendered representation of an exact document revision; it is not a new editable source of facts.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PDFRendition",
+      "@type": "owl:Class",
+      "rdfs:label": "PDFRendition",
+      "rdfs:comment": "PDF specialization. PDF creation alone does not approve, issue or dispatch a document.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate",
+      "@type": "owl:Class",
+      "rdfs:label": "AuthoringCandidate",
+      "rdfs:comment": "Manual or tool-produced candidate, validated against domain schemas; not a second source store or an automatic write.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition",
+      "@type": "owl:Class",
+      "rdfs:label": "PackDefinition",
+      "rdfs:comment": "Reusable pack recipe. Film defines camera/location/cast pack content; shared code owns composition mechanics."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition",
+      "@type": "owl:Class",
+      "rdfs:label": "SectionDefinition",
+      "rdfs:comment": "Reusable section contract with typed inputs, conditional applicability and disclosure requirements."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance",
+      "@type": "owl:Class",
+      "rdfs:label": "PackInstance",
+      "rdfs:comment": "Scoped logical pack identity, not the immutable content revision."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision",
+      "@type": "owl:Class",
+      "rdfs:label": "PackRevision",
+      "rdfs:comment": "Immutable composed document revision with revision-bound sections/inclusions; it does not overwrite included source objects.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section",
+      "@type": "owl:Class",
+      "rdfs:label": "Section",
+      "rdfs:comment": "Materialized section of a composition. Missing data remains explicit rather than re-entered as guessed text.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RevisionInclusion",
+      "@type": "owl:Class",
+      "rdfs:label": "RevisionInclusion",
+      "rdfs:comment": "An ordered inclusion references an exact revision, avoiding another writable copy of the included source.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest",
+      "@type": "owl:Class",
+      "rdfs:label": "RedactionManifest",
+      "rdfs:comment": "Evidence of excluded fields under a pinned policy; the raw restricted values need not be repeated in the manifest.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection",
+      "@type": "owl:Class",
+      "rdfs:label": "RecipientProjection",
+      "rdfs:comment": "Immutable recipient-specific view of one master revision. Policy and actual receiver authority are separate from role or contact membership.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent",
+      "@type": "owl:Class",
+      "rdfs:label": "DispatchIntent",
+      "rdfs:comment": "Versioned outbound intent for an exact permitted payload; no dispatch occurs merely because an intent exists."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt",
+      "@type": "owl:Class",
+      "rdfs:label": "DistributionAttempt",
+      "rdfs:comment": "Transport evidence referencing the canonical effect/attempt when Runtime executes it. External/manual transport may lack a Runtime effect."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment",
+      "@type": "owl:Class",
+      "rdfs:label": "Acknowledgment",
+      "rdfs:comment": "Acknowledgment of the exact personal view, not final recipient acceptance or proof of source correctness.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem",
+      "@type": "owl:Class",
+      "rdfs:label": "ManifestItem",
+      "rdfs:comment": "Exact package item identity and byte descriptor/checksum; copying and custody remain separate from the source identity.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence",
+      "@type": "owl:Class",
+      "rdfs:label": "DeliveryEvidence",
+      "rdfs:comment": "Receiving/transport observation. Not Devgraph EventReceipt, Runtime Receipt, approval or recipient acceptance.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence",
+      "@type": "owl:Class",
+      "rdfs:label": "ReceivingEvidence",
+      "rdfs:comment": "Byte-level receiving/checksum evidence, distinct from creative/technical acceptance.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone",
+      "@type": "owl:Class",
+      "rdfs:label": "DomainMilestone",
+      "rdfs:comment": "Domain planning checkpoint; an optional film specialization. Not Devgraph Work Milestone or an execution StepRun."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence",
+      "@type": "owl:Class",
+      "rdfs:label": "ScopedPrecedence",
+      "rdfs:comment": "Explicit temporal planning constraint; not graph containment, data flow or evidence that a worker executed."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "EventOccurrence",
+      "rdfs:comment": "Logical domain occurrence, separate from an envelope delivery and consumer processing state."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding",
+      "@type": "owl:Class",
+      "rdfs:label": "EnvelopeBinding",
+      "rdfs:comment": "Retains exact transport bytes and links retries/deliveries to one logical occurrence without changing the Hub wire shape."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger",
+      "@type": "owl:Class",
+      "rdfs:label": "ScheduledTrigger",
+      "rdfs:comment": "Scheduled logical occurrence; recurrence/timezone/cutoff rules belong in its pinned trigger policy, not a transport topic name.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "ObservationOccurrence",
+      "rdfs:comment": "Occurrence carrying a sourced assertion; accepted source mutation requires the separate owner command and authority checks.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "CompletionOccurrence",
+      "rdfs:comment": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "ApprovalOccurrence",
+      "rdfs:comment": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "DispatchOccurrence",
+      "rdfs:comment": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "AcknowledgementOccurrence",
+      "rdfs:comment": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence",
+      "@type": "owl:Class",
+      "rdfs:label": "TransferVerificationOccurrence",
+      "rdfs:comment": "Typed occurrence referencing the actual assertion/intent/evidence; it does not execute or authorize the downstream operation.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision",
+      "@type": "owl:Class",
+      "rdfs:label": "ConsumerDecision",
+      "rdfs:comment": "Consumer-owned processing decision. Domain commands and Runtime records retain their actual mutation/execution state."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition",
+      "@type": "owl:Class",
+      "rdfs:label": "TopicDefinition",
+      "rdfs:comment": "Pinned topic/schema/source policy registry. A prefix or source string is not membership, tenancy or permission."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact",
+      "@type": "owl:Class",
+      "rdfs:label": "ImplementationArtifact",
+      "rdfs:comment": "Exact code/procedure revision and entry point; a skill/plugin name alone does not establish installation, compatibility or authority.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ToolRelease",
+      "@type": "owl:Class",
+      "rdfs:label": "ToolRelease",
+      "rdfs:comment": "Pinned versioned tool/skill/procedure artifact. Tool user, release and invocation remain separate.",
+      "rdfs:subClassOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionEnvironmentRequirement",
+      "@type": "owl:Class",
+      "rdfs:label": "ExecutionEnvironmentRequirement",
+      "rdfs:comment": "Declared environment constraints, not an observation of a particular worker or machine."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot",
+      "@type": "owl:Class",
+      "rdfs:label": "EnvironmentSnapshot",
+      "rdfs:comment": "Observed environment evidence. Current DayCall is self_reported_local; no historical machine/version is filled from today.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence",
+      "@type": "owl:Class",
+      "rdfs:label": "InvocationEvidence",
+      "rdfs:comment": "Supplementary invocation evidence referencing the actual Attempt; no second attempt, lease, executor claim or receipt.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy",
+      "@type": "owl:Class",
+      "rdfs:label": "ExecutionPolicy",
+      "rdfs:comment": "Versioned implementation selection preserving input/output/acceptance contracts; manual-to-Hermes changes method, not record ownership or authorization."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping",
+      "@type": "owl:Class",
+      "rdfs:label": "DecompositionMapping",
+      "rdfs:comment": "Refinement/port mapping, not containment-as-execution or a second Runtime compiler.",
+      "rdfs:subClassOf": {
+        "@id": "https://zenith-research.ca/ontology/terms/Artifact"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#CapabilityConcept",
+      "@type": "owl:Class",
+      "rdfs:label": "CapabilityConcept",
+      "rdfs:comment": "Capability descriptor. Claimed ability, qualification, capacity and verified authority remain independent."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.subject_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.subject_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.subject_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.authority_reference",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.authority_reference.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.authority_reference.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference.issuer_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Organization"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference.issuer_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference.issuer_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance.custodian_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance.custodian_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance.custodian_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.subject_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.subject_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.subject_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.resource_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.resource_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.resource_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.asserted_by",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.asserted_by.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.asserted_by.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.resource_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.resource_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.resource_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.provider_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.provider_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.provider_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.availability_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.availability_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.availability_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.requirement_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceRequirement"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.requirement_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.requirement_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.offer_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.offer_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.offer_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.reservation_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.reservation_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.reservation_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.resource_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.resource_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.resource_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.offer_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.offer_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.offer_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.provider_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.provider_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.provider_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation.allocation_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation.allocation_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation.allocation_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.organization_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Organization"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.organization_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.organization_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.parent_unit_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.parent_unit_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.parent_unit_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.unit_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.unit_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.unit_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.reports_to_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.reports_to_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.reports_to_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.post_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.post_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.post_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.person_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Person"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.person_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.person_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.booking_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.booking_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.booking_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement.unit_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement.unit_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement.unit_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.accountable_post_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.accountable_post_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.accountable_post_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.contributor_post_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.contributor_post_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.contributor_post_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.entry_delegate_post_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.entry_delegate_post_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.entry_delegate_post_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.verifier_post_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.verifier_post_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.verifier_post_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.policy_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.policy_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.policy_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.party_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.party_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.party_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.contracting_organization_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Organization"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.contracting_organization_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.contracting_organization_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.represented_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.represented_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.represented_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.representative_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.representative_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.representative_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.authority_reference",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.authority_reference.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.authority_reference.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding.entity_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding.entity_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding.entity_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.person_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Person"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.person_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.person_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.subject_binding_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.subject_binding_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.subject_binding_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.person_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Person"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.person_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.person_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.policy_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.policy_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.policy_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision.previous_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision.previous_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision.previous_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.source_actor_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.source_actor_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.source_actor_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.capture_actor_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.capture_actor_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.capture_actor_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.verification_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.verification_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.verification_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence.attempt_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence.attempt_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence.attempt_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion.observer_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion.observer_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion.observer_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion.verifier_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion.verifier_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion.verifier_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion.assertor_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion.assertor_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion.assertor_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence.verification_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence.verification_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence.verification_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.decider_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.decider_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.decider_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.authority_reference",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.authority_reference.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.authority_reference.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession.participant_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession.participant_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession.participant_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.session_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.session_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.session_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.author_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.author_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.author_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.note_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.note_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.note_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.respondent_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.respondent_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.respondent_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation.derivation_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation.derivation_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation.derivation_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.author_post_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.author_post_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.author_post_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.approval_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#RevisionApproval"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.approval_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.approval_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.issuing_authority_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.issuing_authority_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.issuing_authority_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.document_revision_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.document_revision_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.document_revision_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.creating_attempt_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.creating_attempt_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.creating_attempt_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate.author_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate.author_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate.author_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.section_definition_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.section_definition_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.section_definition_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.owner_post_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.owner_post_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.owner_post_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition.policy_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition.policy_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition.policy_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance.definition_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance.definition_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance.definition_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.instance_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.instance_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.instance_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.definition_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.definition_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.definition_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.section_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.section_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.section_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.previous_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.previous_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.previous_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.definition_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.definition_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.definition_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.inclusion_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RevisionInclusion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.inclusion_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.inclusion_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.source_revision_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.source_revision_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.source_revision_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.policy_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.policy_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.policy_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.master_revision_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.master_revision_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.master_revision_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.recipient_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.recipient_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.recipient_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.policy_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.policy_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.policy_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.authority_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.authority_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.authority_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.redaction_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.redaction_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.redaction_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.payload_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.payload_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.payload_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.recipient_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.recipient_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.recipient_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.authority_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:authority#VerifiedOperationAuthorityReference"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.authority_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.authority_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.intent_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.intent_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.intent_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.runtime_effect_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.runtime_effect_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.runtime_effect_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.attempt_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.attempt_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.attempt_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.projection_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.projection_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.projection_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.recipient_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.recipient_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.recipient_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem.package_revision_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem.package_revision_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem.package_revision_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.distribution_attempt_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.distribution_attempt_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.distribution_attempt_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.observer_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.observer_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.observer_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.manifest_item_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.manifest_item_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.manifest_item_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.receiver_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.receiver_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.receiver_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.verification_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.verification_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.verification_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.responsible_post_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.responsible_post_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.responsible_post_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.requirement_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceRequirement"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.requirement_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.requirement_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.predecessor_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.predecessor_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.predecessor_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.successor_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.successor_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.successor_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.assertor_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.assertor_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.assertor_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.caused_by_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.caused_by_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.caused_by_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding.occurrence_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding.occurrence_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding.occurrence_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger.milestone_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger.milestone_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger.milestone_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence.observation_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence.observation_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence.observation_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence.completion_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence.completion_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence.completion_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence.approval_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#RevisionApproval"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence.approval_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence.approval_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence.intent_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence.intent_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence.intent_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence.acknowledgment_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence.acknowledgment_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence.acknowledgment_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence.receiving_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence.receiving_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence.receiving_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.occurrence_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.occurrence_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.occurrence_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.run_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.run_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.run_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.receipt_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.receipt_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.receipt_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition.steward_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "https://zenith-research.ca/ontology/terms/Organization"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition.steward_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition.steward_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact.tool_release_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ToolRelease"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact.tool_release_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact.tool_release_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.resource_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:resources#ComputeResource"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.resource_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.resource_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.observer_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@type": "owl:Class",
+        "owl:unionOf": {
+          "@list": [
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Entity"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Person"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Agent"
+            },
+            {
+              "@id": "https://zenith-research.ca/ontology/terms/Organization"
+            }
+          ]
+        }
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.observer_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.observer_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.attempt_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.attempt_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.attempt_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.implementation_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.implementation_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.implementation_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.environment_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.environment_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.environment_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.gap_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:evidence#EvidenceGap"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.gap_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.gap_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.tool_release_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ToolRelease"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.tool_release_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.tool_release_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.runtime_receipt_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.runtime_receipt_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.runtime_receipt_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.implementation_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.implementation_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.implementation_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.environment_requirement_ref",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "rdfs:range": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionEnvironmentRequirement"
+      },
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.environment_requirement_ref.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.environment_requirement_ref.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping.child_process_refs",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping"
+      },
+      "rdfs:comment": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "owl:inverseOf": {
+        "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping.child_process_refs.inverse"
+      }
+    },
+    {
+      "@id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping.child_process_refs.inverse",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "Derived inverse query; no second stored fact or transitive/authority inference."
+    }
+  ]
+}

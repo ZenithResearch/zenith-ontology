@@ -1,0 +1,1 @@
+{"@context":{"owl":"http://www.w3.org/2002/07/owl#","rdfs":"http://www.w3.org/2000/01/rdf-schema#"},"@graph":[{"@id":"https://zenith-research.ca/ontology/zenith/terms/Product","@type":"owl:Class","rdfs:comment":"A separately identifiable product associated with its ontologies, independently of repositories, applications, releases and deployments.","rdfs:label":"Product"}]}

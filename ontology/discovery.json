@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "zenith.ontology-source-discovery.v1",
+  "repository": "https://github.com/ZenithResearch/zenith-ontology",
+  "branch": "main",
+  "ontologyId": "urn:zenith:ontology-review:composed:0.1.0",
+  "version": "0.1.0-review.1",
+  "status": "review",
+  "sourcePath": "ontology/ontology.jsonld",
+  "model": "ontology/model.json",
+  "sourceManifest": "ontology/source-manifest.json",
+  "completeReplacement": false,
+  "runtimeAdmission": false,
+  "authorityTransfer": false
+}

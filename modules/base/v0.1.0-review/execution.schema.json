@@ -1,0 +1,727 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:execution",
+  "title": "Execution methods & evidence · noncanonical draft",
+  "$defs": {
+    "BoundaryMapping": {
+      "type": "object",
+      "properties": {
+        "parent_port": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TypedBoundaryPort"
+        },
+        "child_process_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "owner": {
+              "const": "process-runtime"
+            },
+            "kind": {
+              "const": "ProcessVersion"
+            }
+          },
+          "x-target-types": [
+            "provider:process-runtime:ProcessVersion"
+          ]
+        },
+        "child_port": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TypedBoundaryPort"
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "input",
+            "output"
+          ]
+        }
+      },
+      "required": [
+        "parent_port",
+        "child_process_ref",
+        "child_port",
+        "direction"
+      ],
+      "additionalProperties": false,
+      "description": "Exact parent/child boundary mapping. Semantic validation compares value schema digests and direction; no native subprocess execution is implied."
+    },
+    "ImplementationArtifactShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "entry_point": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "implementation_kind": {
+          "type": "string",
+          "enum": [
+            "manual_procedure",
+            "python_module",
+            "rust_binary",
+            "typescript_module",
+            "api_adapter",
+            "hermes_skill",
+            "hermes_plugin"
+          ]
+        },
+        "tool_release_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+              }
+            ],
+            "x-target-types": [
+              "execution.ToolRelease"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "content_ref",
+        "entry_point",
+        "implementation_kind",
+        "tool_release_refs"
+      ]
+    },
+    "ImplementationArtifact": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/ImplementationArtifactShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.ImplementationArtifact"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Exact code/procedure revision and entry point; a skill/plugin name alone does not establish installation, compatibility or authority.",
+      "x-invariants": []
+    },
+    "ToolReleaseShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/ImplementationArtifactShape"
+        }
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "version"
+      ]
+    },
+    "ToolRelease": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/ToolReleaseShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.ToolRelease"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Pinned versioned tool/skill/procedure artifact. Tool user, release and invocation remain separate.",
+      "x-invariants": []
+    },
+    "ExecutionEnvironmentRequirementShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "os_families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "architectures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "runtime_constraint_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "capacity_requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:resources#/$defs/CapacityRequirement"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "network_policy_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        }
+      },
+      "required": [
+        "os_families",
+        "architectures",
+        "runtime_constraint_ref",
+        "capacity_requirements"
+      ]
+    },
+    "ExecutionEnvironmentRequirement": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/ExecutionEnvironmentRequirementShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.ExecutionEnvironmentRequirement"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Declared environment constraints, not an observation of a particular worker or machine.",
+      "x-invariants": []
+    },
+    "EnvironmentSnapshotShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "resource_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "resources.ComputeResource"
+          ]
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observer_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "os": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "architecture": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "runtime_versions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "maxProperties": 64
+        },
+        "dependency_content_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "trust_level": {
+          "type": "string",
+          "enum": [
+            "self_reported_local",
+            "provider_observed",
+            "attested"
+          ]
+        },
+        "attestation_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "resource_ref",
+        "observed_at",
+        "observer_ref",
+        "os",
+        "architecture",
+        "runtime_versions",
+        "dependency_content_refs",
+        "trust_level"
+      ]
+    },
+    "EnvironmentSnapshot": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/EnvironmentSnapshotShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "trust_level": {
+                "const": "attested"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "attestation_ref"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.EnvironmentSnapshot"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Observed environment evidence. Current DayCall is self_reported_local; no historical machine/version is filled from today.",
+      "x-invariants": [
+        "attested requires attestation_ref; actual attestation verification remains a separate verifier operation."
+      ]
+    },
+    "InvocationEvidenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "attempt_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "owner": {
+              "const": "process-runtime"
+            },
+            "kind": {
+              "const": "Attempt"
+            }
+          },
+          "x-target-types": [
+            "provider:process-runtime:Attempt"
+          ]
+        },
+        "implementation_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "execution.ImplementationArtifact"
+          ]
+        },
+        "environment_state": {
+          "type": "string",
+          "enum": [
+            "observed",
+            "not_instrumented",
+            "not_required"
+          ]
+        },
+        "environment_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "execution.EnvironmentSnapshot"
+          ]
+        },
+        "gap_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "evidence.EvidenceGap"
+          ]
+        },
+        "tool_release_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+              }
+            ],
+            "x-target-types": [
+              "execution.ToolRelease"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "result_content_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "runtime_receipt_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "owner": {
+              "const": "process-runtime"
+            },
+            "kind": {
+              "const": "Receipt"
+            }
+          },
+          "x-target-types": [
+            "provider:process-runtime:Receipt"
+          ]
+        }
+      },
+      "required": [
+        "attempt_ref",
+        "implementation_ref",
+        "environment_state",
+        "tool_release_refs",
+        "result_content_refs"
+      ]
+    },
+    "InvocationEvidence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/InvocationEvidenceShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "environment_state": {
+                "const": "observed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "environment_ref"
+            ],
+            "not": {
+              "required": [
+                "gap_ref"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "gap_ref"
+            ],
+            "not": {
+              "required": [
+                "environment_ref"
+              ]
+            }
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.InvocationEvidence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Supplementary invocation evidence referencing the actual Attempt; no second attempt, lease, executor claim or receipt.",
+      "x-invariants": [
+        "Observed requires environment_ref; non-observed states prohibit it and reference a gap instead."
+      ]
+    },
+    "ExecutionPolicyShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "work_specification_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "manual",
+            "assisted",
+            "automated"
+          ]
+        },
+        "implementation_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "execution.ImplementationArtifact"
+          ]
+        },
+        "required_ports": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TypedBoundaryPort"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "acceptance_criteria_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "environment_requirement_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "execution.ExecutionEnvironmentRequirement"
+          ]
+        },
+        "authority_policy_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        }
+      },
+      "required": [
+        "work_specification_ref",
+        "mode",
+        "implementation_ref",
+        "required_ports",
+        "acceptance_criteria_refs",
+        "environment_requirement_ref",
+        "authority_policy_ref"
+      ]
+    },
+    "ExecutionPolicy": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/ExecutionPolicyShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.ExecutionPolicy"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Versioned implementation selection preserving input/output/acceptance contracts; manual-to-Hermes changes method, not record ownership or authorization.",
+      "x-invariants": []
+    },
+    "DecompositionMappingShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "parent_work_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "child_process_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "properties": {
+              "owner": {
+                "const": "process-runtime"
+              },
+              "kind": {
+                "const": "ProcessVersion"
+              }
+            },
+            "x-target-types": [
+              "provider:process-runtime:ProcessVersion"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "boundary_mappings": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/BoundaryMapping"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "preserved_acceptance_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "projection": {
+          "type": "string",
+          "enum": [
+            "design_only",
+            "flat_dag_projection"
+          ]
+        }
+      },
+      "required": [
+        "parent_work_ref",
+        "child_process_refs",
+        "boundary_mappings",
+        "preserved_acceptance_refs",
+        "projection"
+      ]
+    },
+    "DecompositionMapping": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/DecompositionMappingShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.DecompositionMapping"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Refinement/port mapping, not containment-as-execution or a second Runtime compiler.",
+      "x-invariants": []
+    },
+    "CapabilityConceptShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "definition_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "qualification_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "definition_ref",
+        "label"
+      ]
+    },
+    "CapabilityConcept": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:execution#/$defs/CapabilityConceptShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "execution.CapabilityConcept"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Capability descriptor. Claimed ability, qualification, capacity and verified authority remain independent.",
+      "x-invariants": []
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:evidence",
+    "urn:zenith:ontology-review:shared:0.1.0:foundation",
+    "urn:zenith:ontology-review:shared:0.1.0:resources"
+  ]
+}

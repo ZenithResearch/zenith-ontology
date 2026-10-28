@@ -1,0 +1,828 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:directory",
+  "title": "Directory & participation · noncanonical draft",
+  "$defs": {
+    "OrganizationUnitShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "organization_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "definition_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "parent_unit_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.OrganizationUnit"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "organization_ref",
+        "definition_refs",
+        "label"
+      ]
+    },
+    "OrganizationUnit": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/OrganizationUnitShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.OrganizationUnit"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Scoped organizational function/team. Film department definitions and craft groups classify it; they are not its parent organizations or mandatory hires.",
+      "x-invariants": []
+    },
+    "ScopedPostShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "unit_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.OrganizationUnit"
+          ]
+        },
+        "role_definition_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "effective_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "reports_to_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ScopedPost"
+          ]
+        }
+      },
+      "required": [
+        "unit_ref",
+        "role_definition_ref",
+        "effective_window",
+        "outcomes"
+      ]
+    },
+    "ScopedPost": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/ScopedPostShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.ScopedPost"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Accountable post/seat, independent of its occupant. reports_to is a dated reporting relation, not role inheritance or permission.",
+      "x-invariants": []
+    },
+    "PostAssignmentShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "post_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ScopedPost"
+          ]
+        },
+        "person_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Person"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Person"
+          ]
+        },
+        "effective_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "booking_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.BookingCommitment"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "active",
+            "ended"
+          ]
+        }
+      },
+      "required": [
+        "post_ref",
+        "person_ref",
+        "effective_window",
+        "booking_ref",
+        "state"
+      ]
+    },
+    "PostAssignment": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/PostAssignmentShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.PostAssignment"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "One person occupying one scoped post for a period. Multiple occupations reference the same Person.",
+      "x-invariants": []
+    },
+    "PostRequirementShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "role_definition_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "unit_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.OrganizationUnit"
+          ]
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "service_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "capability_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "role_definition_ref",
+        "unit_ref",
+        "quantity",
+        "service_window",
+        "capability_refs"
+      ]
+    },
+    "PostRequirement": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/PostRequirementShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.PostRequirement"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Staffing need; an unfilled post creates no fake Person or accepted booking.",
+      "x-invariants": []
+    },
+    "ResponsibilityBindingShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "target_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "accountable_post_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ScopedPost"
+          ]
+        },
+        "contributor_post_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "x-target-types": [
+              "directory.ScopedPost"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "entry_delegate_post_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "x-target-types": [
+              "directory.ScopedPost"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "verifier_post_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "x-target-types": [
+              "directory.ScopedPost"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "effective_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "policy_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.ContributionPolicyReference"
+          ]
+        }
+      },
+      "required": [
+        "target_ref",
+        "accountable_post_ref",
+        "effective_window"
+      ]
+    },
+    "ResponsibilityBinding": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/ResponsibilityBindingShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.ResponsibilityBinding"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Scoped accountability/contribution. Collaborative input can have several people; responsibilities and delegation are not credentials.",
+      "x-invariants": []
+    },
+    "BookingCommitmentShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "party_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "contracting_organization_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "service_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "confirmed",
+            "cancelled",
+            "completed"
+          ]
+        },
+        "confirmation_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "source_booking_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        }
+      },
+      "required": [
+        "party_ref",
+        "contracting_organization_ref",
+        "service_window",
+        "state",
+        "source_booking_ref"
+      ]
+    },
+    "BookingCommitment": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/BookingCommitmentShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "confirmed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "confirmation_ref"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.BookingCommitment"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Shared semantic profile referencing the existing booking owner. Cast engagement composes it with Person and film character/performance scope.",
+      "x-invariants": [
+        "Confirmed commitment requires confirmation_ref; source_booking_ref remains the state owner."
+      ]
+    },
+    "RepresentationBindingShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "represented_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "representative_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "effective_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "evidence_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "authority_reference": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.VerifiedOperationAuthorityReference"
+          ]
+        }
+      },
+      "required": [
+        "represented_ref",
+        "representative_ref",
+        "purpose",
+        "effective_window",
+        "evidence_ref"
+      ]
+    },
+    "RepresentationBinding": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/RepresentationBindingShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.RepresentationBinding"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Sourced representation relationship; agency/guardian/representative identity does not imply operation authority.",
+      "x-invariants": []
+    },
+    "ExternalSubjectBindingShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "entity_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "external_subject_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "protocol": {
+          "type": "string",
+          "enum": [
+            "matrix",
+            "nostr",
+            "email",
+            "application",
+            "api",
+            "other"
+          ]
+        },
+        "verification_evidence_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "valid_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        }
+      },
+      "required": [
+        "entity_ref",
+        "provider",
+        "external_subject_ref",
+        "protocol",
+        "verification_evidence_ref",
+        "valid_window"
+      ]
+    },
+    "ExternalSubjectBinding": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/ExternalSubjectBindingShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.ExternalSubjectBinding"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Entity-to-provider-subject binding with evidence. Connected-account descriptors, key control, membership and authorization stay independent; no secrets are stored.",
+      "x-invariants": []
+    },
+    "PersonInterfaceBindingShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "person_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Person"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Person"
+          ]
+        },
+        "subject_binding_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ExternalSubjectBinding"
+          ]
+        },
+        "endpoint_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "valid_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        }
+      },
+      "required": [
+        "person_ref",
+        "subject_binding_ref",
+        "endpoint_ref",
+        "purpose",
+        "valid_window"
+      ]
+    },
+    "PersonInterfaceBinding": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/PersonInterfaceBindingShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.PersonInterfaceBinding"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Contact/application interface selected for a Person. A hired person need not have an application account; endpoint references are policy-limited.",
+      "x-invariants": []
+    },
+    "RestrictedContactProjectionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "person_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Person"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Person"
+          ]
+        },
+        "source_contact_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "policy_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.DisclosurePolicyReference"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "projection_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "valid_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        }
+      },
+      "required": [
+        "person_ref",
+        "source_contact_ref",
+        "policy_ref",
+        "purpose",
+        "projection_ref",
+        "valid_window"
+      ]
+    },
+    "RestrictedContactProjection": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:directory#/$defs/RestrictedContactProjectionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "directory.RestrictedContactProjection"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Restricted contact view, referencing a reviewed source and policy. No raw contact data or credential is embedded in the public ontology.",
+      "x-invariants": []
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:authority",
+    "urn:zenith:ontology-review:shared:0.1.0:foundation"
+  ]
+}

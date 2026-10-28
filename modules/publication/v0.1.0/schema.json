@@ -1,0 +1,1034 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+  "title": "Zenith publication profile v0.1.0",
+  "description": "Repository-owned publication extension. Review draft; independent of immutable Devgraph release schemas.",
+  "definitions": {
+    "ReleaseArtifact": {
+      "type": "object",
+      "description": "An immutable file within one source release, identified by its URL and checksum.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "path",
+        "url",
+        "sha256"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "ReleaseArtifact"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "SourceCommit": {
+      "type": "object",
+      "description": "A source revision providing publication provenance, distinct from a semantic release or approval.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "sha",
+        "url",
+        "authoredAt",
+        "subject",
+        "provenanceKind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "SourceCommit"
+        },
+        "sha": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "authoredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenanceKind": {
+          "enum": [
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicSnapshot",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseRevision"
+          ]
+        }
+      }
+    },
+    "RecordSnapshot": {
+      "type": "object",
+      "description": "An opaque JSON representation copied from a specific release artifact. It is evidence about a record, not a newly admitted domain object.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "sourceArtifact",
+        "sourceKey",
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "RecordSnapshot"
+        },
+        "sourceArtifact": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "object"
+        }
+      }
+    },
+    "VocabularyTermChange": {
+      "type": "object",
+      "description": "A change to a vocabulary term keyed by its canonical identifier.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "action",
+        "subjectId",
+        "changedFields"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "VocabularyTermChange"
+        },
+        "action": {
+          "enum": [
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed"
+          ]
+        },
+        "subjectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changedFields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "before": {
+          "$ref": "#/definitions/RecordSnapshot"
+        },
+        "after": {
+          "$ref": "#/definitions/RecordSnapshot"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "after"
+            ],
+            "not": {
+              "required": [
+                "before"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "before",
+              "after"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "before"
+            ],
+            "not": {
+              "required": [
+                "after"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "OperationChange": {
+      "type": "object",
+      "description": "A change to a semantic operation keyed by its canonical identifier.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "action",
+        "subjectId",
+        "changedFields"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "OperationChange"
+        },
+        "action": {
+          "enum": [
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed"
+          ]
+        },
+        "subjectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changedFields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "before": {
+          "$ref": "#/definitions/RecordSnapshot"
+        },
+        "after": {
+          "$ref": "#/definitions/RecordSnapshot"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "after"
+            ],
+            "not": {
+              "required": [
+                "before"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "before",
+              "after"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "before"
+            ],
+            "not": {
+              "required": [
+                "after"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "ArtifactChange": {
+      "type": "object",
+      "description": "A change to a release file determined by path and checksum.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "action",
+        "subjectId",
+        "changedFields"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "ArtifactChange"
+        },
+        "action": {
+          "enum": [
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified",
+            "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed"
+          ]
+        },
+        "subjectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changedFields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "before": {
+          "$ref": "#/definitions/RecordSnapshot"
+        },
+        "after": {
+          "$ref": "#/definitions/RecordSnapshot"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Added"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "after"
+            ],
+            "not": {
+              "required": [
+                "before"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Modified"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "before",
+              "after"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Removed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "before"
+            ],
+            "not": {
+              "required": [
+                "after"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "ReleaseComparison": {
+      "type": "object",
+      "description": "A computed comparison of immutable adjacent source bundles; the initial release has no predecessor.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "toRelease",
+        "changes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "ReleaseComparison"
+        },
+        "fromRelease": {
+          "type": "string",
+          "format": "uri"
+        },
+        "toRelease": {
+          "type": "string",
+          "format": "uri"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/VocabularyTermChange"
+              },
+              {
+                "$ref": "#/definitions/OperationChange"
+              },
+              {
+                "$ref": "#/definitions/ArtifactChange"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "OntologyRelease": {
+      "type": "object",
+      "description": "A source ontology release distributed by Zenith. Its source release date does not assert a website publication date or installed runtime qualification.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "ontology",
+        "version",
+        "sourceReleasedAt",
+        "manifest",
+        "bundleDigest",
+        "notes",
+        "notesSource",
+        "notesSha256",
+        "compatibilityNotes",
+        "sourceRevision",
+        "sourceHistory",
+        "artifacts",
+        "comparison"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "OntologyRelease"
+        },
+        "ontology": {
+          "type": "string",
+          "format": "uri"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "sourceReleasedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "manifest": {
+          "type": "string",
+          "format": "uri"
+        },
+        "bundleDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notesSource": {
+          "type": "string",
+          "format": "uri"
+        },
+        "notesSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "compatibilityNotes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRevision": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SourceCommit"
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReleaseArtifact"
+          }
+        },
+        "comparison": {
+          "$ref": "#/definitions/ReleaseComparison"
+        }
+      }
+    },
+    "TaxonomyConcept": {
+      "type": "object",
+      "description": "A controlled classification in the publication taxonomy.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "label",
+        "scheme"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "TaxonomyConcept"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scheme": {
+          "type": "string",
+          "format": "uri"
+        },
+        "broader": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "Taxonomy": {
+      "type": "object",
+      "description": "Controlled terms for change action and source provenance.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "concepts"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "Taxonomy"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxonomyConcept"
+          }
+        }
+      }
+    },
+    "SchemaDefinition": {
+      "type": "object",
+      "description": "A reference to an executable JSON Schema definition for one publication record type.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "describesType",
+        "schemaDocument",
+        "definitionPointer"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "SchemaDefinition"
+        },
+        "describesType": {
+          "type": "string",
+          "format": "uri"
+        },
+        "schemaDocument": {
+          "type": "string",
+          "format": "uri"
+        },
+        "definitionPointer": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "PublicationProfile": {
+      "type": "object",
+      "description": "The Zenith publication extension describes its own schemas and taxonomy by reference; it does not require an infinite inline schema expansion.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "status",
+        "ontology",
+        "schema",
+        "taxonomy",
+        "definitions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "PublicationProfile"
+        },
+        "status": {
+          "const": "Review draft"
+        },
+        "ontology": {
+          "type": "string",
+          "format": "uri"
+        },
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        },
+        "taxonomy": {
+          "type": "string",
+          "format": "uri"
+        },
+        "definitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchemaDefinition"
+          }
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "description": "A source ontology release distributed by Zenith. Its source release date does not assert a website publication date or installed runtime qualification.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "ontology",
+        "version",
+        "sourceReleasedAt",
+        "manifest",
+        "bundleDigest",
+        "notes",
+        "notesSource",
+        "notesSha256",
+        "compatibilityNotes",
+        "sourceRevision",
+        "sourceHistory",
+        "artifacts",
+        "comparison",
+        "@context",
+        "$schema"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "OntologyRelease"
+        },
+        "ontology": {
+          "type": "string",
+          "format": "uri"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "sourceReleasedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "manifest": {
+          "type": "string",
+          "format": "uri"
+        },
+        "bundleDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notesSource": {
+          "type": "string",
+          "format": "uri"
+        },
+        "notesSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "compatibilityNotes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRevision": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SourceCommit"
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ReleaseArtifact"
+          }
+        },
+        "comparison": {
+          "$ref": "#/definitions/ReleaseComparison"
+        },
+        "@context": {
+          "const": {
+            "@version": 1.1,
+            "value": {
+              "@type": "@json"
+            },
+            "$schema": {
+              "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schema",
+              "@type": "@id"
+            },
+            "@vocab": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/",
+            "id": "@id",
+            "type": "@type",
+            "fromRelease": {
+              "@type": "@id"
+            },
+            "toRelease": {
+              "@type": "@id"
+            },
+            "manifest": {
+              "@type": "@id"
+            },
+            "notesSource": {
+              "@type": "@id"
+            },
+            "sourceRevision": {
+              "@type": "@id"
+            },
+            "sourceArtifact": {
+              "@type": "@id"
+            },
+            "action": {
+              "@type": "@id"
+            },
+            "provenanceKind": {
+              "@type": "@id"
+            },
+            "scheme": {
+              "@type": "@id"
+            },
+            "broader": {
+              "@type": "@id"
+            },
+            "describesType": {
+              "@type": "@id"
+            },
+            "schemaDocument": {
+              "@type": "@id"
+            },
+            "ontology": {
+              "@type": "@id"
+            },
+            "schema": {
+              "@type": "@id"
+            },
+            "taxonomy": {
+              "@type": "@id"
+            }
+          }
+        },
+        "$schema": {
+          "const": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "description": "The Zenith publication extension describes its own schemas and taxonomy by reference; it does not require an infinite inline schema expansion.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "status",
+        "ontology",
+        "schema",
+        "taxonomy",
+        "definitions",
+        "@context",
+        "$schema"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "PublicationProfile"
+        },
+        "status": {
+          "const": "Review draft"
+        },
+        "ontology": {
+          "type": "string",
+          "format": "uri"
+        },
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        },
+        "taxonomy": {
+          "type": "string",
+          "format": "uri"
+        },
+        "definitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchemaDefinition"
+          }
+        },
+        "@context": {
+          "const": {
+            "@version": 1.1,
+            "value": {
+              "@type": "@json"
+            },
+            "$schema": {
+              "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schema",
+              "@type": "@id"
+            },
+            "@vocab": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/",
+            "id": "@id",
+            "type": "@type",
+            "fromRelease": {
+              "@type": "@id"
+            },
+            "toRelease": {
+              "@type": "@id"
+            },
+            "manifest": {
+              "@type": "@id"
+            },
+            "notesSource": {
+              "@type": "@id"
+            },
+            "sourceRevision": {
+              "@type": "@id"
+            },
+            "sourceArtifact": {
+              "@type": "@id"
+            },
+            "action": {
+              "@type": "@id"
+            },
+            "provenanceKind": {
+              "@type": "@id"
+            },
+            "scheme": {
+              "@type": "@id"
+            },
+            "broader": {
+              "@type": "@id"
+            },
+            "describesType": {
+              "@type": "@id"
+            },
+            "schemaDocument": {
+              "@type": "@id"
+            },
+            "ontology": {
+              "@type": "@id"
+            },
+            "schema": {
+              "@type": "@id"
+            },
+            "taxonomy": {
+              "@type": "@id"
+            }
+          }
+        },
+        "$schema": {
+          "const": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "description": "Controlled terms for change action and source provenance.",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "concepts",
+        "@context",
+        "$schema"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "const": "Taxonomy"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxonomyConcept"
+          }
+        },
+        "@context": {
+          "const": {
+            "@version": 1.1,
+            "value": {
+              "@type": "@json"
+            },
+            "$schema": {
+              "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schema",
+              "@type": "@id"
+            },
+            "@vocab": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/",
+            "id": "@id",
+            "type": "@type",
+            "fromRelease": {
+              "@type": "@id"
+            },
+            "toRelease": {
+              "@type": "@id"
+            },
+            "manifest": {
+              "@type": "@id"
+            },
+            "notesSource": {
+              "@type": "@id"
+            },
+            "sourceRevision": {
+              "@type": "@id"
+            },
+            "sourceArtifact": {
+              "@type": "@id"
+            },
+            "action": {
+              "@type": "@id"
+            },
+            "provenanceKind": {
+              "@type": "@id"
+            },
+            "scheme": {
+              "@type": "@id"
+            },
+            "broader": {
+              "@type": "@id"
+            },
+            "describesType": {
+              "@type": "@id"
+            },
+            "schemaDocument": {
+              "@type": "@id"
+            },
+            "ontology": {
+              "@type": "@id"
+            },
+            "schema": {
+              "@type": "@id"
+            },
+            "taxonomy": {
+              "@type": "@id"
+            }
+          }
+        },
+        "$schema": {
+          "const": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json"
+        }
+      }
+    }
+  ]
+}

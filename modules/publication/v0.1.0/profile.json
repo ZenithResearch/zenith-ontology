@@ -1,0 +1,153 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "value": {
+      "@type": "@json"
+    },
+    "$schema": {
+      "@id": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/schema",
+      "@type": "@id"
+    },
+    "@vocab": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/",
+    "id": "@id",
+    "type": "@type",
+    "fromRelease": {
+      "@type": "@id"
+    },
+    "toRelease": {
+      "@type": "@id"
+    },
+    "manifest": {
+      "@type": "@id"
+    },
+    "notesSource": {
+      "@type": "@id"
+    },
+    "sourceRevision": {
+      "@type": "@id"
+    },
+    "sourceArtifact": {
+      "@type": "@id"
+    },
+    "action": {
+      "@type": "@id"
+    },
+    "provenanceKind": {
+      "@type": "@id"
+    },
+    "scheme": {
+      "@type": "@id"
+    },
+    "broader": {
+      "@type": "@id"
+    },
+    "describesType": {
+      "@type": "@id"
+    },
+    "schemaDocument": {
+      "@type": "@id"
+    },
+    "ontology": {
+      "@type": "@id"
+    },
+    "schema": {
+      "@type": "@id"
+    },
+    "taxonomy": {
+      "@type": "@id"
+    }
+  },
+  "$schema": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+  "id": "https://zenith-research.ca/ontology/publication/v0.1.0/profile.json",
+  "type": "PublicationProfile",
+  "status": "Review draft",
+  "ontology": "https://zenith-research.ca/ontology/publication/v0.1.0/ontology.jsonld",
+  "schema": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+  "taxonomy": "https://zenith-research.ca/ontology/publication/v0.1.0/taxonomy.json",
+  "definitions": [
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/ReleaseArtifact",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseArtifact",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/ReleaseArtifact"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/SourceCommit",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/SourceCommit",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/SourceCommit"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/RecordSnapshot",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/RecordSnapshot",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/RecordSnapshot"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/VocabularyTermChange",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/VocabularyTermChange",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/VocabularyTermChange"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/OperationChange",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/OperationChange",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/OperationChange"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/ArtifactChange",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ArtifactChange",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/ArtifactChange"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/ReleaseComparison",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/ReleaseComparison",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/ReleaseComparison"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/OntologyRelease",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/OntologyRelease",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/OntologyRelease"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/TaxonomyConcept",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/TaxonomyConcept",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/TaxonomyConcept"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/Taxonomy",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/Taxonomy",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/Taxonomy"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/SchemaDefinition",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/SchemaDefinition",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/SchemaDefinition"
+    },
+    {
+      "id": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json#/definitions/PublicationProfile",
+      "type": "SchemaDefinition",
+      "describesType": "https://zenith-research.ca/ontology/publication/v0.1.0/terms/PublicationProfile",
+      "schemaDocument": "https://zenith-research.ca/ontology/publication/v0.1.0/schema.json",
+      "definitionPointer": "/definitions/PublicationProfile"
+    }
+  ]
+}

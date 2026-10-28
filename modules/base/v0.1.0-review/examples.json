@@ -1,0 +1,2920 @@
+{
+  "status": "synthetic_shape_examples_not_live_instances",
+  "records": [
+    {
+      "id": "example:authority.VerifiedOperationAuthorityReference",
+      "operation": "example",
+      "policy_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "receipt_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "receiver_ref": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "resource_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_ref": "example",
+      "type": "authority.VerifiedOperationAuthorityReference",
+      "valid_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "verified_context_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      }
+    },
+    {
+      "field_allowlist": [
+        "/parking"
+      ],
+      "id": "example:authority.ContributionPolicyReference",
+      "policy_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "requested_operations": [
+        "example"
+      ],
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "target_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "authority.ContributionPolicyReference",
+      "valid_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "allowed_field_pointers": [
+        "/parking"
+      ],
+      "id": "example:authority.DisclosurePolicyReference",
+      "issuer_ref": {
+        "id": "example",
+        "kind": "Organization",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "policy_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "authority.DisclosurePolicyReference",
+      "valid_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "id": "example:resources.ResourceInstance",
+      "label": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "resource_kind": "physical_unit",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "resources.ResourceInstance"
+    },
+    {
+      "compute_kind": "physical_computer",
+      "id": "example:resources.ComputeResource",
+      "installation_ref": "example",
+      "label": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "resource_kind": "physical_computer",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "resources.ComputeResource"
+    },
+    {
+      "capability_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:resources.ResourceRequirement",
+      "needed_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "quantity": {
+        "amount": 1,
+        "unit": "example"
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "resources.ResourceRequirement"
+    },
+    {
+      "asserted_by": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:resources.AvailabilityAssertion",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "state": "available",
+      "subject_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "resources.AvailabilityAssertion",
+      "window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "availability_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "capability_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "confirmation": "offered",
+      "id": "example:resources.ResourceOffer",
+      "origin": "person_provided",
+      "price": {
+        "currency": "CAD",
+        "minor_units": 0
+      },
+      "provider_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "quantity": {
+        "amount": 1,
+        "unit": "example"
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "resource_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "resources.ResourceOffer"
+    },
+    {
+      "id": "example:resources.Allocation",
+      "offer_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "quantity": {
+        "amount": 1,
+        "unit": "example"
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "requirement_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "resources.Allocation",
+      "window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "confirmation_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:resources.Reservation",
+      "offer_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "provider_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "resource_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "state": "requested",
+      "type": "resources.Reservation",
+      "window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "allocation_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:resources.AllocationObservation",
+      "observation": "selected",
+      "observed_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "resources.AllocationObservation"
+    },
+    {
+      "definition_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "id": "example:directory.OrganizationUnit",
+      "label": "example",
+      "organization_ref": {
+        "id": "example",
+        "kind": "Organization",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "directory.OrganizationUnit"
+    },
+    {
+      "effective_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "id": "example:directory.ScopedPost",
+      "outcomes": [
+        "example"
+      ],
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "role_definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "directory.ScopedPost",
+      "unit_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      }
+    },
+    {
+      "booking_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "effective_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "id": "example:directory.PostAssignment",
+      "person_ref": {
+        "id": "example",
+        "kind": "Person",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "post_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "state": "proposed",
+      "type": "directory.PostAssignment"
+    },
+    {
+      "capability_refs": [],
+      "id": "example:directory.PostRequirement",
+      "quantity": 1,
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "role_definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "service_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "type": "directory.PostRequirement",
+      "unit_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      }
+    },
+    {
+      "accountable_post_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "effective_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "id": "example:directory.ResponsibilityBinding",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "directory.ResponsibilityBinding"
+    },
+    {
+      "contracting_organization_ref": {
+        "id": "example",
+        "kind": "Organization",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:directory.BookingCommitment",
+      "party_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "service_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "source_booking_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "state": "proposed",
+      "type": "directory.BookingCommitment"
+    },
+    {
+      "effective_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:directory.RepresentationBinding",
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "representative_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "represented_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "directory.RepresentationBinding"
+    },
+    {
+      "entity_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "external_subject_ref": "example",
+      "id": "example:directory.ExternalSubjectBinding",
+      "protocol": "matrix",
+      "provider": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "directory.ExternalSubjectBinding",
+      "valid_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "verification_evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      }
+    },
+    {
+      "endpoint_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:directory.PersonInterfaceBinding",
+      "person_ref": {
+        "id": "example",
+        "kind": "Person",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_binding_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "directory.PersonInterfaceBinding",
+      "valid_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "id": "example:directory.RestrictedContactProjection",
+      "person_ref": {
+        "id": "example",
+        "kind": "Person",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "policy_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "projection_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_contact_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "directory.RestrictedContactProjection",
+      "valid_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      }
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "coverage": "full_record",
+      "id": "example:evidence.SourceRevision",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_version": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        },
+        "revision": 1
+      },
+      "subject_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "evidence.SourceRevision",
+      "value_schema_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      }
+    },
+    {
+      "capture_actor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "captured_at": "2026-10-21T15:00:00Z",
+      "field_pointers": [
+        {
+          "json_pointer": "/parking",
+          "revision_ref": {
+            "id": "example",
+            "kind": "example",
+            "owner": "example-provider",
+            "revision": 1,
+            "scope": {
+              "id": "example",
+              "owner": "example-provider"
+            }
+          }
+        }
+      ],
+      "id": "example:evidence.CaptureEvidence",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_actor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "source_evidence_refs": [
+        {
+          "byte_length": 0,
+          "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "media_type": "application/json"
+        }
+      ],
+      "type": "evidence.CaptureEvidence"
+    },
+    {
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "evidence_strength": "observed_read",
+      "id": "example:evidence.DerivationEvidence",
+      "input_pointers": [
+        {
+          "json_pointer": "/parking",
+          "revision_ref": {
+            "id": "example",
+            "kind": "example",
+            "owner": "example-provider",
+            "revision": 1,
+            "scope": {
+              "id": "example",
+              "owner": "example-provider"
+            }
+          }
+        }
+      ],
+      "method": "copy",
+      "output_pointer": {
+        "json_pointer": "/parking",
+        "revision_ref": {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "evidence.DerivationEvidence"
+    },
+    {
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:evidence.ObservationAssertion",
+      "observed_at": "2026-10-21T15:00:00Z",
+      "observer_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target": {
+        "json_pointer": "/parking",
+        "revision_ref": {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      },
+      "type": "evidence.ObservationAssertion",
+      "value": {
+        "state": "absent"
+      },
+      "value_schema_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      }
+    },
+    {
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:evidence.VerificationAssertion",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "result": "pass",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target": {
+        "json_pointer": "/parking",
+        "revision_ref": {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      },
+      "test_definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "evidence.VerificationAssertion",
+      "verified_at": "2026-10-21T15:00:00Z",
+      "verifier_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      }
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "completed_scope": "example",
+      "evidence_refs": [
+        {
+          "byte_length": 0,
+          "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+          "media_type": "application/json"
+        }
+      ],
+      "id": "example:evidence.CompletionAssertion",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "evidence.CompletionAssertion"
+    },
+    {
+      "criterion_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "id": "example:evidence.ReadinessEvidence",
+      "outstanding_refs": [],
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "result": "ready",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "evidence.ReadinessEvidence",
+      "verification_refs": []
+    },
+    {
+      "decided_at": "2026-10-21T15:00:00Z",
+      "decider_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "decision": "example",
+      "id": "example:evidence.ScopedDecision",
+      "rationale": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "type": "evidence.ScopedDecision"
+    },
+    {
+      "decided_at": "2026-10-21T15:00:00Z",
+      "decider_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "decision": "example",
+      "id": "example:evidence.ReviewDecision",
+      "rationale": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "review_outcome": "changes_requested",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "type": "evidence.ReviewDecision"
+    },
+    {
+      "approval": "approved",
+      "approval_policy_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "approved_content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "decided_at": "2026-10-21T15:00:00Z",
+      "decider_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "decision": "example",
+      "id": "example:evidence.RevisionApproval",
+      "rationale": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "type": "evidence.RevisionApproval"
+    },
+    {
+      "acceptance": "accepted",
+      "conditions": [],
+      "decided_at": "2026-10-21T15:00:00Z",
+      "decider_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "decision": "example",
+      "id": "example:evidence.AcceptanceDecision",
+      "rationale": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "submission_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "target_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "type": "evidence.AcceptanceDecision"
+    },
+    {
+      "held_at": "2026-10-21T15:00:00Z",
+      "id": "example:evidence.AdvisoryReviewSession",
+      "participant_refs": [
+        {
+          "id": "example",
+          "kind": "Entity",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "type": "evidence.AdvisoryReviewSession"
+    },
+    {
+      "author_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:evidence.AdvisoryNote",
+      "note": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "session_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "target": {
+        "json_pointer": "/parking",
+        "revision_ref": {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      },
+      "type": "evidence.AdvisoryNote"
+    },
+    {
+      "disposition": "accepted",
+      "id": "example:evidence.ReviewResponse",
+      "note_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "respondent_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "response": "example",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "evidence.ReviewResponse"
+    },
+    {
+      "affected_revision_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "changed_fields": [
+        {
+          "after": {
+            "json_pointer": "/parking",
+            "revision_ref": {
+              "id": "example",
+              "kind": "example",
+              "owner": "example-provider",
+              "revision": 2,
+              "scope": {
+                "id": "example",
+                "owner": "example-provider"
+              }
+            }
+          },
+          "after_value": {
+            "state": "present",
+            "value": "New parking"
+          },
+          "before": {
+            "json_pointer": "/parking",
+            "revision_ref": {
+              "id": "example",
+              "kind": "example",
+              "owner": "example-provider",
+              "revision": 1,
+              "scope": {
+                "id": "example",
+                "owner": "example-provider"
+              }
+            }
+          },
+          "before_value": {
+            "state": "present",
+            "value": "Old parking"
+          },
+          "value_schema_ref": {
+            "byte_length": 0,
+            "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "media_type": "application/json"
+          }
+        }
+      ],
+      "dependency_path": [],
+      "evaluation": "potential",
+      "id": "example:evidence.ChangeImpactExplanation",
+      "reason": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "evidence.ChangeImpactExplanation"
+    },
+    {
+      "id": "example:evidence.EvidenceGap",
+      "missing_kind": "not_instrumented",
+      "reason": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "evidence.EvidenceGap"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "document_kind_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "document_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:documents.DocumentRevision",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_bindings": [],
+      "state": "draft",
+      "type": "documents.DocumentRevision"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "document_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:documents.Rendition",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "template_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "type": "documents.Rendition"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/pdf"
+      },
+      "document_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "format": "application/pdf",
+      "id": "example:documents.PDFRendition",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "template_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "type": "documents.PDFRendition"
+    },
+    {
+      "author_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:documents.AuthoringCandidate",
+      "input_bindings": [],
+      "proposed_updates": [
+        {
+          "target": {
+            "json_pointer": "/parking",
+            "revision_ref": {
+              "id": "example",
+              "kind": "example",
+              "owner": "example-provider",
+              "revision": 1,
+              "scope": {
+                "id": "example",
+                "owner": "example-provider"
+              }
+            }
+          },
+          "value": {
+            "state": "absent"
+          },
+          "value_schema_ref": {
+            "byte_length": 0,
+            "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "media_type": "application/json"
+          }
+        }
+      ],
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "documents.AuthoringCandidate"
+    },
+    {
+      "id": "example:documents.PackDefinition",
+      "kind_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "label": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "section_definition_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "type": "documents.PackDefinition"
+    },
+    {
+      "id": "example:documents.SectionDefinition",
+      "label": "example",
+      "minimum_items": 0,
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_field_schema_refs": [],
+      "type": "documents.SectionDefinition"
+    },
+    {
+      "definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "domain_scope_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:documents.PackInstance",
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "documents.PackInstance"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "document_kind_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "document_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:documents.PackRevision",
+      "instance_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "section_refs": [],
+      "source_bindings": [],
+      "state": "draft",
+      "type": "documents.PackRevision"
+    },
+    {
+      "definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:documents.Section",
+      "inclusion_refs": [],
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "state": "ready",
+      "type": "documents.Section"
+    },
+    {
+      "display_order": 0,
+      "id": "example:documents.RevisionInclusion",
+      "purpose": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "sensitivity": "public",
+      "target_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "documents.RevisionInclusion"
+    },
+    {
+      "excluded_pointers": [],
+      "id": "example:documents.RedactionManifest",
+      "policy_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "reason": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "source_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "documents.RedactionManifest"
+    },
+    {
+      "authority_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:documents.RecipientProjection",
+      "included_pointers": [],
+      "master_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "policy_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recipient_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "redaction_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "documents.RecipientProjection"
+    },
+    {
+      "authority_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "channel": "email",
+      "due_at": "2026-10-21T15:00:00Z",
+      "endpoint_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:handoff.DispatchIntent",
+      "idempotency_key": "example",
+      "payload_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recipient_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "handoff.DispatchIntent"
+    },
+    {
+      "attempted_at": "2026-10-21T15:00:00Z",
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:handoff.DistributionAttempt",
+      "intent_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "transport_result": "submitted",
+      "type": "handoff.DistributionAttempt"
+    },
+    {
+      "acknowledged_at": "2026-10-21T15:00:00Z",
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:handoff.Acknowledgment",
+      "projection_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recipient_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "handoff.Acknowledgment"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "dependency_refs": [],
+      "filename": "example",
+      "id": "example:handoff.ManifestItem",
+      "package_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "target_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "handoff.ManifestItem"
+    },
+    {
+      "distribution_attempt_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "evidence_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:handoff.DeliveryEvidence",
+      "kind": "submitted",
+      "observed_at": "2026-10-21T15:00:00Z",
+      "observer_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "handoff.DeliveryEvidence"
+    },
+    {
+      "id": "example:handoff.ReceivingEvidence",
+      "manifest_item_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "received_at": "2026-10-21T15:00:00Z",
+      "received_content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "receiver_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "handoff.ReceivingEvidence",
+      "verified_digest": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "id": "example:planning.DomainMilestone",
+      "label": "example",
+      "planned_window": {
+        "start": "2026-10-21T15:00:00Z",
+        "end": "2026-10-21T19:00:00Z",
+        "timezone": "America/Vancouver"
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "state": "planned",
+      "subject_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "planning.DomainMilestone"
+    },
+    {
+      "basis_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:planning.ScopedPrecedence",
+      "lag_seconds": 0,
+      "predecessor_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "relation": "finish_to_start",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "successor_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "type": "planning.ScopedPrecedence"
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.EventOccurrence",
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.EventOccurrence"
+    },
+    {
+      "envelope_content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "id": "example:events.EnvelopeBinding",
+      "occurrence_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "received_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "transport_id": "example",
+      "type": "events.EnvelopeBinding"
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.ScheduledTrigger",
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scheduled_for": "2026-10-21T15:00:00Z",
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.ScheduledTrigger"
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.ObservationOccurrence",
+      "logical_key": "example",
+      "observation_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.ObservationOccurrence"
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "completion_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.CompletionOccurrence",
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.CompletionOccurrence"
+    },
+    {
+      "approval_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.ApprovalOccurrence",
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.ApprovalOccurrence"
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.DispatchOccurrence",
+      "intent_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.DispatchOccurrence"
+    },
+    {
+      "acknowledgment_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.AcknowledgementOccurrence",
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.AcknowledgementOccurrence"
+    },
+    {
+      "assertor_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "correlation_key": "example",
+      "id": "example:events.TransferVerificationOccurrence",
+      "logical_key": "example",
+      "occurred_at": "2026-10-21T15:00:00Z",
+      "receiving_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "subject_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.TransferVerificationOccurrence"
+    },
+    {
+      "consumer_ref": "example",
+      "decision": "accepted",
+      "id": "example:events.ConsumerDecision",
+      "occurrence_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "policy_revision_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "reason": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "events.ConsumerDecision"
+    },
+    {
+      "compatibility": "immutable_version",
+      "id": "example:events.TopicDefinition",
+      "logical_identity_rule_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "payload_schema_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "publisher_profile_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "sensitivity": "public",
+      "steward_ref": {
+        "id": "example",
+        "kind": "Organization",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "subject_kind_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "topic": "daycall.example.observed",
+      "type": "events.TopicDefinition"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "entry_point": "example",
+      "id": "example:execution.ImplementationArtifact",
+      "implementation_kind": "manual_procedure",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "tool_release_refs": [],
+      "type": "execution.ImplementationArtifact"
+    },
+    {
+      "content_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "entry_point": "example",
+      "id": "example:execution.ToolRelease",
+      "implementation_kind": "manual_procedure",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "tool_release_refs": [],
+      "type": "execution.ToolRelease",
+      "version": "example"
+    },
+    {
+      "architectures": [],
+      "capacity_requirements": [],
+      "id": "example:execution.ExecutionEnvironmentRequirement",
+      "os_families": [],
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "runtime_constraint_ref": {
+        "byte_length": 0,
+        "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "application/json"
+      },
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "execution.ExecutionEnvironmentRequirement"
+    },
+    {
+      "architecture": "example",
+      "dependency_content_refs": [],
+      "id": "example:execution.EnvironmentSnapshot",
+      "observed_at": "2026-10-21T15:00:00Z",
+      "observer_ref": {
+        "id": "example",
+        "kind": "Entity",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "os": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "resource_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "revision": 1,
+      "runtime_versions": {},
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "trust_level": "self_reported_local",
+      "type": "execution.EnvironmentSnapshot"
+    },
+    {
+      "attempt_ref": {
+        "id": "example",
+        "kind": "Attempt",
+        "owner": "process-runtime",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "environment_state": "observed",
+      "id": "example:execution.InvocationEvidence",
+      "implementation_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "result_content_refs": [],
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "tool_release_refs": [],
+      "type": "execution.InvocationEvidence",
+      "environment_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      }
+    },
+    {
+      "acceptance_criteria_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "authority_policy_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "environment_requirement_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:execution.ExecutionPolicy",
+      "implementation_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "mode": "manual",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "required_ports": [
+        {
+          "direction": "input",
+          "name": "example",
+          "required": false,
+          "value_schema_ref": {
+            "byte_length": 0,
+            "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "media_type": "application/json"
+          }
+        }
+      ],
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "execution.ExecutionPolicy",
+      "work_specification_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      }
+    },
+    {
+      "boundary_mappings": [
+        {
+          "child_port": {
+            "direction": "input",
+            "name": "example",
+            "required": false,
+            "value_schema_ref": {
+              "byte_length": 0,
+              "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "media_type": "application/json"
+            }
+          },
+          "child_process_ref": {
+            "id": "example",
+            "kind": "ProcessVersion",
+            "owner": "process-runtime",
+            "scope": {
+              "id": "example",
+              "owner": "example-provider"
+            }
+          },
+          "direction": "input",
+          "parent_port": {
+            "direction": "input",
+            "name": "example",
+            "required": false,
+            "value_schema_ref": {
+              "byte_length": 0,
+              "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+              "media_type": "application/json"
+            }
+          }
+        }
+      ],
+      "child_process_refs": [
+        {
+          "id": "example",
+          "kind": "ProcessVersion",
+          "owner": "process-runtime",
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "id": "example:execution.DecompositionMapping",
+      "parent_work_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "revision": 1,
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "preserved_acceptance_refs": [
+        {
+          "id": "example",
+          "kind": "example",
+          "owner": "example-provider",
+          "revision": 1,
+          "scope": {
+            "id": "example",
+            "owner": "example-provider"
+          }
+        }
+      ],
+      "projection": "design_only",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "execution.DecompositionMapping"
+    },
+    {
+      "definition_ref": {
+        "id": "example",
+        "kind": "example",
+        "owner": "example-provider",
+        "scope": {
+          "id": "example",
+          "owner": "example-provider"
+        }
+      },
+      "id": "example:execution.CapabilityConcept",
+      "label": "example",
+      "recorded_at": "2026-10-21T15:00:00Z",
+      "revision": 1,
+      "scope": {
+        "owner": "daycall",
+        "id": "production:synthetic"
+      },
+      "type": "execution.CapabilityConcept"
+    }
+  ]
+}

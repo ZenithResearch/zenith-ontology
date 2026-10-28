@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "zenith.composition-review.v1",
+  "status": "review",
+  "completeReplacement": false,
+  "canonicalNamespaceAllocated": false,
+  "sourceAssemblyOnly": true,
+  "providerOwnershipPreserved": true,
+  "publicWebsiteSelectionChanged": false,
+  "knowledgeAndResources": "separate-sibling-domains",
+  "relations": [
+    {
+      "from": "foundation.ArtifactRef",
+      "to": "Devgraph Artifact",
+      "disposition": "reference-value-versus-described-artifact; do not merge"
+    },
+    {
+      "from": "Publication ReleaseArtifact",
+      "to": "foundation.ArtifactRef",
+      "disposition": "release-member-record-versus-byte-reference; do not merge"
+    },
+    {
+      "from": "evidence.SourceRevision",
+      "to": "Publication SourceCommit",
+      "disposition": "revision-qualified-source-evidence-versus-git-commit; review mapping, no equivalence asserted"
+    },
+    {
+      "from": "Product",
+      "to": "Ontology / Repository / Application / Release",
+      "disposition": "distinct concepts with associations, not interchangeable"
+    },
+    {
+      "from": "Zenith directory draft",
+      "to": "Rolodex directory core",
+      "disposition": "existing core reused; proposed participation/profile extensions need separate stewardship review"
+    }
+  ],
+  "migrationPlan": [
+    "Review and approve exact source homes and publication scope",
+    "Accept source/import/namespace mappings separately from repository creation",
+    "Have Devgraph release an explicit pinned Rolodex import in a new producer release",
+    "Move Zenith authoring/generation to this repository without overwriting earlier source manifests",
+    "Admit newly reviewed packages into Zenith publication with compatible deep links and retained releases",
+    "Keep Work/runtime/authority contracts owned by their current providers"
+  ]
+}

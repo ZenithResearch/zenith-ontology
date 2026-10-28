@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:authority",
+  "title": "Authority references · noncanonical draft",
+  "$defs": {
+    "VerifiedOperationAuthorityReferenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "receiver_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "operation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "subject_ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "resource_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "policy_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "verified_context_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "receipt_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "valid_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        }
+      },
+      "required": [
+        "receiver_ref",
+        "operation",
+        "subject_ref",
+        "resource_ref",
+        "policy_revision_ref",
+        "verified_context_ref",
+        "receipt_ref",
+        "valid_window"
+      ]
+    },
+    "VerifiedOperationAuthorityReference": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:authority#/$defs/VerifiedOperationAuthorityReferenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "authority.VerifiedOperationAuthorityReference"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Reference to an existing receiver-verified context/receipt; this record cannot itself authenticate, issue, broaden or delegate authority.",
+      "x-invariants": [
+        "Actual receiver must verify receipt/context signatures, audience, subject, operation, resource, policy and validity. Schema success is not authorization."
+      ]
+    },
+    "ContributionPolicyReferenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "subject_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "target_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "requested_operations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "field_allowlist": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "policy_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "valid_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "authority_reference": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.VerifiedOperationAuthorityReference"
+          ]
+        },
+        "parent_policy_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        }
+      },
+      "required": [
+        "subject_ref",
+        "target_ref",
+        "requested_operations",
+        "field_allowlist",
+        "policy_revision_ref",
+        "valid_window"
+      ]
+    },
+    "ContributionPolicyReference": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:authority#/$defs/ContributionPolicyReferenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "authority.ContributionPolicyReference"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Descriptive contribution policy/intent. Existing receiver authority must be checked for every accepted operation; no local may_redelegate flag mints a delegation.",
+      "x-invariants": []
+    },
+    "DisclosurePolicyReferenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "policy_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "issuer_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "allowed_field_pointers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "valid_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        }
+      },
+      "required": [
+        "policy_revision_ref",
+        "issuer_ref",
+        "purpose",
+        "allowed_field_pointers",
+        "valid_window"
+      ]
+    },
+    "DisclosurePolicyReference": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:authority#/$defs/DisclosurePolicyReferenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "authority.DisclosurePolicyReference"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Pinned receiver-owned disclosure policy reference. The policy is interpreted and enforced by its owner, not by ontology membership.",
+      "x-invariants": []
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:foundation"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "zenith.shared-schema-draft-manifest.v1",
+  "status": "review_only_not_a_release",
+  "files": {
+    "README.md": "bfa32fac489ee0526da9d03448e7eeea5de76c29cfaaeebb68d820d2e625fcc2",
+    "allocation-example.json": "259daee571967add80fb9c9d5a546b1670a99041bcca2ddf8c3e43584887c7e4",
+    "authority.schema.json": "b459731828c450fce626d09e6b49c82171138bd62a0d608927130006de189bbc",
+    "catalog.json": "87d5c91fbccf4d9dd12621c088c282adece9ff391cef0b9badcd19c568fd491e",
+    "directory.schema.json": "af5489c41bc79699d48d5e11d7b10043e77534b3226b596806e8f6427e77c19a",
+    "documents.schema.json": "32efb4ba2ce67e7eb263c478232a153d94a4b5e4466a683a7ba564db2afe2c15",
+    "events.schema.json": "250db1431d38bd8e9f8ec2f5c3c12ae1c070ea5bc7101e4766fe6772d415b18c",
+    "evidence.schema.json": "e05a062453e761533750d1e13713110e00c8a8d72554a079f284ca15853bf666",
+    "examples.json": "e515f779c5cedb18433a86cd328d0b40c29edef701a2f936c98cfaca105a68bc",
+    "execution.schema.json": "f101c4510f99647d065f296cd33d3bcff911a133006beaa68a8ee24b4632c662",
+    "film-ontology.jsonld": "28497d49a14f9a61e11e9a59fe426d32996c0c3cb7a711a59074622b3779f62e",
+    "film-type-names.json": "26f081b059b7ca6064789ba4135a58e2a15eaa2c4ed6fb7197bb1dbd29903d32",
+    "film.schema.json": "9911ced02bc3d7285451a79232ac30291f9efe166ea24dc1ff1821dc30744476",
+    "foundation.schema.json": "541d3d1b57fe97dbb2cad92a542f7d59d1b8a9898a0a00252a808a1c075f86eb",
+    "handoff.schema.json": "1ad085ada97eb9fe25d7a75e9b23ea90b5afff4d82b18f534fa7307dc9e55fad",
+    "instance-graph.json": "ad654ad1de9ea1a994e286875b583441f3885b71d703ba53abecc509d8d406d3",
+    "module-registry.json": "8aeb7666e15b76ccc05751c7d866ff290f31d283cd99491b05f32a471ec40fce",
+    "ontology.jsonld": "a580cbf4d61766850c46de651a57c39a6a0c2606dd2b6ff868dba52f714f62e4",
+    "planning.schema.json": "f7917800f7c1a6532b50696faf5bd803c76b797eaf7ce610964aacf4deabc0b2",
+    "relationships.json": "4bb54633c4d7ff50b51feb0a1d46066d454ebac8f07ed2532e9cf59710a16f9a",
+    "resources.schema.json": "a15ede6cfcc43d473f8fe496c8fd755a57a7d95225dd03a69c4cb7639c39874c",
+    "source-bindings.json": "93db918902290393c5900ec421fdc40e1479e59f83aaf0400c008ba8090f81da",
+    "validation.json": "355aa664fd68b0eb960af5d2431133e9434ca65ddd2ccf154e9335b7e56525d4"
+  }
+}

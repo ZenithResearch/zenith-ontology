@@ -1,0 +1,132 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "lib": "https://zenith-research.ca/ontology/zenith/library/v2/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "label": "rdfs:label",
+    "description": "rdfs:comment",
+    "subject": {
+      "@id": "rdf:subject",
+      "@type": "@id"
+    },
+    "predicate": {
+      "@id": "rdf:predicate",
+      "@type": "@id"
+    },
+    "object": {
+      "@id": "rdf:object",
+      "@type": "@id"
+    },
+    "key": "https://zenith-research.ca/ontology/zenith/library/v2/terms/key",
+    "identity": "https://zenith-research.ca/ontology/zenith/library/v2/terms/scopedIdentity",
+    "kind": "https://zenith-research.ca/ontology/zenith/library/v2/terms/kind",
+    "category": "https://zenith-research.ca/ontology/zenith/library/v2/terms/category",
+    "owner": "https://zenith-research.ca/ontology/zenith/library/v2/terms/owner",
+    "status": "https://zenith-research.ca/ontology/zenith/library/v2/terms/status",
+    "hostingState": "https://zenith-research.ca/ontology/zenith/library/v2/terms/hostingState",
+    "sourceId": "https://zenith-research.ca/ontology/zenith/library/v2/terms/sourceId",
+    "classificationBasis": "https://zenith-research.ca/ontology/zenith/library/v2/terms/classificationBasis",
+    "pointer": "https://zenith-research.ca/ontology/zenith/library/v2/terms/pointer",
+    "detailHref": "https://zenith-research.ca/ontology/zenith/library/v2/terms/detailHref",
+    "revisionId": "https://zenith-research.ca/ontology/zenith/library/v2/terms/revisionId",
+    "profileId": "https://zenith-research.ca/ontology/zenith/library/v2/terms/profileId",
+    "evidenceOnly": "https://zenith-research.ca/ontology/zenith/library/v2/terms/evidenceOnly",
+    "schemaVersion": "https://zenith-research.ca/ontology/zenith/library/v2/terms/schemaVersion",
+    "semanticAcceptance": "https://zenith-research.ca/ontology/zenith/library/v2/terms/semanticAcceptance",
+    "assertionStatus": "https://zenith-research.ca/ontology/zenith/library/v2/terms/assertionStatus",
+    "associationRole": "https://zenith-research.ca/ontology/zenith/library/v2/terms/associationRole",
+    "version": "https://zenith-research.ca/ontology/zenith/library/v2/terms/version",
+    "maturity": "https://zenith-research.ca/ontology/zenith/library/v2/terms/maturity",
+    "selectionRole": "https://zenith-research.ca/ontology/zenith/library/v2/terms/selectionRole",
+    "sha256": "https://zenith-research.ca/ontology/zenith/library/v2/terms/sha256",
+    "url": "https://zenith-research.ca/ontology/zenith/library/v2/terms/url",
+    "bytes": "https://zenith-research.ca/ontology/zenith/library/v2/terms/bytes",
+    "mediaType": "https://zenith-research.ca/ontology/zenith/library/v2/terms/mediaType",
+    "dialect": "https://zenith-research.ca/ontology/zenith/library/v2/terms/dialect",
+    "qualification": "https://zenith-research.ca/ontology/zenith/library/v2/terms/qualification",
+    "reason": "https://zenith-research.ca/ontology/zenith/library/v2/terms/reason",
+    "target": "https://zenith-research.ca/ontology/zenith/library/v2/terms/target",
+    "source": "https://zenith-research.ca/ontology/zenith/library/v2/terms/source",
+    "name": "https://zenith-research.ca/ontology/zenith/library/v2/terms/name",
+    "type": "https://zenith-research.ca/ontology/zenith/library/v2/terms/type",
+    "required": "https://zenith-research.ca/ontology/zenith/library/v2/terms/required",
+    "domains": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/domainLabels",
+      "@container": "@set"
+    },
+    "sources": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/sourceRecords",
+      "@type": "@json"
+    },
+    "assertions": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/assertions",
+      "@container": "@set"
+    },
+    "fields": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/schemaFieldDisplay",
+      "@type": "@json"
+    },
+    "schemaBindings": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/schemaBindings",
+      "@type": "@json"
+    },
+    "artifact": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/artifact",
+      "@type": "@json"
+    },
+    "evidence": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/evidence",
+      "@type": "@json"
+    },
+    "unresolved": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/unresolved",
+      "@type": "@json"
+    },
+    "semanticTypes": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/describedType",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "semanticIdentity": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/semanticIdentity",
+      "@type": "@id"
+    },
+    "producerMaturity": "https://zenith-research.ca/ontology/zenith/library/v2/terms/producerMaturity",
+    "claimBasis": "https://zenith-research.ca/ontology/zenith/library/v2/terms/claimBasis",
+    "registrationSha256": "https://zenith-research.ca/ontology/zenith/library/v2/terms/registrationSha256",
+    "requiredCapabilities": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/requiredCapabilities",
+      "@type": "@json"
+    },
+    "baseGraph": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/baseGraph",
+      "@type": "@json"
+    },
+    "references": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/references",
+      "@type": "@json"
+    },
+    "diagnostics": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/diagnostics",
+      "@type": "@json"
+    },
+    "completeness": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/completeness",
+      "@type": "@json"
+    },
+    "derivation": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/derivation",
+      "@type": "@json"
+    },
+    "stewardship": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/stewardship",
+      "@type": "@json"
+    },
+    "upstream": {
+      "@id": "https://zenith-research.ca/ontology/zenith/library/v2/terms/upstream",
+      "@type": "@json"
+    }
+  }
+}

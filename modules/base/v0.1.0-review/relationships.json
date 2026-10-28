@@ -1,0 +1,3434 @@
+{
+  "status": "review_only",
+  "relations": [
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.subject_ref",
+      "domain": "authority.ContributionPolicyReference",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "subject_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.subject_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.authority_reference",
+      "domain": "authority.ContributionPolicyReference",
+      "range": [
+        "authority.VerifiedOperationAuthorityReference"
+      ],
+      "wire_field": "authority_reference",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:authority#ContributionPolicyReference.authority_reference.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference.issuer_ref",
+      "domain": "authority.DisclosurePolicyReference",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "issuer_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:authority#DisclosurePolicyReference.issuer_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance.custodian_ref",
+      "domain": "resources.ResourceInstance",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "custodian_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceInstance.custodian_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.subject_ref",
+      "domain": "resources.AvailabilityAssertion",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "subject_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.subject_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.resource_ref",
+      "domain": "resources.AvailabilityAssertion",
+      "range": [
+        "resources.ResourceInstance"
+      ],
+      "wire_field": "resource_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.resource_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.asserted_by",
+      "domain": "resources.AvailabilityAssertion",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "asserted_by",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AvailabilityAssertion.asserted_by.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.resource_ref",
+      "domain": "resources.ResourceOffer",
+      "range": [
+        "resources.ResourceInstance"
+      ],
+      "wire_field": "resource_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.resource_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.provider_ref",
+      "domain": "resources.ResourceOffer",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "provider_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.provider_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.availability_ref",
+      "domain": "resources.ResourceOffer",
+      "range": [
+        "resources.AvailabilityAssertion"
+      ],
+      "wire_field": "availability_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#ResourceOffer.availability_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.requirement_ref",
+      "domain": "resources.Allocation",
+      "range": [
+        "resources.ResourceRequirement"
+      ],
+      "wire_field": "requirement_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.requirement_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.offer_ref",
+      "domain": "resources.Allocation",
+      "range": [
+        "resources.ResourceOffer"
+      ],
+      "wire_field": "offer_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.offer_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.reservation_ref",
+      "domain": "resources.Allocation",
+      "range": [
+        "resources.Reservation"
+      ],
+      "wire_field": "reservation_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Allocation.reservation_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.resource_ref",
+      "domain": "resources.Reservation",
+      "range": [
+        "resources.ResourceInstance"
+      ],
+      "wire_field": "resource_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.resource_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.offer_ref",
+      "domain": "resources.Reservation",
+      "range": [
+        "resources.ResourceOffer"
+      ],
+      "wire_field": "offer_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.offer_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.provider_ref",
+      "domain": "resources.Reservation",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "provider_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#Reservation.provider_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation.allocation_ref",
+      "domain": "resources.AllocationObservation",
+      "range": [
+        "resources.Allocation"
+      ],
+      "wire_field": "allocation_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:resources#AllocationObservation.allocation_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.organization_ref",
+      "domain": "directory.OrganizationUnit",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "organization_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.organization_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.parent_unit_ref",
+      "domain": "directory.OrganizationUnit",
+      "range": [
+        "directory.OrganizationUnit"
+      ],
+      "wire_field": "parent_unit_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#OrganizationUnit.parent_unit_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.unit_ref",
+      "domain": "directory.ScopedPost",
+      "range": [
+        "directory.OrganizationUnit"
+      ],
+      "wire_field": "unit_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.unit_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.reports_to_ref",
+      "domain": "directory.ScopedPost",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "reports_to_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ScopedPost.reports_to_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.post_ref",
+      "domain": "directory.PostAssignment",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "post_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.post_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.person_ref",
+      "domain": "directory.PostAssignment",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Person"
+      ],
+      "wire_field": "person_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.person_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.booking_ref",
+      "domain": "directory.PostAssignment",
+      "range": [
+        "directory.BookingCommitment"
+      ],
+      "wire_field": "booking_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostAssignment.booking_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement.unit_ref",
+      "domain": "directory.PostRequirement",
+      "range": [
+        "directory.OrganizationUnit"
+      ],
+      "wire_field": "unit_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PostRequirement.unit_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.accountable_post_ref",
+      "domain": "directory.ResponsibilityBinding",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "accountable_post_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.accountable_post_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.contributor_post_refs",
+      "domain": "directory.ResponsibilityBinding",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "contributor_post_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.contributor_post_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.entry_delegate_post_refs",
+      "domain": "directory.ResponsibilityBinding",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "entry_delegate_post_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.entry_delegate_post_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.verifier_post_refs",
+      "domain": "directory.ResponsibilityBinding",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "verifier_post_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.verifier_post_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.policy_ref",
+      "domain": "directory.ResponsibilityBinding",
+      "range": [
+        "authority.ContributionPolicyReference"
+      ],
+      "wire_field": "policy_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ResponsibilityBinding.policy_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.party_ref",
+      "domain": "directory.BookingCommitment",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "party_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.party_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.contracting_organization_ref",
+      "domain": "directory.BookingCommitment",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "contracting_organization_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#BookingCommitment.contracting_organization_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.represented_ref",
+      "domain": "directory.RepresentationBinding",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "represented_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.represented_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.representative_ref",
+      "domain": "directory.RepresentationBinding",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "representative_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.representative_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.authority_reference",
+      "domain": "directory.RepresentationBinding",
+      "range": [
+        "authority.VerifiedOperationAuthorityReference"
+      ],
+      "wire_field": "authority_reference",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RepresentationBinding.authority_reference.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding.entity_ref",
+      "domain": "directory.ExternalSubjectBinding",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "entity_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#ExternalSubjectBinding.entity_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.person_ref",
+      "domain": "directory.PersonInterfaceBinding",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Person"
+      ],
+      "wire_field": "person_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.person_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.subject_binding_ref",
+      "domain": "directory.PersonInterfaceBinding",
+      "range": [
+        "directory.ExternalSubjectBinding"
+      ],
+      "wire_field": "subject_binding_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#PersonInterfaceBinding.subject_binding_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.person_ref",
+      "domain": "directory.RestrictedContactProjection",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Person"
+      ],
+      "wire_field": "person_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.person_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.policy_ref",
+      "domain": "directory.RestrictedContactProjection",
+      "range": [
+        "authority.DisclosurePolicyReference"
+      ],
+      "wire_field": "policy_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:directory#RestrictedContactProjection.policy_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision.previous_ref",
+      "domain": "evidence.SourceRevision",
+      "range": [
+        "evidence.SourceRevision"
+      ],
+      "wire_field": "previous_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#SourceRevision.previous_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.source_actor_ref",
+      "domain": "evidence.CaptureEvidence",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "source_actor_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.source_actor_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.capture_actor_ref",
+      "domain": "evidence.CaptureEvidence",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "capture_actor_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.capture_actor_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.verification_ref",
+      "domain": "evidence.CaptureEvidence",
+      "range": [
+        "evidence.VerificationAssertion"
+      ],
+      "wire_field": "verification_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CaptureEvidence.verification_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence.attempt_ref",
+      "domain": "evidence.DerivationEvidence",
+      "range": [
+        "provider:process-runtime:Attempt"
+      ],
+      "wire_field": "attempt_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#DerivationEvidence.attempt_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion.observer_ref",
+      "domain": "evidence.ObservationAssertion",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "observer_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ObservationAssertion.observer_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion.verifier_ref",
+      "domain": "evidence.VerificationAssertion",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "verifier_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#VerificationAssertion.verifier_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion.assertor_ref",
+      "domain": "evidence.CompletionAssertion",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "assertor_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#CompletionAssertion.assertor_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence.verification_refs",
+      "domain": "evidence.ReadinessEvidence",
+      "range": [
+        "evidence.VerificationAssertion"
+      ],
+      "wire_field": "verification_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReadinessEvidence.verification_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.decider_ref",
+      "domain": "evidence.ScopedDecision",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "decider_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.decider_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.authority_reference",
+      "domain": "evidence.ScopedDecision",
+      "range": [
+        "authority.VerifiedOperationAuthorityReference"
+      ],
+      "wire_field": "authority_reference",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ScopedDecision.authority_reference.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession.participant_refs",
+      "domain": "evidence.AdvisoryReviewSession",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "participant_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryReviewSession.participant_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.session_ref",
+      "domain": "evidence.AdvisoryNote",
+      "range": [
+        "evidence.AdvisoryReviewSession"
+      ],
+      "wire_field": "session_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.session_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.author_ref",
+      "domain": "evidence.AdvisoryNote",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "author_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#AdvisoryNote.author_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.note_ref",
+      "domain": "evidence.ReviewResponse",
+      "range": [
+        "evidence.AdvisoryNote"
+      ],
+      "wire_field": "note_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.note_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.respondent_ref",
+      "domain": "evidence.ReviewResponse",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "respondent_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ReviewResponse.respondent_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation.derivation_refs",
+      "domain": "evidence.ChangeImpactExplanation",
+      "range": [
+        "evidence.DerivationEvidence"
+      ],
+      "wire_field": "derivation_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:evidence#ChangeImpactExplanation.derivation_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.author_post_ref",
+      "domain": "documents.DocumentRevision",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "author_post_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.author_post_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.approval_ref",
+      "domain": "documents.DocumentRevision",
+      "range": [
+        "evidence.RevisionApproval"
+      ],
+      "wire_field": "approval_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.approval_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.issuing_authority_ref",
+      "domain": "documents.DocumentRevision",
+      "range": [
+        "authority.VerifiedOperationAuthorityReference"
+      ],
+      "wire_field": "issuing_authority_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#DocumentRevision.issuing_authority_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.document_revision_ref",
+      "domain": "documents.Rendition",
+      "range": [
+        "documents.DocumentRevision"
+      ],
+      "wire_field": "document_revision_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.document_revision_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.creating_attempt_ref",
+      "domain": "documents.Rendition",
+      "range": [
+        "provider:process-runtime:Attempt"
+      ],
+      "wire_field": "creating_attempt_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Rendition.creating_attempt_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate.author_ref",
+      "domain": "documents.AuthoringCandidate",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "author_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#AuthoringCandidate.author_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.section_definition_refs",
+      "domain": "documents.PackDefinition",
+      "range": [
+        "documents.SectionDefinition"
+      ],
+      "wire_field": "section_definition_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.section_definition_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.owner_post_ref",
+      "domain": "documents.PackDefinition",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "owner_post_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackDefinition.owner_post_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition.policy_ref",
+      "domain": "documents.SectionDefinition",
+      "range": [
+        "authority.DisclosurePolicyReference"
+      ],
+      "wire_field": "policy_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#SectionDefinition.policy_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance.definition_ref",
+      "domain": "documents.PackInstance",
+      "range": [
+        "documents.PackDefinition"
+      ],
+      "wire_field": "definition_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackInstance.definition_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.instance_ref",
+      "domain": "documents.PackRevision",
+      "range": [
+        "documents.PackInstance"
+      ],
+      "wire_field": "instance_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.instance_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.definition_ref",
+      "domain": "documents.PackRevision",
+      "range": [
+        "documents.PackDefinition"
+      ],
+      "wire_field": "definition_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.definition_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.section_refs",
+      "domain": "documents.PackRevision",
+      "range": [
+        "documents.Section"
+      ],
+      "wire_field": "section_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.section_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.previous_ref",
+      "domain": "documents.PackRevision",
+      "range": [
+        "documents.PackRevision"
+      ],
+      "wire_field": "previous_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#PackRevision.previous_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.definition_ref",
+      "domain": "documents.Section",
+      "range": [
+        "documents.SectionDefinition"
+      ],
+      "wire_field": "definition_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.definition_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.inclusion_refs",
+      "domain": "documents.Section",
+      "range": [
+        "documents.RevisionInclusion"
+      ],
+      "wire_field": "inclusion_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#Section.inclusion_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.source_revision_ref",
+      "domain": "documents.RedactionManifest",
+      "range": [
+        "documents.DocumentRevision"
+      ],
+      "wire_field": "source_revision_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.source_revision_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.policy_ref",
+      "domain": "documents.RedactionManifest",
+      "range": [
+        "authority.DisclosurePolicyReference"
+      ],
+      "wire_field": "policy_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RedactionManifest.policy_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.master_revision_ref",
+      "domain": "documents.RecipientProjection",
+      "range": [
+        "documents.DocumentRevision"
+      ],
+      "wire_field": "master_revision_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.master_revision_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.recipient_ref",
+      "domain": "documents.RecipientProjection",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "recipient_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.recipient_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.policy_ref",
+      "domain": "documents.RecipientProjection",
+      "range": [
+        "authority.DisclosurePolicyReference"
+      ],
+      "wire_field": "policy_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.policy_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.authority_ref",
+      "domain": "documents.RecipientProjection",
+      "range": [
+        "authority.VerifiedOperationAuthorityReference"
+      ],
+      "wire_field": "authority_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.authority_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.redaction_ref",
+      "domain": "documents.RecipientProjection",
+      "range": [
+        "documents.RedactionManifest"
+      ],
+      "wire_field": "redaction_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:documents#RecipientProjection.redaction_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.payload_ref",
+      "domain": "handoff.DispatchIntent",
+      "range": [
+        "documents.RecipientProjection"
+      ],
+      "wire_field": "payload_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.payload_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.recipient_ref",
+      "domain": "handoff.DispatchIntent",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "recipient_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.recipient_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.authority_ref",
+      "domain": "handoff.DispatchIntent",
+      "range": [
+        "authority.VerifiedOperationAuthorityReference"
+      ],
+      "wire_field": "authority_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DispatchIntent.authority_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.intent_ref",
+      "domain": "handoff.DistributionAttempt",
+      "range": [
+        "handoff.DispatchIntent"
+      ],
+      "wire_field": "intent_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.intent_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.runtime_effect_ref",
+      "domain": "handoff.DistributionAttempt",
+      "range": [
+        "provider:process-runtime:RuntimeEffect"
+      ],
+      "wire_field": "runtime_effect_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.runtime_effect_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.attempt_ref",
+      "domain": "handoff.DistributionAttempt",
+      "range": [
+        "provider:process-runtime:Attempt"
+      ],
+      "wire_field": "attempt_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DistributionAttempt.attempt_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.projection_ref",
+      "domain": "handoff.Acknowledgment",
+      "range": [
+        "documents.RecipientProjection"
+      ],
+      "wire_field": "projection_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.projection_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.recipient_ref",
+      "domain": "handoff.Acknowledgment",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "recipient_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#Acknowledgment.recipient_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem.package_revision_ref",
+      "domain": "handoff.ManifestItem",
+      "range": [
+        "documents.DocumentRevision"
+      ],
+      "wire_field": "package_revision_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ManifestItem.package_revision_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.distribution_attempt_ref",
+      "domain": "handoff.DeliveryEvidence",
+      "range": [
+        "handoff.DistributionAttempt"
+      ],
+      "wire_field": "distribution_attempt_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.distribution_attempt_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.observer_ref",
+      "domain": "handoff.DeliveryEvidence",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "observer_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#DeliveryEvidence.observer_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.manifest_item_ref",
+      "domain": "handoff.ReceivingEvidence",
+      "range": [
+        "handoff.ManifestItem"
+      ],
+      "wire_field": "manifest_item_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.manifest_item_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.receiver_ref",
+      "domain": "handoff.ReceivingEvidence",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "receiver_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.receiver_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.verification_ref",
+      "domain": "handoff.ReceivingEvidence",
+      "range": [
+        "evidence.VerificationAssertion"
+      ],
+      "wire_field": "verification_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:handoff#ReceivingEvidence.verification_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.responsible_post_ref",
+      "domain": "planning.DomainMilestone",
+      "range": [
+        "directory.ScopedPost"
+      ],
+      "wire_field": "responsible_post_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.responsible_post_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.requirement_refs",
+      "domain": "planning.DomainMilestone",
+      "range": [
+        "resources.ResourceRequirement"
+      ],
+      "wire_field": "requirement_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:planning#DomainMilestone.requirement_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.predecessor_ref",
+      "domain": "planning.ScopedPrecedence",
+      "range": [
+        "planning.DomainMilestone"
+      ],
+      "wire_field": "predecessor_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.predecessor_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.successor_ref",
+      "domain": "planning.ScopedPrecedence",
+      "range": [
+        "planning.DomainMilestone"
+      ],
+      "wire_field": "successor_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:planning#ScopedPrecedence.successor_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.assertor_ref",
+      "domain": "events.EventOccurrence",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "assertor_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.assertor_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.caused_by_ref",
+      "domain": "events.EventOccurrence",
+      "range": [
+        "events.EventOccurrence"
+      ],
+      "wire_field": "caused_by_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#EventOccurrence.caused_by_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding.occurrence_ref",
+      "domain": "events.EnvelopeBinding",
+      "range": [
+        "events.EventOccurrence"
+      ],
+      "wire_field": "occurrence_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#EnvelopeBinding.occurrence_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger.milestone_ref",
+      "domain": "events.ScheduledTrigger",
+      "range": [
+        "planning.DomainMilestone"
+      ],
+      "wire_field": "milestone_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#ScheduledTrigger.milestone_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence.observation_ref",
+      "domain": "events.ObservationOccurrence",
+      "range": [
+        "evidence.ObservationAssertion"
+      ],
+      "wire_field": "observation_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#ObservationOccurrence.observation_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence.completion_ref",
+      "domain": "events.CompletionOccurrence",
+      "range": [
+        "evidence.CompletionAssertion"
+      ],
+      "wire_field": "completion_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#CompletionOccurrence.completion_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence.approval_ref",
+      "domain": "events.ApprovalOccurrence",
+      "range": [
+        "evidence.RevisionApproval"
+      ],
+      "wire_field": "approval_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#ApprovalOccurrence.approval_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence.intent_ref",
+      "domain": "events.DispatchOccurrence",
+      "range": [
+        "handoff.DispatchIntent"
+      ],
+      "wire_field": "intent_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#DispatchOccurrence.intent_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence.acknowledgment_ref",
+      "domain": "events.AcknowledgementOccurrence",
+      "range": [
+        "handoff.Acknowledgment"
+      ],
+      "wire_field": "acknowledgment_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#AcknowledgementOccurrence.acknowledgment_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence.receiving_ref",
+      "domain": "events.TransferVerificationOccurrence",
+      "range": [
+        "handoff.ReceivingEvidence"
+      ],
+      "wire_field": "receiving_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#TransferVerificationOccurrence.receiving_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.occurrence_ref",
+      "domain": "events.ConsumerDecision",
+      "range": [
+        "events.EventOccurrence"
+      ],
+      "wire_field": "occurrence_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.occurrence_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.run_refs",
+      "domain": "events.ConsumerDecision",
+      "range": [
+        "provider:process-runtime:ProcessRun"
+      ],
+      "wire_field": "run_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.run_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.receipt_refs",
+      "domain": "events.ConsumerDecision",
+      "range": [
+        "provider:process-runtime:Receipt"
+      ],
+      "wire_field": "receipt_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#ConsumerDecision.receipt_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition.steward_ref",
+      "domain": "events.TopicDefinition",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "steward_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:events#TopicDefinition.steward_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact.tool_release_refs",
+      "domain": "execution.ImplementationArtifact",
+      "range": [
+        "execution.ToolRelease"
+      ],
+      "wire_field": "tool_release_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#ImplementationArtifact.tool_release_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.resource_ref",
+      "domain": "execution.EnvironmentSnapshot",
+      "range": [
+        "resources.ComputeResource"
+      ],
+      "wire_field": "resource_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.resource_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.observer_ref",
+      "domain": "execution.EnvironmentSnapshot",
+      "range": [
+        "https://zenith-research.ca/ontology/terms/Entity",
+        "https://zenith-research.ca/ontology/terms/Person",
+        "https://zenith-research.ca/ontology/terms/Agent",
+        "https://zenith-research.ca/ontology/terms/Organization"
+      ],
+      "wire_field": "observer_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#EnvironmentSnapshot.observer_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.attempt_ref",
+      "domain": "execution.InvocationEvidence",
+      "range": [
+        "provider:process-runtime:Attempt"
+      ],
+      "wire_field": "attempt_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.attempt_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.implementation_ref",
+      "domain": "execution.InvocationEvidence",
+      "range": [
+        "execution.ImplementationArtifact"
+      ],
+      "wire_field": "implementation_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.implementation_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.environment_ref",
+      "domain": "execution.InvocationEvidence",
+      "range": [
+        "execution.EnvironmentSnapshot"
+      ],
+      "wire_field": "environment_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.environment_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.gap_ref",
+      "domain": "execution.InvocationEvidence",
+      "range": [
+        "evidence.EvidenceGap"
+      ],
+      "wire_field": "gap_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.gap_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.tool_release_refs",
+      "domain": "execution.InvocationEvidence",
+      "range": [
+        "execution.ToolRelease"
+      ],
+      "wire_field": "tool_release_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.tool_release_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.runtime_receipt_ref",
+      "domain": "execution.InvocationEvidence",
+      "range": [
+        "provider:process-runtime:Receipt"
+      ],
+      "wire_field": "runtime_receipt_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#InvocationEvidence.runtime_receipt_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.implementation_ref",
+      "domain": "execution.ExecutionPolicy",
+      "range": [
+        "execution.ImplementationArtifact"
+      ],
+      "wire_field": "implementation_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.implementation_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.environment_requirement_ref",
+      "domain": "execution.ExecutionPolicy",
+      "range": [
+        "execution.ExecutionEnvironmentRequirement"
+      ],
+      "wire_field": "environment_requirement_ref",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#ExecutionPolicy.environment_requirement_ref.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    },
+    {
+      "id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping.child_process_refs",
+      "domain": "execution.DecompositionMapping",
+      "range": [
+        "provider:process-runtime:ProcessVersion"
+      ],
+      "wire_field": "child_process_refs",
+      "reference_interpretation": "Resolve an explicit owned reference to the target; the wire reference value is not a second target entity.",
+      "cardinality": {
+        "min": 1,
+        "max": 128
+      },
+      "inverse": {
+        "id": "urn:zenith:ontology-review:shared:0.1.0:execution#DecompositionMapping.child_process_refs.inverse",
+        "kind": "derived_query_no_stored_reverse_field"
+      },
+      "transitive": false,
+      "scope": "Subject record scope is explicit; target is resolved in its own owner/scope. Cross-scope references need independent receiver policy.",
+      "validity": "Use the record effective/valid window when present; recorded_at is evidence time, not an implicit business-valid interval.",
+      "provenance": "Exact subject revision plus its origin_ref/evidence_refs and the referenced target revision when qualified.",
+      "inference_limits": [
+        "No permission or identity-control inference.",
+        "No causal or execution inference from an unobserved dependency.",
+        "No containment, role membership or reporting inference as subclass.",
+        "No latest-revision fallback."
+      ]
+    }
+  ]
+}

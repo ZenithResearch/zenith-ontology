@@ -1,0 +1,931 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:documents",
+  "title": "Documents & composition · noncanonical draft",
+  "$defs": {
+    "CandidateFieldUpdate": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/FieldPointer"
+        },
+        "value": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ValueSnapshot"
+        },
+        "value_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "target",
+        "value",
+        "value_schema_ref"
+      ],
+      "additionalProperties": false,
+      "description": "Proposed field value with exact expected revision; accepted source commands remain owner-validated."
+    },
+    "DocumentRevisionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "document_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "document_kind_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "content_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "source_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/FieldPointer"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "author_post_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ScopedPost"
+          ]
+        },
+        "approval_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "evidence.RevisionApproval"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "reviewed",
+            "approved",
+            "issued"
+          ]
+        },
+        "issuing_authority_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.VerifiedOperationAuthorityReference"
+          ]
+        }
+      },
+      "required": [
+        "document_ref",
+        "document_kind_ref",
+        "content_ref",
+        "source_bindings",
+        "state"
+      ]
+    },
+    "DocumentRevision": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/DocumentRevisionShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "approved",
+                  "issued"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "approval_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "issued"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "issuing_authority_ref"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.DocumentRevision"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Immutable document content revision; film kinds, templates and their required inputs remain film-owned.",
+      "x-invariants": [
+        "Approved/issued states require an exact approval reference. Issued state also requires issuing_authority_ref; actual issue remains a receiver-owned operation."
+      ]
+    },
+    "RenditionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "document_revision_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.DocumentRevision"
+          ]
+        },
+        "content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "template_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "creating_attempt_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "owner": {
+              "const": "process-runtime"
+            },
+            "kind": {
+              "const": "Attempt"
+            }
+          },
+          "x-target-types": [
+            "provider:process-runtime:Attempt"
+          ]
+        }
+      },
+      "required": [
+        "document_revision_ref",
+        "content_ref",
+        "template_ref"
+      ]
+    },
+    "Rendition": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/RenditionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.Rendition"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Rendered representation of an exact document revision; it is not a new editable source of facts.",
+      "x-invariants": []
+    },
+    "PDFRenditionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/RenditionShape"
+        }
+      ],
+      "properties": {
+        "format": {
+          "const": "application/pdf"
+        },
+        "content_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+            }
+          ],
+          "properties": {
+            "media_type": {
+              "const": "application/pdf"
+            }
+          }
+        }
+      },
+      "required": [
+        "format",
+        "content_ref"
+      ]
+    },
+    "PDFRendition": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/PDFRenditionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.PDFRendition"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "PDF specialization. PDF creation alone does not approve, issue or dispatch a document.",
+      "x-invariants": []
+    },
+    "AuthoringCandidateShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "input_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/FieldPointer"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "proposed_updates": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/CandidateFieldUpdate"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "author_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "implementation_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        }
+      },
+      "required": [
+        "input_bindings",
+        "proposed_updates",
+        "author_ref"
+      ]
+    },
+    "AuthoringCandidate": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/AuthoringCandidateShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.AuthoringCandidate"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Manual or tool-produced candidate, validated against domain schemas; not a second source store or an automatic write.",
+      "x-invariants": []
+    },
+    "PackDefinitionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "kind_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "section_definition_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+              }
+            ],
+            "x-target-types": [
+              "documents.SectionDefinition"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "owner_post_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ScopedPost"
+          ]
+        },
+        "applicability_schema_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "label",
+        "kind_ref",
+        "section_definition_refs"
+      ]
+    },
+    "PackDefinition": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/PackDefinitionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.PackDefinition"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Reusable pack recipe. Film defines camera/location/cast pack content; shared code owns composition mechanics.",
+      "x-invariants": []
+    },
+    "SectionDefinitionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "source_field_schema_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "requiredness_rule_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        },
+        "minimum_items": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "policy_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.DisclosurePolicyReference"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "source_field_schema_refs",
+        "minimum_items"
+      ]
+    },
+    "SectionDefinition": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/SectionDefinitionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.SectionDefinition"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Reusable section contract with typed inputs, conditional applicability and disclosure requirements.",
+      "x-invariants": []
+    },
+    "PackInstanceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "definition_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.PackDefinition"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "domain_scope_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        }
+      },
+      "required": [
+        "definition_ref",
+        "purpose",
+        "domain_scope_ref"
+      ]
+    },
+    "PackInstance": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/PackInstanceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.PackInstance"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Scoped logical pack identity, not the immutable content revision.",
+      "x-invariants": []
+    },
+    "PackRevisionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        },
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/DocumentRevisionShape"
+        }
+      ],
+      "properties": {
+        "instance_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.PackInstance"
+          ]
+        },
+        "definition_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.PackDefinition"
+          ]
+        },
+        "section_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+              }
+            ],
+            "x-target-types": [
+              "documents.Section"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "previous_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.PackRevision"
+          ]
+        }
+      },
+      "required": [
+        "instance_ref",
+        "definition_ref",
+        "section_refs"
+      ]
+    },
+    "PackRevision": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/PackRevisionShape"
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "approved",
+                  "issued"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "approval_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "issued"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "issuing_authority_ref"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.PackRevision"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Immutable composed document revision with revision-bound sections/inclusions; it does not overwrite included source objects.",
+      "x-invariants": []
+    },
+    "SectionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "definition_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.SectionDefinition"
+          ]
+        },
+        "inclusion_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+              }
+            ],
+            "x-target-types": [
+              "documents.RevisionInclusion"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "missing_input",
+            "not_applicable"
+          ]
+        },
+        "missing_requirement_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "definition_ref",
+        "inclusion_refs",
+        "state"
+      ]
+    },
+    "Section": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/SectionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.Section"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Materialized section of a composition. Missing data remains explicit rather than re-entered as guessed text.",
+      "x-invariants": []
+    },
+    "RevisionInclusionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "target_revision_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+        },
+        "display_order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sensitivity": {
+          "type": "string",
+          "enum": [
+            "public",
+            "production",
+            "department",
+            "recipient",
+            "restricted"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "required": [
+        "target_revision_ref",
+        "display_order",
+        "sensitivity",
+        "purpose"
+      ]
+    },
+    "RevisionInclusion": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/RevisionInclusionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.RevisionInclusion"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "An ordered inclusion references an exact revision, avoiding another writable copy of the included source.",
+      "x-invariants": []
+    },
+    "RedactionManifestShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "source_revision_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.DocumentRevision"
+          ]
+        },
+        "excluded_pointers": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/FieldPointer"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "policy_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.DisclosurePolicyReference"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      },
+      "required": [
+        "source_revision_ref",
+        "excluded_pointers",
+        "policy_ref",
+        "reason"
+      ]
+    },
+    "RedactionManifest": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/RedactionManifestShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.RedactionManifest"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Evidence of excluded fields under a pinned policy; the raw restricted values need not be repeated in the manifest.",
+      "x-invariants": []
+    },
+    "RecipientProjectionShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "master_revision_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.DocumentRevision"
+          ]
+        },
+        "recipient_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "Entity",
+                "Person",
+                "Agent",
+                "Organization"
+              ]
+            }
+          },
+          "x-target-types": [
+            "https://zenith-research.ca/ontology/terms/Entity",
+            "https://zenith-research.ca/ontology/terms/Person",
+            "https://zenith-research.ca/ontology/terms/Agent",
+            "https://zenith-research.ca/ontology/terms/Organization"
+          ]
+        },
+        "policy_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.DisclosurePolicyReference"
+          ]
+        },
+        "authority_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "authority.VerifiedOperationAuthorityReference"
+          ]
+        },
+        "included_pointers": {
+          "type": "array",
+          "items": {
+            "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/FieldPointer"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "redaction_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+            }
+          ],
+          "x-target-types": [
+            "documents.RedactionManifest"
+          ]
+        },
+        "content_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "master_revision_ref",
+        "recipient_ref",
+        "policy_ref",
+        "authority_ref",
+        "included_pointers",
+        "redaction_ref",
+        "content_ref"
+      ]
+    },
+    "RecipientProjection": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:documents#/$defs/RecipientProjectionShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "documents.RecipientProjection"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Immutable recipient-specific view of one master revision. Policy and actual receiver authority are separate from role or contact membership.",
+      "x-invariants": []
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:authority",
+    "urn:zenith:ontology-review:shared:0.1.0:directory",
+    "urn:zenith:ontology-review:shared:0.1.0:evidence",
+    "urn:zenith:ontology-review:shared:0.1.0:foundation"
+  ]
+}

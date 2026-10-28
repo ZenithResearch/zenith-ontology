@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zenith:ontology-review:shared:0.1.0:planning",
+  "title": "Planning · noncanonical draft",
+  "$defs": {
+    "DomainMilestoneShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "subject_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+        },
+        "planned_window": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/TimeWindow"
+        },
+        "responsible_post_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "directory.ScopedPost"
+          ]
+        },
+        "requirement_refs": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RevisionQualifiedRef"
+              }
+            ],
+            "x-target-types": [
+              "resources.ResourceRequirement"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "planned",
+            "ready",
+            "done",
+            "blocked"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "subject_ref",
+        "planned_window",
+        "state"
+      ]
+    },
+    "DomainMilestone": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:planning#/$defs/DomainMilestoneShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "planning.DomainMilestone"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Domain planning checkpoint; an optional film specialization. Not Devgraph Work Milestone or an execution StepRun.",
+      "x-invariants": []
+    },
+    "ScopedPrecedenceShape": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/RecordBase"
+        }
+      ],
+      "properties": {
+        "predecessor_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "planning.DomainMilestone"
+          ]
+        },
+        "successor_ref": {
+          "allOf": [
+            {
+              "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/OwnedRecordRef"
+            }
+          ],
+          "x-target-types": [
+            "planning.DomainMilestone"
+          ]
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "finish_to_start",
+            "start_to_start",
+            "finish_to_finish",
+            "start_to_finish"
+          ]
+        },
+        "lag_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "basis_ref": {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:foundation#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "predecessor_ref",
+        "successor_ref",
+        "relation",
+        "lag_seconds",
+        "basis_ref"
+      ]
+    },
+    "ScopedPrecedence": {
+      "allOf": [
+        {
+          "$ref": "urn:zenith:ontology-review:shared:0.1.0:planning#/$defs/ScopedPrecedenceShape"
+        }
+      ],
+      "properties": {
+        "type": {
+          "const": "planning.ScopedPrecedence"
+        }
+      },
+      "unevaluatedProperties": false,
+      "description": "Explicit temporal planning constraint; not graph containment, data flow or evidence that a worker executed.",
+      "x-invariants": [
+        "No self-edge or cycle in the evaluated planning scope; endpoints resolve in the same planning scope."
+      ]
+    }
+  },
+  "x-status": "review_only_not_canonical",
+  "x-imports": [
+    "urn:zenith:ontology-review:shared:0.1.0:directory",
+    "urn:zenith:ontology-review:shared:0.1.0:foundation",
+    "urn:zenith:ontology-review:shared:0.1.0:resources"
+  ]
+}
