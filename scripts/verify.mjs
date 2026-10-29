@@ -15,7 +15,7 @@ async function verifyManifest(name){
  const lines=manifest.files.toSorted((a,b)=>a.path<b.path?-1:1).map(f=>`${f.sha256}  ${f.path}\n`).join('');assert.equal(sha(lines),manifest.bundleDigest);
  return manifest.files.length;
 }
-const discovery=await json('ontology/discovery.json');assert.equal(discovery.status,'review');assert.equal(discovery.runtimeAdmission,false);assert.equal(discovery.authorityTransfer,false);
+const discovery=await json('ontology/composition-discovery.json');assert.equal(discovery.status,'review');assert.equal(discovery.runtimeAdmission,false);assert.equal(discovery.authorityTransfer,false);
 assert.equal(discovery.schemaVersion,'zenith.ontology-source-discovery.v1');
 let result;
  const model=await json(discovery.model),composed=await json(discovery.sourcePath),review=await json('ontology/composition-review.json');
