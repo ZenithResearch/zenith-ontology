@@ -23,7 +23,7 @@ for(const dependency of config.imports){
 const ontology=JSON.parse(files.get('ontology.jsonld')),metadata=ontology['@graph'].find(n=>n['@id']===config.ontology_id);
 assert(metadata,'Missing authored ontology identity');assert.equal(metadata.versionInfo,config.version);assert.equal(metadata.canonicalAuthority,config.authority.repository);
 assert.deepEqual((metadata['owl:imports']||[]).map(x=>x['@id']).sort(),config.imports.map(x=>x.ontologyUrl).sort(),'OWL imports and pinned dependency closure differ');
-if(config.authority.name==='Zenith'){
+if(config.compatibility.mode==='vocabulary-preserving-source-transfer'){
  const original=JSON.parse(await read('imports/devgraph/v0.12.0/ontology.jsonld'));
  assert.deepEqual(ontology['@graph'].filter(n=>n['@id']!==config.ontology_id),original['@graph'].filter(n=>n['@id']!==config.ontology_id),'Core adoption changed source definitions or parent axioms');
  assert.deepEqual(JSON.parse(files.get('context.jsonld')),JSON.parse(await read('imports/devgraph/v0.12.0/context.jsonld')),'Core adoption changed term expansion');
