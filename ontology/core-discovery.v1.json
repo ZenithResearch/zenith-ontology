@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "ontology_id": "https://zenith-research.ca/ontology",
+  "canonical_authority": {
+    "name": "Zenith",
+    "repository": "https://github.com/ZenithResearch/zenith-ontology",
+    "source_path": "ontology/core/"
+  },
+  "current": {
+    "version": "0.13.0",
+    "release": "v0.13.0",
+    "manifest_url": "https://zenith-research.ca/ontology/v0.13.0/manifest.json",
+    "manifest_sha256": "71c80068182f46bc30c019669d201cb6a5366646274737618c949802d9434a64",
+    "bundle_digest": "ef9b86221f693032e956788e17a416783fa0094c2468995b09dc1751d3022a15",
+    "ontology_url": "https://zenith-research.ca/ontology/v0.13.0/ontology.jsonld",
+    "context_url": "https://zenith-research.ca/ontology/v0.13.0/context.jsonld"
+  },
+  "supported_versions": [
+    "0.13.0"
+  ],
+  "compatibility_policy": "Pin exact manifests and complete imports. Update each maintainer-owned source independently; retained releases are immutable."
+}

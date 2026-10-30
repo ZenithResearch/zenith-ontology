@@ -4,14 +4,16 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {publishTree, generatedFile, safeRelative} from './lib/immutable-release.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const bytes=v=>Buffer.from(JSON.stringify(v,null,2)+'\n');
 const read=n=>fs.readFile(path.join(root,safe(n)));
-const safe=n=>{assert(typeof n==='string'&&!path.isAbsolute(n)&&!n.split('/').includes('..')&&!n.includes('\\'),'Unsafe source path');return n;};
+const safe=safeRelative;
 const config=JSON.parse(await read('ontology/core/publication.json'));
 assert.equal(config.release,'v'+config.version);
 assert.equal(new Set(config.files.map(f=>f.target)).size,config.files.length);
+assert(!config.files.some(f=>f.target==='manifest.json'),'Reserved manifest target');
 const files=new Map();
 for(const f of config.files)files.set(safe(f.target),await read(f.source));
 const digest=list=>hash(list.toSorted((a,b)=>a.path<b.path?-1:a.path>b.path?1:0).map(f=>`${f.sha256}  ${f.path}\n`).join(''));
@@ -34,8 +36,12 @@ files.set('manifest.json',bytes(manifest));
 const discovery={schema_version:1,ontology_id:config.ontology_id,canonical_authority:config.authority,current:{version:config.version,release:config.release,manifest_url:config.canonical_base_url+'/manifest.json',manifest_sha256:hash(files.get('manifest.json')),bundle_digest:manifest.bundle_digest,ontology_url:config.canonical_base_url+'/ontology.jsonld',context_url:config.canonical_base_url+'/context.jsonld'},supported_versions:[config.version],compatibility_policy:'Pin exact manifests and complete imports. Update each maintainer-owned source independently; retained releases are immutable.'};
 const releaseRoot=path.join(root,'ontology/releases',config.release);
 const check=process.argv.includes('--check');
-for(const [name,b]of files){const target=path.join(releaseRoot,name);let previous;try{previous=await fs.readFile(target);}catch(e){if(e.code!=='ENOENT')throw e;}
- if(previous)assert(previous.equals(b),'Immutable release collision: '+name+'; choose a new version');else{assert(!check,'Missing release artifact: '+name);await fs.mkdir(path.dirname(target),{recursive:true});await fs.writeFile(target,b,{flag:'wx'});}}
-const discoveryPath=path.join(root,'ontology/discovery.json');
-if(check)assert((await fs.readFile(discoveryPath)).equals(bytes(discovery)),'Stale discovery');else await fs.writeFile(discoveryPath,bytes(discovery));
+await publishTree(releaseRoot,files,{check,boundary:root});
+await generatedFile(path.join(root,'ontology/core-discovery.v1.json'),bytes(discovery),check);
+const sourceIndex={schemaVersion:'zenith.ontology-source-index.v1',repository:config.authority.repository,runtimeAdmission:false,profiles:[
+ {id:'zenith-core',authoringRole:'canonical-shared-core',sourcePath:'ontology/core/ontology.jsonld',releaseDiscovery:'ontology/core-discovery.v1.json',manifest:discovery.current,publicationState:'prepared',runtimeAdmission:false},
+ {id:'zenith-composition',authoringRole:'composition-review',sourcePath:'ontology/ontology.jsonld',discovery:'ontology/discovery.json',sourceManifest:'ontology/source-manifest.json',manifestScope:'composition-only',publicationState:'review',runtimeAdmission:false,authorityTransfer:false}
+]};
+await generatedFile(path.join(root,'ontology/source-index.v1.json'),bytes(sourceIndex),check);
+assert((await read('ontology/discovery.json')).equals(await read('ontology/composition-discovery.json')),'Legacy composition discovery changed');
 console.log(JSON.stringify({state:check?'verified':'generated',ontologyId:config.ontology_id,version:config.version,manifestSha256:hash(files.get('manifest.json')),bundleDigest:manifest.bundle_digest,definitions:ontology['@graph'].length-1,imports:config.imports.length}));

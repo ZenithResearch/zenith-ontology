@@ -1,6 +1,6 @@
 # Zenith ontology
 
-Canonical source for the Zenith core ontology, continued from DevGraph v0.12.0 as v0.13.0. Start at [discovery](ontology/discovery.json), [core source](ontology/core/ontology.jsonld) and [release workflow](docs/releasing.md). DevGraph imports the core and owns its runtime extension; it is no longer the canonical authoring source for all Zenith vocabulary.
+Canonical source for the Zenith core ontology, continued from DevGraph v0.12.0 as v0.13.0. Start at [source index](ontology/source-index.v1.json) and [core discovery](ontology/core-discovery.v1.json), [core source](ontology/core/ontology.jsonld) and [release workflow](docs/releasing.md). DevGraph imports the core and owns its runtime extension; it is no longer the canonical authoring source for all Zenith vocabulary.
 
 Additional composed authoring home for one composed Zenith model: shared base/domain definitions, Product vocabulary, publication/release/changelog vocabulary and versioned library profiles. The website remains the distribution/acceptance surface and consumes reviewed exact source pins.
 
@@ -16,7 +16,7 @@ Start at [composition discovery](ontology/composition-discovery.json), [composed
 | Library metadata v1 | `modules/library/v1/` | Retained published profile |
 | Library metadata v2 | `modules/library/v2-candidate/` | Local review candidate; not a public Zenith release |
 
-The old shared-draft module registry is retained byte for byte, including its then-unresolved authoring-repository fields. The new top-level discovery proposes this common source home. A source repository does not retroactively promote those old governance declarations or allocate the draft URN namespace. `provenance/original-base-manifest.json` is the original full research-folder manifest; only the explicitly selected shared-source subset is included here, not the original film application, film-specific schema or runtime code. The new source manifest enumerates this package.
+The old shared-draft module registry is retained byte for byte, including its then-unresolved authoring-repository fields. The new top-level discovery proposes this common source home. A source repository does not retroactively promote those old governance declarations or allocate the draft URN namespace. `provenance/original-base-manifest.json` is the original full research-folder manifest; only the explicitly selected shared-source subset is included here, not the original film application, film-specific schema or runtime code. The retained source manifest enumerates only the composed review profile; the core release has its own complete manifest.
 
 ## Keep meanings and providers distinct
 

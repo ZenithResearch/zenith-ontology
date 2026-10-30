@@ -9,3 +9,22 @@ ZenithResearch/zenith-ontology owns the shared Zenith core. DevGraph owns its im
 5. Core changes do not force an extension release: an existing DevGraph version keeps its exact core import until DevGraph explicitly adopts a successor. Zendo and other consumers likewise retain their exact historical dependencies.
 
 The shared-domain draft, Product, publication and library profiles remain separate versioned components with their original namespaces and maturity. Their source consolidation does not introduce subclass, equivalence or Product inheritance. The separate Rolodex source split is retained for a later explicit dependency migration; this release preserves the v0.12 directory vocabulary exactly.
+
+## Compatibility and immutable writer
+
+`ontology/discovery.json` retains the original camelCase composed-review contract.
+Use `ontology/source-index.v1.json` for the scoped source index and
+`ontology/core-discovery.v1.json` for core releases. A prepared source selection
+does not establish public URL availability or runtime admission.
+
+The builder preflights the complete release and rejects any changed, missing,
+unlisted or symlinked file. Existing releases are never repaired. New releases
+are staged beside their destination and installed atomically under a per-release
+exclusive lock. All supported writers must honor that lock; stale locks and
+interrupted staging require inspection, never automatic lock stealing.
+The shared helper is dependency-free and vendored with identical conformance
+tests in DevGraph. Update both copies and provenance together.
+
+Publish and read back canonical immutable URLs before activating public source
+discovery or website acceptance. Preserve older schemas, releases and exact
+imports. Consumer adoption and runtime admission are separate decisions.
