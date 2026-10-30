@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "ontology_id": "https://zenith-research.ca/ontology",
+  "version": "0.13.0",
+  "release": "v0.13.0",
+  "published_at": "2026-10-29T00:00:00Z",
+  "canonical_base_url": "https://zenith-research.ca/ontology/v0.13.0",
+  "discovery_url": "https://zenith-research.ca/.well-known/zenith-ontology",
+  "authority": {
+    "name": "Zenith",
+    "repository": "https://github.com/ZenithResearch/zenith-ontology",
+    "source_path": "ontology/core/"
+  },
+  "compatibility": {
+    "mode": "vocabulary-preserving-source-transfer",
+    "minimum_consumer_version": "0.1.0"
+  },
+  "files": [
+    {
+      "source": "ontology/core/ontology.jsonld",
+      "target": "ontology.jsonld",
+      "media_type": "application/ld+json"
+    },
+    {
+      "source": "ontology/core/context.jsonld",
+      "target": "context.jsonld",
+      "media_type": "application/ld+json"
+    },
+    {
+      "source": "ontology/core/migration.json",
+      "target": "migration.json",
+      "media_type": "application/json"
+    },
+    {
+      "source": "ontology/core/README.md",
+      "target": "README.md",
+      "media_type": "text/markdown"
+    }
+  ],
+  "imports": []
+}

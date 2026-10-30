@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "zenith.ontology-source-index.v1",
+  "repository": "https://github.com/ZenithResearch/zenith-ontology",
+  "runtimeAdmission": false,
+  "profiles": [
+    {
+      "id": "zenith-core",
+      "authoringRole": "canonical-shared-core",
+      "sourcePath": "ontology/core/ontology.jsonld",
+      "releaseDiscovery": "ontology/core-discovery.v1.json",
+      "manifest": {
+        "version": "0.13.0",
+        "release": "v0.13.0",
+        "manifest_url": "https://zenith-research.ca/ontology/v0.13.0/manifest.json",
+        "manifest_sha256": "71c80068182f46bc30c019669d201cb6a5366646274737618c949802d9434a64",
+        "bundle_digest": "ef9b86221f693032e956788e17a416783fa0094c2468995b09dc1751d3022a15",
+        "ontology_url": "https://zenith-research.ca/ontology/v0.13.0/ontology.jsonld",
+        "context_url": "https://zenith-research.ca/ontology/v0.13.0/context.jsonld"
+      },
+      "publicationState": "prepared",
+      "runtimeAdmission": false
+    },
+    {
+      "id": "zenith-composition",
+      "authoringRole": "composition-review",
+      "sourcePath": "ontology/ontology.jsonld",
+      "discovery": "ontology/discovery.json",
+      "sourceManifest": "ontology/source-manifest.json",
+      "manifestScope": "composition-only",
+      "publicationState": "review",
+      "runtimeAdmission": false,
+      "authorityTransfer": false
+    }
+  ]
+}
